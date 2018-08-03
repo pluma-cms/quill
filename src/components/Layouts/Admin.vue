@@ -1,5 +1,5 @@
 <template>
-  <v-app v-cloak :dark="app.dark">
+  <v-app v-cloak toolbar footer :dark="app.dark">
     <!-- Sidebar -->
     <sidebar></sidebar>
     <!-- Sidebar -->
@@ -22,7 +22,7 @@
     </v-content>
     <!-- Main Content -->
 
-    <v-footer app inset>asd</v-footer>
+    <!-- <v-footer app inset absolute>asd</v-footer> -->
 
     <progressbar></progressbar>
   </v-app>

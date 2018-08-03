@@ -15,12 +15,21 @@ export const mutations = {
   'TOGGLE_DARK_THEME' (state, payload) {
     state.app.dark = payload.dark
   },
+
+  'UPDATE' (state, payload) {
+    state.app = Object.assign({}, state.app, payload)
+    console.log(state.app)
+  },
 }
 
 export const actions = {
   theme: ({commit}, payload) => {
     VM.methods.localstorage({'app.dark': payload.dark})
     commit('TOGGLE_DARK_THEME', payload)
+  },
+
+  update: ({commit}, payload) => {
+    commit('UPDATE', payload)
   },
 }
 

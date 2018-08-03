@@ -25,7 +25,7 @@ export const mutations = {
 }
 
 export const actions = {
-  increment: ({commit}, payload) => {
+  start: ({commit}, payload) => {
     commit('TOGGLE', true)
 
     let percentage = 0

@@ -4,6 +4,7 @@ import VM from '@/mixins/localstorage'
 export const state = () => ({
   sidebar: {
     model: VM.methods.localstorage('sidebar.model') === 'true',
+    dark: VM.methods.localstorage('sidebar.dark', 'true') === 'true',
 
     clipped: VM.methods.localstorage('sidebar.clipped') === 'true',
     floating: VM.methods.localstorage('sidebar.floating') === 'true',
@@ -28,6 +29,10 @@ export const mutations = {
   'CLIP' (state, payload) {
     state.sidebar.clipped = payload.clipped
   },
+
+  'UPDATE' (state, payload) {
+    state.sidebar = Object.assign({}, state.sidebar, payload)
+  },
 }
 
 export const actions = {
@@ -39,6 +44,10 @@ export const actions = {
   clip: ({commit}, payload) => {
     VM.methods.localstorage({'sidebar.clipped': payload.clipped})
     commit('CLIP', payload)
+  },
+
+  update: ({commit}, payload) => {
+    commit('UPDATE', payload)
   },
 }
 

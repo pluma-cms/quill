@@ -2,7 +2,8 @@
   <v-toolbar
     :clipped-left="sidebar.clipped"
     app
-    class="elevation-1"
+    flat
+    scroll-off-screen
     >
 
     <v-toolbar-side-icon @click="toggle({model: !sidebar.model})"></v-toolbar-side-icon>
@@ -87,3 +88,9 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus" scoped>
+.v-toolbar {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+</style>

@@ -1,9 +1,9 @@
 <template>
   <v-navigation-drawer
-    @dblclick.native="clip({clipped: !sidebar.clipped})"
     :clipped="sidebar.clipped"
     :floating="sidebar.floating"
     :mini-variant.sync="sidebar.mini"
+    :dark="sidebar.dark"
     app
     fixed
     v-model="sidebarmodel"
@@ -21,6 +21,7 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
+      <v-btn icon @click="update({dark: !app.dark})"><v-icon>mdi-theme-light-dark</v-icon></v-btn>
     </v-toolbar>
     <!-- Brand -->
 
@@ -110,6 +111,7 @@ export default {
   computed: {
     ...mapGetters({
       sidebar: 'sidebar/sidebar',
+      app: 'app/app',
     }),
 
     menus: function () {
@@ -131,6 +133,7 @@ export default {
     ...mapActions({
       toggle: 'sidebar/toggle',
       clip: 'sidebar/clip',
+      update: 'app/update',
     }),
   },
 

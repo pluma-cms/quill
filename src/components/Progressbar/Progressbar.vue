@@ -1,6 +1,6 @@
 <template>
   <v-slide-x-transition mode="out-in">
-    <v-progress-linear v-show="progressbar.visible" class="main-progress" :value="progressbar.value" :height="progressbar.height"></v-progress-linear>
+    <v-progress-linear v-if="progressbar.visible" class="main-progress" :value="progressbar.value" :height="progressbar.height"></v-progress-linear>
   </v-slide-x-transition>
 </template>
 
@@ -20,19 +20,19 @@ export default {
   },
 
   created () {
-    this.$router.beforeResolve((to, from, next) => {
-      this.increment(20)
+    this.$router.beforeEach((to, from, next) => {
+      this.start(20)
       next()
     })
 
     this.$router.afterEach((to, from) => {
-      this.done()
+      // this.done()
     })
   },
 
   methods: {
     ...mapActions({
-      increment: 'progressbar/increment',
+      start: 'progressbar/start',
       done: 'progressbar/done',
     }),
   },
