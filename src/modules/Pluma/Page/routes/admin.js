@@ -1,6 +1,7 @@
 export default [
   {
-    path: '',
+    path: '/admin/pages',
+    name: 'subheader:content',
     meta: {
       subheader: true,
       sort: 4,

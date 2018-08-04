@@ -3,6 +3,7 @@ import VM from '@/mixins/localstorage'
 
 export const state = () => ({
   app: {
+    meta: config,
     dark: VM.methods.localstorage('app.dark', config.dark) || config.dark,
   },
 })

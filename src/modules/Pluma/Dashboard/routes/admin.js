@@ -11,8 +11,8 @@ export default [
     },
   },
   {
-    path: '',
-    name: 'dashboard.divider',
+    path: '/admin/dashboard',
+    name: 'divider:dashboard',
     meta: {
       sort: 1,
       divider: true,

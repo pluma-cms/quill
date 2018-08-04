@@ -5,7 +5,7 @@ const requireRoute = require.context(
   // Whether or not to look in subfolders
   true,
   // The regular expression used to match base route filenames
-  /routes\/admin\.js$/
+  /routes\/web\.js$/
 )
 
 requireRoute.keys().forEach(route => {
@@ -16,11 +16,4 @@ requireRoute.keys().forEach(route => {
   })
 })
 
-export default {
-  path: '/admin',
-  name: 'admin',
-  redirect: { name: 'dashboard.index' },
-  component: () => import('@/components/Layouts/Admin.vue'),
-  meta: { title: 'Admin' },
-  children: routes.sort((a, b) => a.meta.sort - b.meta.sort),
-}
+export default routes

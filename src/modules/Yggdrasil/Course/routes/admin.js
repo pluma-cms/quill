@@ -20,18 +20,6 @@ export default [
         },
       },
       {
-        path: '/courses',
-        name: 'courses.all',
-        component: () => import('../Index.vue'),
-        meta: {
-          external: true,
-          title: 'All Courses',
-          authenticatable: false, // Everyone can see it
-          hideFromAdmins: true, // well except for root roles (superadmin and admin)
-          icon: 'mdi-book-multiple-variant',
-        },
-      },
-      {
         path: '/my/courses',
         name: 'courses.my',
         component: () => import('../My.vue'),
@@ -50,13 +38,6 @@ export default [
           authenticatable: true,
           icon: 'mdi-book-plus',
         },
-      },
-      {
-        path: '',
-        name: 'courses:create.trashed.divider',
-        meta: {
-          divider: true,
-        }
       },
       {
         path: 'archived',

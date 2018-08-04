@@ -35,7 +35,7 @@
         </template>
 
         <template v-else-if="parent.meta.subheader">
-          <v-subheader :key="i">{{ parent.meta.title }}</v-subheader>
+          <v-subheader class="caption" :key="i">{{ (parent.meta.title).toUpperCase() }}</v-subheader>
         </template>
 
         <template v-else-if="parent.children">
@@ -46,10 +46,10 @@
                 <v-icon>{{ parent.meta.icon }}</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
-                <v-list-tile-title>{{ trans(parent.meta.title) }}</v-list-tile-title>
+                <v-list-tile-title>{{ __(parent.meta.title) }}</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
-            <!-- Menu children -->
+            <!-- Submenu children -->
             <template v-for="(submenu, j) in parent.children">
               <v-divider :key="j" v-if="submenu.meta.divider"></v-divider>
               <template v-else>
@@ -100,7 +100,7 @@
 
 <script>
 import store from '@/store'
-import menus from '@/router/admin'
+import menus from '@/config/sidebar'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
@@ -116,7 +116,7 @@ export default {
 
     menus: function () {
       // return this.sidebar.menus
-      return menus.children
+      return menus
     },
 
     sidebarmodel: {
@@ -139,6 +139,7 @@ export default {
 
   mounted () {
     //
+    console.log(menus)
   }
 }
 </script>
