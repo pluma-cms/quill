@@ -4,6 +4,7 @@
       <v-icon small>{{ icon }}</v-icon>
       <v-toolbar-title class="subheading">{{ __(title) }}</v-toolbar-title>
       <v-spacer></v-spacer>
+      <toggle-button icon v-model="d"></toggle-button>
       <v-btn icon><v-icon small>restore</v-icon></v-btn>
       <v-btn icon><v-icon small>delete</v-icon></v-btn>
     </v-toolbar>
@@ -93,6 +94,7 @@ export default {
 
   data () {
     return {
+      d: true,
       dataset: {
         items: [],
         pagination: {
