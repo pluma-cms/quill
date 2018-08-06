@@ -6,7 +6,7 @@
       <v-spacer></v-spacer>
       <toggle-button icon v-model="d"></toggle-button>
       <v-btn icon><v-icon small>restore</v-icon></v-btn>
-      <v-btn icon><v-icon small>delete</v-icon></v-btn>
+      <v-btn icon @click="dialog({title: 'Woah'})"><v-icon small>delete</v-icon></v-btn>
     </v-toolbar>
     <v-container fluid grid-list-lg>
       <v-layout row wrap >
@@ -64,7 +64,12 @@
 </template>
 
 <script>
+import store from '@/store'
+import { mapGetters } from 'vuex'
+
 export default {
+  store,
+
   name: 'CourseLessons',
 
   props: {
@@ -83,6 +88,10 @@ export default {
   },
 
   computed: {
+    ...mapGetters({
+      dialogbox: 'dialogbox/dialogbox',
+    }),
+
     datasetItems () {
       return this.items || []
     },
@@ -104,14 +113,17 @@ export default {
         }
       }
     }
-  }
+  },
+
+  methods: {
+    dialog () {
+      this.$store.dispatch('dialogbox/prompt', {
+        title: this.trans('Delete All Chapters?'),
+        actionText: this.trans('Delete All'),
+        actionColor: 'error',
+        text: this.trans('You are about to delete all chapters. Any unsaved progress will be lost permanently. Are you sure you want to delete all chapters?'),
+      })
+    },
+  },
 }
 </script>
-
-<!-- <style lang="stylus" scoped>
-@import '~@/stylus/theme';
-
-.lesson-card {
-  border-top: 2px solid lighten($theme.primary, 30%);
-}
-</style> -->

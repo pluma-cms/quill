@@ -5,7 +5,9 @@
     <!-- Sidebar -->
 
     <!-- Utilitybar -->
-    <utilitybar></utilitybar>
+    <v-slide-y-transition>
+      <utilitybar></utilitybar>
+    </v-slide-y-transition>
     <!-- Utilitybar -->
 
     <!-- Main Content -->

@@ -1,7 +1,6 @@
 export default [
   {
     path: '/courses',
-    name: 'courses.all',
     component: () => import('@/components/Layouts/Public.vue'),
     meta: {
       title: 'All Courses',
@@ -9,7 +8,7 @@ export default [
     },
     children: [
       {
-        path: '/courses',
+        path: '',
         name: 'courses.all',
         component: () => import('../All.vue'),
         meta: {

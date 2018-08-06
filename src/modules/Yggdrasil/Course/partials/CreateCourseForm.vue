@@ -4,8 +4,11 @@
       <v-layout row wrap>
         <v-flex xs12 md9>
 
+          <!-- Misc -->
           <input type="hidden" name="_token" :value="resource.item._token">
           <input type="hidden" name="api_token" :value="resource.item.api_token">
+          <dialogbox v-model="dialogbox.model"></dialogbox>
+          <!-- Misc -->
 
           <v-card>
             <v-toolbar dense flat>
@@ -79,8 +82,12 @@
 
 <script>
 import CourseLessons from './CourseLessons'
+import store from '@/store'
+import { mapGetters } from 'vuex'
 
 export default {
+  store,
+
   $_veeValidate: {
     validator: 'new'
   },
@@ -92,6 +99,10 @@ export default {
   },
 
   computed: {
+    ...mapGetters({
+      dialogbox: 'dialogbox/dialogbox',
+    }),
+
     course () {
       return {
         chapter: {

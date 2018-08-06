@@ -11,7 +11,7 @@
         </div>
       </div>
     </v-input>
-    <hints :visible="hideHints"></hints>
+    <hints :hide="hideHints"></hints>
   </div>
 </template>
 

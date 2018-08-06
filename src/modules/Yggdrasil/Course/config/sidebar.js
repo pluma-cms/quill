@@ -52,7 +52,7 @@ export default [
         name: 'divider:courses/create.trashed',
         meta: {
           divider: true,
-        }
+        },
       },
 
       // Archived
