@@ -18,7 +18,7 @@
       </v-text-field>
 
       <v-text-field
-        :append-icon-cb="() => (resource.item.passwordVisible = !resource.item.passwordVisible)"
+        @click:append="() => (resource.item.passwordVisible = !resource.item.passwordVisible)"
         :append-icon="resource.item.passwordVisible ? 'visibility' : 'visibility_off'"
         :data-vv-as="trans('Password')"
         :error-messages="errors.collect('password')"
@@ -39,6 +39,7 @@
         class="mx-0 mb-4"
         color="primary"
         large
+        ripple
         type="submit"
         >
         {{ 'Login' }}
@@ -57,6 +58,8 @@
 </template>
 
 <script>
+import { errorbag } from '@/utils/errorbag'
+
 export default {
   $_veeValidate: {
     validator: 'new'
@@ -75,5 +78,33 @@ export default {
       },
     }
   },
+
+  methods: {
+    login (credentials) {
+      this.resource.form.loading = true
+      this.$validator.reset()
+      this.$validator.validateAll()
+        .then(ok => {
+          if (ok) {
+            this.$store.dispatch('authentication/login', credentials)
+              .then(({data, status}) => {
+                console.log('SigninForm@login', data, status)
+                this.$router.push({name: 'admin'})
+              })
+              .catch((response) => {
+                errorbag(response, this.errors)
+                this.resource.form.loading = false
+              })
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+
+    validate () {
+      //
+    }
+  }
 }
 </script>

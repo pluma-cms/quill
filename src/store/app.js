@@ -19,7 +19,6 @@ export const mutations = {
 
   'UPDATE' (state, payload) {
     state.app = Object.assign({}, state.app, payload)
-    console.log(state.app)
   },
 }
 

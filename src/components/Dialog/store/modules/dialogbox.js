@@ -44,7 +44,7 @@ export const getters = {
 }
 
 export const mutations = {
-  PROMPT_DIALOG (state, payload) {
+  PROMPT (state, payload) {
     payload = Object.assign(state.dialogbox, payload)
     state.dialogbox = payload
   },
@@ -52,6 +52,12 @@ export const mutations = {
   emptyState () {
     this.replaceState({ dialogbox: null })
   }
+}
+
+export const actions = {
+  prompt ({commit}, payload) {
+    commit('PROMPT', payload)
+  },
 }
 
 export const dialogbox = {

@@ -6,8 +6,8 @@
 
         <v-card>
           <v-card-text class="text-xs-center">
-            <img class="mb-3" width="100px" :src="app.meta.logo" :alt="app.meta.title">
-            <h4 class="display-1" v-html="app.meta.title"></h4>
+            <img class="mb-3" width="80rem" :src="app.meta.logo" :alt="app.meta.title">
+            <h4 class="headline" v-html="app.meta.title"></h4>
             <div class="subheading" v-html="app.meta.tagline"></div>
           </v-card-text>
 
@@ -19,7 +19,7 @@
 
           </v-card-text>
 
-          <v-card-actions v-text-actions>
+          <v-card-actions>
             <a class="caption text-emphasis--medium" exact :to="{name: 'password.forgot'}" v-html="trans('Forgot password?')"></a>
             <v-spacer></v-spacer>
             <a class="caption text-emphasis--medium" :to="{name: 'register.show'}" v-html="trans('Create Account')"></a>
