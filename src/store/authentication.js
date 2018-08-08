@@ -1,9 +1,12 @@
 import VM from '@/mixins/localstorage'
 import axios from 'axios'
 
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
+axios.defaults.baseURL = (process.env.NODE_ENV === 'production') ? 'http://127.0.0.1' : 'http://127.0.0.1:8000'
+
 export const state = () => ({
   tokens: {
-    csrf: VM.methods.localstorage('auth.csrf_token', null),
+    remember: VM.methods.localstorage('auth.remember_token', null),
     api: VM.methods.localstorage('auth.api_token', null),
   },
   auth: {
@@ -12,8 +15,9 @@ export const state = () => ({
     register: {},
     password: {},
     login: {},
-    isLoggedIn: false,
+    isLoggedIn: VM.methods.localstorage('auth.logged_in', false) === 'true',
     user: {},
+    attempts: 0,
   },
 })
 
@@ -28,21 +32,23 @@ export const mutations = {
   },
 
   'ATTEMPT' (state, payload) {
-    // state.auth.login = payload
+    state.auth.attempts++
   },
 
   'SUCCESS' (state, payload) {
     state.tokens = {
-      csrf: payload.csrfToken,
+      remember: payload.rememberToken,
       api: payload.apiToken,
     }
 
     state.auth.user = payload.user
+    state.auth.isLoggedIn = true
+    state.auth.status = 'LOGGED_IN'
   },
 
   'FAILED' (state, payload) {
     state.tokens = {
-      csrf: null,
+      remember: null,
       api: null,
     }
 
@@ -50,7 +56,7 @@ export const mutations = {
   },
 
   'LOGOUT' (state) {
-    state.tokens.csrf = null
+    state.tokens.remember = null
     state.tokens.api = null
     // logout
   },
@@ -60,24 +66,27 @@ export const actions = {
   login: ({commit, dispatch}, payload) => {
     return new Promise((resolve, reject) => {
       commit('ATTEMPT', payload)
-      axios({url: '/login', data: payload, method: 'POST'})
+      axios({url: 'http://localhost:8000/api/v1/login', data: payload, method: 'POST'})
         .then(response => {
           const apiToken = response.data.api_token
-          const csrfToken = response.data.csrf_token
+          const rememberToken = response.data.remember_token
           const user = response.data.user
-          const payload = {apiToken, csrfToken, user}
+          const payload = {apiToken, rememberToken, user}
 
           axios.defaults.headers.common['Authorization'] = apiToken
 
           VM.methods.localstorage('auth.api_token', apiToken)
+          VM.methods.localstorage('auth.logged_in', true)
+          window.sessionStorage.setItem('user:token', JSON.stringify(apiToken))
+          window.sessionStorage.setItem('user:user', JSON.stringify(user))
 
           commit('SUCCESS', payload)
           resolve(response)
         })
-        .catch(err => {
-          commit('FAILED', payload)
+        .catch(error => {
           localStorage.removeItem('auth.api_token')
-          reject(err)
+          commit('FAILED', payload)
+          reject(error)
         })
     })
   },

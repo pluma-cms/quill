@@ -139,7 +139,6 @@ export default {
 
   mounted () {
     //
-    console.log(menus)
   }
 }
 </script>

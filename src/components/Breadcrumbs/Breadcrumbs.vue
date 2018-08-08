@@ -1,5 +1,5 @@
 <template>
-  <v-breadcrumbs class="px-4 py-2">
+  <v-breadcrumbs v-if="breadcrumbs.model" class="px-4 py-2">
     <v-icon slot="divider">keyboard_arrow_right</v-icon>
     <v-breadcrumbs-item
       :key="i"
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import store from './store'
+import store from '@/store'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
@@ -24,7 +24,8 @@ export default {
 
   computed: {
     ...mapGetters({
-      breadcrumbs: 'breadcrumbs/breadcrumbs'
+      breadcrumbs: 'breadcrumbs/breadcrumbs',
+      sidebar: 'sidebar/sidebar',
     })
   },
 

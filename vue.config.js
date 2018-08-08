@@ -2,15 +2,14 @@ module.exports = {
   devServer: {
     proxy: {
       // proxy all requests starting with /api to
-      '/api': {
-        target: 'http://localhost:8000/api',
+      '/api/v1': {
+        target: 'http://localhost:8000/api/v1',
         changeOrigin: false,
       },
-      '/api/v1/login': {
-        target: 'http://localhost:8000/login',
-        changeOrigin: false,
-      }
-    }
-  }
-
+    },
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'Authorization, X-Requested-With, Origin, X-Auth-Token, X-CSRF-Token, Content-type'
+    },
+  },
 }

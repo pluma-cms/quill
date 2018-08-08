@@ -74,7 +74,11 @@ export default {
           loading: false,
           model: false,
         },
-        item: {},
+        item: {
+          remember: true,
+          username: '',
+          password: '',
+        },
       },
     }
   },
@@ -87,18 +91,19 @@ export default {
         .then(ok => {
           if (ok) {
             this.$store.dispatch('authentication/login', credentials)
-              .then(({data, status}) => {
-                console.log('SigninForm@login', data, status)
+              .then((response) => {
                 this.$router.push({name: 'admin'})
+                this.$store.dispatch('sidebar/toggle', {model: true})
+                this.$store.dispatch('utilitybar/toggle', {model: true})
+                this.$store.dispatch('breadcrumbs/toggle', {model: true})
               })
-              .catch((response) => {
-                errorbag(response, this.errors)
-                this.resource.form.loading = false
+              .catch((err) => {
+                errorbag(err.response, this.errors)
+                console.log(this.errors)
               })
           }
-        })
-        .catch(err => {
-          console.log(err)
+
+          this.resource.form.loading = false
         })
     },
 

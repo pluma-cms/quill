@@ -1,9 +1,9 @@
-export const errorbag = (response, errors) => {
-  switch (response.status) {
+export const errorbag = ({data, status}, errors) => {
+  switch (status) {
     case 422:
     case 403:
-      for (let key in response.data) {
-        errors.add(key, response.data[key].join('\n'), 'server')
+      for (let key in data) {
+        errors.add({field: key, msg: data[key].join('\n')})
       }
       break
 
@@ -12,7 +12,7 @@ export const errorbag = (response, errors) => {
       break
 
     default:
-      errors = response.data
+      errors = data
       break
   }
 }

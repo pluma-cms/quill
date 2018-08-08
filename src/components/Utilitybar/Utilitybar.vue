@@ -4,6 +4,7 @@
     app
     flat
     scroll-off-screen
+    v-if="utilitybar.model"
     >
 
     <v-toolbar-side-icon @click="toggle({model: !sidebar.model})"></v-toolbar-side-icon>
@@ -21,7 +22,7 @@
 
     <v-menu left offset-y nudge-width="200px" min-width="200px">
       <v-avatar slot="activator" size="38px">
-        <img :src="user.avatar" :alt="user.displayname">
+        <img :src="user.photo" :alt="user.displayname">
       </v-avatar>
       <v-list>
         <v-list-tile href="#">
@@ -41,7 +42,7 @@
           </v-list-tile-content>
         </v-list-tile>
         <v-divider></v-divider>
-        <v-list-tile href="#">
+        <v-list-tile exact :to="{name: 'login.logout'}">
           <v-list-tile-action>
             <v-icon>mdi-logout-variant</v-icon>
           </v-list-tile-action>
@@ -56,11 +57,10 @@
 </template>
 
 <script>
-import store from '@/store'
+import { user } from '@/utils/user'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  store,
   name: 'Utilitybar',
 
   computed: {
@@ -72,12 +72,7 @@ export default {
 
   data () {
     return {
-      // TODO: move My Menus to store and to modules
-      // TODO: move to store
-      user: {
-        avatar: '//source.unsplash.com/30x30?girl',
-        displayname: 'Jane Does',
-      }
+      user: user(),
     }
   },
 

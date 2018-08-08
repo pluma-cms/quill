@@ -1,22 +1,21 @@
 export const state = () => ({
-  breadcrumbs: {
+  utilitybar: {
     model: true,
     items: [],
-    leaf: null,
   }
 })
 
 export const getters = {
-  breadcrumbs: state => state.breadcrumbs
+  utilitybar: state => state.utilitybar
 }
 
 export const mutations = {
   'SET' (state, payload) {
-    state.breadcrumbs.items = payload.items
+    state.utilitybar.items = payload.items
   },
 
   'TOGGLE' (state, payload) {
-    state.breadcrumbs.model = payload.model
+    state.utilitybar.model = payload.model
   },
 }
 
@@ -30,7 +29,7 @@ export const actions = {
   },
 }
 
-export const breadcrumbs = {
+export const utilitybar = {
   namespaced: true,
   state,
   getters,

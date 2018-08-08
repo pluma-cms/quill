@@ -14,13 +14,19 @@
           <v-card-text>
 
             <!-- Login Form -->
-            <signin-form></signin-form>
+            <v-fade-transition mode="out-in">
+              <signin-form></signin-form>
+            </v-fade-transition>
             <!-- Login Form -->
 
           </v-card-text>
 
           <v-card-actions>
-            <a class="caption text-emphasis--medium" exact :to="{name: 'password.forgot'}" v-html="trans('Forgot password?')"></a>
+            <a
+              class="text-emphasis--medium"
+              exact
+              :to="{name: 'password.forgot'}"
+              v-html="trans('Forgot password?')"></a>
             <v-spacer></v-spacer>
             <a class="caption text-emphasis--medium" :to="{name: 'register.show'}" v-html="trans('Create Account')"></a>
           </v-card-actions>
@@ -43,8 +49,13 @@ export default {
 
   computed: {
     ...mapGetters({
+      auth: 'authentication/auth',
       app: 'app/app',
     }),
+
+    tooManyAttempts () {
+      return this.$store.getters['authentication/auth'].attempts >= 3
+    }
   },
 
   components: {

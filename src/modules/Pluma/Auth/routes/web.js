@@ -1,3 +1,5 @@
+import { user, logout } from '@/utils/user'
+
 export default [
   {
     path: '/authentications',
@@ -18,8 +20,28 @@ export default [
         meta: {
           title: 'Signin',
           sort: 0,
-          authenticatable: false,
           icon: 'mdi-account-key',
+        },
+        beforeEnter: (to, from, next) => {
+          if (user()) {
+            next({name: 'admin'})
+          } else {
+            next()
+          }
+        },
+      },
+      {
+        path: '/logout',
+        name: 'login.logout',
+        meta: {
+          title: 'Signout',
+          sort: 0,
+          icon: 'mdi-account-key',
+        },
+        beforeEnter: (to, from, next) => {
+          logout()
+          console.log('asdsd')
+          next({name: 'login.show'})
         },
       },
     ],

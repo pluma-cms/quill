@@ -1,6 +1,7 @@
 <template>
   <v-app v-cloak toolbar footer :dark="app.dark">
     <!-- Main Content -->
+
     <v-content>
       <!-- Main -->
       <v-slide-y-transition mode="out-in">
