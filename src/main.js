@@ -1,3 +1,4 @@
+import '@/assets/stylus/main.styl'
 import './components/index'
 import './directives/index'
 import './filters/index'

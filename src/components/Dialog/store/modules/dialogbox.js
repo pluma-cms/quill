@@ -44,7 +44,7 @@ export const getters = {
 }
 
 export const mutations = {
-  PROMPT (state, payload) {
+  PROMPT_DIALOG (state, payload) {
     payload = Object.assign(state.dialogbox, payload)
     state.dialogbox = payload
   },
@@ -54,16 +54,9 @@ export const mutations = {
   }
 }
 
-export const actions = {
-  prompt ({commit}, payload) {
-    commit('PROMPT', payload)
-  },
-}
-
 export const dialogbox = {
   namespaced: true,
   state,
   getters,
-  mutations,
-  actions,
+  mutations
 }
