@@ -21,6 +21,6 @@ export default {
   name: 'admin',
   redirect: { name: 'dashboard.index' },
   component: () => import('@/components/Layouts/Admin.vue'),
-  meta: { title: 'Admin' },
-  children: routes.sort((a, b) => a.meta.sort - b.meta.sort),
+  meta: { title: 'Admin', authenticatable: true },
+  children: routes,
 }

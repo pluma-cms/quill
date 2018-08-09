@@ -1,5 +1,6 @@
 import store from '@/store'
 import { user } from '@/utils/user'
+import { storage } from '@/utils/storage'
 import axios from 'axios'
 
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
@@ -17,7 +18,7 @@ export const authenticated = function (cb, cbError, credentials) {
       axios({url: '/api/v1/authenticate', data: user(), method: 'POST'})
         .then(response => {
           let serverToken = response.data.token
-          let storedToken = JSON.parse(window.sessionStorage.getItem('user:token'))
+          let storedToken = storage('user:token')
 
           if (serverToken === storedToken) {
             resolve(response)
@@ -26,8 +27,7 @@ export const authenticated = function (cb, cbError, credentials) {
           }
         })
         .catch((err) => {
-          window.sessionStorage.removeItem('user:token')
-          window.sessionStorage.removeItem('user:user')
+          storage(['user:token', 'user:user'])
           reject(err.response)
         })
     } else {

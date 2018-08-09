@@ -17,9 +17,9 @@
       <!-- Breadcrumbs -->
 
       <!-- Main -->
-      <v-slide-y-transition mode="out-in">
+      <v-slide-y-reverse-transition mode="out-in">
         <router-view></router-view>
-      </v-slide-y-transition>
+      </v-slide-y-reverse-transition>
       <!-- Main -->
     </v-content>
     <!-- Main Content -->

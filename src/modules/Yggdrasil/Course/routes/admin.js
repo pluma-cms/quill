@@ -4,7 +4,7 @@ export default [
     component: () => import('@/App.vue'),
     meta: {
       title: 'Courses',
-      sort: 5,
+      sort: 10,
       authenticatable: true,
       icon: 'mdi-book-multiple-variant',
     },

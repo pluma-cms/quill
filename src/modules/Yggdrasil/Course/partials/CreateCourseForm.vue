@@ -7,13 +7,13 @@
           <!-- Misc -->
           <input type="hidden" name="_token" :value="resource.item._token">
           <input type="hidden" name="api_token" :value="resource.item.api_token">
-          <dialogbox v-model="dialogbox.model"></dialogbox>
+
           <!-- Misc -->
 
           <v-card>
             <v-toolbar dense flat>
               <v-icon small>mdi-book</v-icon>
-              <v-toolbar-title>{{ __('Course Details') }}</v-toolbar-title>
+              <v-toolbar-title class="subheading">{{ __('Course Details') }}</v-toolbar-title>
             </v-toolbar>
             <v-card-text>
               <v-text-field
@@ -68,13 +68,15 @@
 
           <course-lessons
             :icon="course.chapter.icon"
-            :label="course.chapter.title"
+            :title="course.chapter.title"
             :items.sync="resource.item.chapters"
           ></course-lessons>
 
         </v-flex>
         <v-flex xs12 md3>
-          <div class="text--disabled" v-for="(v, k) in resource.item" :key="k">{{ k }}: {{ v }}</div>
+          <v-card>
+            <v-card-text>sd</v-card-text>
+          </v-card>
         </v-flex>
       </v-layout>
     </v-container>

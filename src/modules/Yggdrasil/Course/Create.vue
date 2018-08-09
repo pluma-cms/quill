@@ -1,8 +1,8 @@
 <template>
   <section>
     <v-toolbar
-      flat
       v-sticky
+      class="elevation-1"
       >
       <v-tooltip bottom>
         <v-btn slot="activator" icon exact :to="{name: 'courses.index'}"><v-icon>arrow_back</v-icon></v-btn>
@@ -18,8 +18,9 @@
     </v-toolbar>
 
     <create-course-form></create-course-form>
+    <dialogbox v-model="dialogbox.model"></dialogbox>
 
-    <v-footer inset fixed height="auto" dark style="z-index:99999">
+    <v-footer inset app fixed height="auto" dark class="elevation-10">
       <v-spacer></v-spacer>
       <v-card flat color="transparent">
         <v-card-actions>
@@ -32,8 +33,12 @@
 
 <script>
 import CreateCourseForm from './partials/CreateCourseForm'
+import { mapGetters } from 'vuex'
+import store from '@/store'
 
 export default {
+  store,
+
   name: 'Create',
 
   components: {
@@ -41,9 +46,18 @@ export default {
   },
 
   computed: {
+    ...mapGetters({
+      dialogbox: 'dialogbox/dialogbox',
+      sidebar: 'sidebar/sidebar',
+    }),
+
     page: function () {
       return this.$route.meta
     },
+  },
+
+  mounted () {
+    this.$store.dispatch('sidebar/toggle', {model: false})
   },
 }
 </script>

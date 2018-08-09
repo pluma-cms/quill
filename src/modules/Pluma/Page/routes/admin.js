@@ -1,15 +1,6 @@
 export default [
   {
     path: '/admin/pages',
-    name: 'subheader:content',
-    meta: {
-      subheader: true,
-      sort: 4,
-      title: 'Content',
-    }
-  },
-  {
-    path: '/admin/pages',
     component: () => import('@/App.vue'),
     meta: {
       title: 'Pages',
@@ -39,8 +30,8 @@ export default [
         },
       },
       {
-        path: 'trashed',
-        name: 'pages.trashed',
+        path: 'archived',
+        name: 'pages.archived',
         component: () => import('../Trashed.vue'),
         meta: {
           title: 'Trashed Pages',

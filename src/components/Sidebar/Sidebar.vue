@@ -4,6 +4,7 @@
     :floating="sidebar.floating"
     :mini-variant.sync="sidebar.mini"
     :dark="sidebar.dark"
+    class="sidebar"
     app
     fixed
     v-model="sidebarmodel"
@@ -132,13 +133,30 @@ export default {
   methods: {
     ...mapActions({
       toggle: 'sidebar/toggle',
-      clip: 'sidebar/clip',
       update: 'app/update',
     }),
+
+    sidebarDefaultMode (value) {
+      switch (this.$root.$vuetify.breakpoint.name) {
+        case 'xs':
+        case 'sm':
+          return this.toggle({model: false})
+        case 'lg':
+        default:
+          this.toggle({model: value})
+          break
+      }
+    }
   },
 
   mounted () {
-    //
-  }
+    this.sidebarDefaultMode()
+  },
 }
 </script>
+
+<style lang="stylus" scoped>
+.sidebar {
+  max-height: 100vh !important;
+}
+</style>

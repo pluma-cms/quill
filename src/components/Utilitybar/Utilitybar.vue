@@ -20,11 +20,13 @@
 
     <v-spacer></v-spacer>
 
-    <v-menu left offset-y nudge-width="200px" min-width="200px">
-      <v-avatar slot="activator" size="38px">
-        <img :src="user.photo" :alt="user.displayname">
-      </v-avatar>
-      <v-list>
+    <v-menu offset-y left bottom nudge-bottom="12px" nudge-width="200px" min-width="200px">
+      <v-btn slot="activator" large flat icon ripple >
+        <v-avatar size="40px">
+          <img :src="user.photo" :alt="user.displayname">
+        </v-avatar>
+      </v-btn>
+      <v-list dense>
         <v-list-tile href="#">
           <v-list-tile-action>
             <v-icon>mdi-account</v-icon>

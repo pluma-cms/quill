@@ -18,7 +18,7 @@ export default [
         name: 'login.show',
         component: () => import('../Signin.vue'),
         meta: {
-          title: 'Signin',
+          title: 'Sign In',
           sort: 0,
           icon: 'mdi-account-key',
         },
@@ -35,13 +35,48 @@ export default [
         name: 'login.logout',
         meta: {
           title: 'Signout',
-          sort: 0,
           icon: 'mdi-account-key',
         },
         beforeEnter: (to, from, next) => {
           logout()
-          console.log('asdsd')
           next({name: 'login.show'})
+        },
+      },
+
+      // Register
+      {
+        path: '/register',
+        name: 'register.show',
+        component: () => import('../Signup.vue'),
+        meta: {
+          title: 'Sign Up',
+          sort: 0,
+          icon: 'mdi-account-key',
+        },
+        beforeEnter: (to, from, next) => {
+          if (user()) {
+            next({name: 'admin'})
+          } else {
+            next()
+          }
+        },
+      },
+
+      // Passwords
+      {
+        path: 'forgot/password',
+        name: 'password.forgot',
+        component: () => import('../ForgotPassword.vue'),
+        meta: {
+          title: 'Forgot Password',
+          icon: 'mdi-account-key',
+        },
+        beforeEnter: (to, from, next) => {
+          if (user()) {
+            next({name: 'admin'})
+          } else {
+            next()
+          }
         },
       },
     ],

@@ -2,7 +2,7 @@
 
   <v-container fluid fill-height>
     <v-layout row wrap fill-height align-center justify-center>
-      <v-flex xs12 sm8 md4 lg3 fill-height align-center justify-center>
+      <v-flex xs12 sm6 md4 lg3 fill-height align-center justify-center>
 
         <v-card>
           <v-card-text class="text-xs-center">
@@ -14,21 +14,21 @@
           <v-card-text>
 
             <!-- Login Form -->
-            <v-fade-transition mode="out-in">
+            <v-slide-y-reverse-transition mode="out-in">
               <signin-form></signin-form>
-            </v-fade-transition>
+            </v-slide-y-reverse-transition>
             <!-- Login Form -->
 
           </v-card-text>
 
           <v-card-actions>
-            <a
-              class="text-emphasis--medium"
-              exact
+            <router-link
               :to="{name: 'password.forgot'}"
-              v-html="trans('Forgot password?')"></a>
+              class="caption text-emphasis--medium"
+              exact
+              v-html="trans('Forgot password?')"></router-link>
             <v-spacer></v-spacer>
-            <a class="caption text-emphasis--medium" :to="{name: 'register.show'}" v-html="trans('Create Account')"></a>
+            <router-link class="caption text-emphasis--medium" :to="{name: 'register.show'}" v-html="trans('Create Account')"></router-link>
           </v-card-actions>
         </v-card>
 
@@ -51,6 +51,7 @@ export default {
     ...mapGetters({
       auth: 'authentication/auth',
       app: 'app/app',
+      dialogbox: 'dialogbox/dialogbox',
     }),
 
     tooManyAttempts () {
@@ -70,7 +71,15 @@ export default {
         },
         item: [],
       },
+      alert: {
+        model: false,
+      },
     }
   },
+
+  mounted () {
+    this.$store.dispatch('sidebar/toggle', {model: false})
+    this.$store.dispatch('utilitybar/toggle', {model: false})
+  }
 }
 </script>

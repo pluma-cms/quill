@@ -58,6 +58,10 @@ export const actions = {
   prompt ({commit}, payload) {
     commit('PROMPT', payload)
   },
+
+  toggle ({commit}, payload) {
+    commit('PROMPT', payload)
+  },
 }
 
 export const dialogbox = {

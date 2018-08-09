@@ -1,13 +1,16 @@
 <template>
   <v-card color="grey lighten-4">
-    <v-toolbar flat dense card>
+
+    <v-toolbar flat dense card color="grey lighten-4">
       <v-icon small>{{ icon }}</v-icon>
       <v-toolbar-title class="subheading">{{ __(title) }}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <toggle-button icon v-model="d"></toggle-button>
+      <toggle-button icon v-model="shrinkExpand"></toggle-button>
       <v-btn icon><v-icon small>restore</v-icon></v-btn>
-      <v-btn icon @click="dialog({title: 'Woah'})"><v-icon small>delete</v-icon></v-btn>
+      <dialogbox></dialogbox>
+      <v-btn icon @click="deleteall"><v-icon small>delete</v-icon></v-btn>
     </v-toolbar>
+
     <v-container fluid grid-list-lg>
       <v-layout row wrap >
         <v-spacer></v-spacer>
@@ -28,34 +31,38 @@
         >
         <v-flex xs12 sm12 md12 slot="item" slot-scope="props">
           <v-card class="lesson-card">
-            <v-toolbar dense flat v-sticky>
+            <v-toolbar dense flat>
               <v-icon small>mdi-bookmark</v-icon>
               <v-toolbar-title class="subheading">{{ props.item.title }}</v-toolbar-title>
             </v-toolbar>
-            <v-card-text>
-              <v-text-field
-                :error-messages="errors.collect('code')"
-                :label="trans('Chapter Title')"
-                @click:append="() => {resource.lockSlug = !resource.lockSlug}"
-                outline
-                name="code"
-                v-model.trim="resource.item.code"
-                v-validate="'required'"
-                v-model="props.item.title"
-              ></v-text-field>
 
-              <v-editor
-                class="mb-3"
-                hide-hints
-                v-model="props.item.body"
-              ></v-editor>
+            <v-card flat color="transparent" v-show="props.item.active">
+              <v-card-text>
+                <v-text-field
+                  :error-messages="errors.collect('code')"
+                  :label="trans('Chapter Title')"
+                  @click:append="() => {resource.lockSlug = !resource.lockSlug}"
+                  outline
+                  name="code"
+                  v-model.trim="resource.item.code"
+                  v-validate="'required'"
+                  v-model="props.item.title"
+                ></v-text-field>
 
-              <course-lessons
-                :icon="icon"
-                :title="title"
-                :items.sync="props.item.lessons"
-              ></course-lessons>
-            </v-card-text>
+                <v-editor
+                  class="mb-3"
+                  hide-hints
+                  v-model="props.item.body"
+                ></v-editor>
+
+                <course-lessons
+                  :icon="icon"
+                  :title="title"
+                  :items.sync="props.item.lessons"
+                ></course-lessons>
+              </v-card-text>
+            </v-card>
+
           </v-card>
         </v-flex>
       </v-data-iterator>
@@ -103,7 +110,7 @@ export default {
 
   data () {
     return {
-      d: true,
+      shrinkExpand: true,
       dataset: {
         items: [],
         pagination: {
@@ -116,13 +123,21 @@ export default {
   },
 
   methods: {
-    dialog () {
+    deleteall () {
       this.$store.dispatch('dialogbox/prompt', {
         title: this.trans('Delete All Chapters?'),
         actionText: this.trans('Delete All'),
         actionColor: 'error',
         text: this.trans('You are about to delete all chapters. Any unsaved progress will be lost permanently. Are you sure you want to delete all chapters?'),
       })
+    },
+  },
+
+  watch: {
+    'shrinkExpand': function (value) {
+      // this.dataset.items.map(item => {
+      //   return item.active = value
+      // })
     },
   },
 }

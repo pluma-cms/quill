@@ -1,5 +1,5 @@
 <template>
-  <v-breadcrumbs v-if="breadcrumbs.model" class="px-4 py-2">
+  <v-breadcrumbs v-if="utilitybar.model" class="px-4 py-2">
     <v-icon slot="divider">keyboard_arrow_right</v-icon>
     <v-breadcrumbs-item
       :key="i"
@@ -26,6 +26,7 @@ export default {
     ...mapGetters({
       breadcrumbs: 'breadcrumbs/breadcrumbs',
       sidebar: 'sidebar/sidebar',
+      utilitybar: 'utilitybar/utilitybar',
     })
   },
 

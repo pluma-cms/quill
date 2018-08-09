@@ -99,7 +99,6 @@ export default {
               })
               .catch((err) => {
                 errorbag(err.response, this.errors)
-                console.log(this.errors)
               })
           }
 

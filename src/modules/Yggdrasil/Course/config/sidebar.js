@@ -6,7 +6,7 @@ export default [
       title: 'Courses',
       icon: 'mdi-book-multiple-variant',
       authenticatable: true,
-      sort: 5,
+      sort: 10,
     },
     children: [
       // Admin Courses
@@ -17,7 +17,7 @@ export default [
           title: 'All Courses',
           icon: 'mdi-book-multiple-variant',
           authenticatable: true,
-          sort: 5,
+          sort: 1,
         },
       },
       // Public Courses
@@ -30,7 +30,7 @@ export default [
           external: false, // external === target=_blank attribute
           authenticatable: false,
           hideFromAdmins: true,
-          sort: 5,
+          sort: 2,
         },
       },
 
@@ -42,7 +42,7 @@ export default [
           title: 'Create Course',
           icon: 'mdi-book-plus',
           authenticatable: true,
-          sort: 6,
+          sort: 3,
         },
       },
 
@@ -52,7 +52,7 @@ export default [
         name: 'divider:courses/create.trashed',
         meta: {
           divider: true,
-          sort: 7,
+          sort: 5,
         },
       },
 
@@ -64,7 +64,7 @@ export default [
           title: 'Archived Courses',
           icon: 'mdi-delete-empty',
           authenticatable: true,
-          sort: 8,
+          sort: 10,
         },
       },
     ],

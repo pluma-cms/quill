@@ -1,5 +1,6 @@
 import VM from '@/mixins/localstorage'
 import axios from 'axios'
+import { storage } from '@/utils/storage'
 
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 axios.defaults.baseURL = (process.env.NODE_ENV === 'production') ? 'http://127.0.0.1' : 'http://127.0.0.1:8000'
@@ -77,8 +78,10 @@ export const actions = {
 
           VM.methods.localstorage('auth.api_token', apiToken)
           VM.methods.localstorage('auth.logged_in', true)
-          window.sessionStorage.setItem('user:token', JSON.stringify(apiToken))
-          window.sessionStorage.setItem('user:user', JSON.stringify(user))
+          storage({
+            'user:token': JSON.stringify(apiToken),
+            'user:user': JSON.stringify(user)
+          })
 
           commit('SUCCESS', payload)
           resolve(response)
