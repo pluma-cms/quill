@@ -29,7 +29,7 @@
               <dialogbox></dialogbox>
               <v-btn
                 color="secondary"
-                @click.stop="openDialogbox"
+                @click="openDialogbox"
                 >
                 {{ trans('OPen Dialog Test') }}
               </v-btn>
@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import store from './store'
+import store from '@/store'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -201,6 +201,10 @@ export default {
 
   computed: {
     ...mapGetters({
+      dialogbox: 'dialogbox/dialogbox',
+      dataiterator: 'dataiterator/dataiterator',
+      // toolbar: 'toolbar/toolbar',
+      datatable: 'datatable/datatable',
     }),
 
     empty: function () {

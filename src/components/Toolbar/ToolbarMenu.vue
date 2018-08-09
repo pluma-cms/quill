@@ -63,7 +63,7 @@
           icon
           slot="activator"
           >
-          <v-icon>fa fa-sort</v-icon>
+          <v-icon v-html="dataset.sort ? 'mdi-sort-ascending' : 'mdi-sort-descending'"></v-icon>
         </v-btn>
         <span>Sort</span>
       </v-tooltip>
@@ -77,7 +77,7 @@
           icon
           slot="activator"
           >
-          <v-icon>fa fa-filter</v-icon>
+          <v-icon>mdi-filter</v-icon>
         </v-btn>
         <span>Filter</span>
       </v-tooltip>
