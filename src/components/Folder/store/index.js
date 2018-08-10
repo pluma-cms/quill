@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { create } from './modules/create/create'
+import { folder } from './modules/folder'
+import { contextmenu } from './modules/contextmenu'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    create,
+    folder,
+    contextmenu,
   },
   strict: process.env.NODE_ENV !== 'production'
 })

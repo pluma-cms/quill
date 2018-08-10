@@ -1,18 +1,41 @@
 <template>
   <v-card color="grey lighten-4">
 
-    <v-toolbar flat dense card color="grey lighten-4">
-      <v-icon small>{{ icon }}</v-icon>
-      <v-toolbar-title class="subheading">{{ __(title) }}</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <toggle-button icon v-model="shrinkExpand"></toggle-button>
-      <v-btn icon><v-icon small>restore</v-icon></v-btn>
-      <dialogbox></dialogbox>
-      <v-btn icon @click="deleteall"><v-icon small>delete</v-icon></v-btn>
-    </v-toolbar>
+    <!-- TOOLBAR -->
+    <template>
+      <v-toolbar flat dense card color="grey lighten-4">
+        <v-icon small>{{ icon }}</v-icon>
+        <v-toolbar-title class="subheading">{{ __(title) }}</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <toggle-button icon @click.native="shrinkExpand" v-model="shrinkAll"></toggle-button>
+        <v-btn small icon><v-icon small>restore</v-icon></v-btn>
+        <v-btn small icon @click="deleteall"><v-icon small>delete</v-icon></v-btn>
+        <v-menu bottom left>
+          <v-btn small icon slot="activator"><v-icon small>more_vert</v-icon></v-btn>
+          <v-list dense>
+            <v-menu right top>
+              <v-list-tile slot="activator">
+                <v-list-tile-content>
+                  <v-list-tile-title>{{ __('View') }}</v-list-tile-title>
+                </v-list-tile-content>
+              </v-list-tile>
+              <v-list dense>
+                <v-list-tile>
+                  <v-list-tile-content>
+                    <v-list-tile-title>{{ __('2 Grid Layout') }}</v-list-tile-title>
+                  </v-list-tile-content>
+                </v-list-tile>
+              </v-list>
+            </v-menu>
+          </v-list>
+        </v-menu>
+      </v-toolbar>
+    </template>
+    <!-- TOOLBAR -->
 
     <v-container fluid grid-list-lg>
-      <v-layout row wrap >
+      <v-layout row wrap align-center v-if="!empty">
+        <v-btn small @click="add">{{ __(`Add ${misc.singular}`) }}</v-btn>
         <v-spacer></v-spacer>
         <v-pagination :total-visible="7" v-model="dataset.pagination.page" :length="datasetTotalItems"></v-pagination>
         <div style="max-width:30px" class="mx-2">
@@ -23,49 +46,93 @@
           ></v-select>
         </div>
       </v-layout>
+
       <v-data-iterator
         content-tag="v-layout" row wrap
+        hide-actions
         :items="datasetItems"
         :rows-per-page-items="dataset.pagination.rowsPerPageItems"
         :pagination.sync="dataset.pagination"
         >
-        <v-flex xs12 sm12 md12 slot="item" slot-scope="props">
+
+        <template slot="no-data">
+          <div class="text-xs-center mb-3">
+            <div class="greyscaled"><scroll width="8em" height="8em"></scroll></div>
+            <div class="mb-2">{{ __(`No ${title} found`) }}</div>
+            <v-btn color="secondary" @click="add">{{ __(`Add ${misc.singular}`) }}</v-btn>
+          </div>
+        </template>
+
+        <v-flex xs12 :md6="$root.$vuetify.breakpoint.mdAndUp" slot="item" slot-scope="props">
           <v-card class="lesson-card">
             <v-toolbar dense flat>
               <v-icon small>mdi-bookmark</v-icon>
               <v-toolbar-title class="subheading">{{ props.item.title }}</v-toolbar-title>
+              <v-spacer></v-spacer>
+              <toggle-button
+                :negative-text="trans('Shrink')"
+                :positive-text="trans('Expand')"
+                negative-icon="mdi-chevron-down"
+                positive-icon="mdi-chevron-up"
+                small
+              ></toggle-button>
+              <v-btn small icon @click="remove(datasetItems, props.index)"><v-icon small>mdi-close</v-icon></v-btn>
             </v-toolbar>
 
-            <v-card flat color="transparent" v-show="props.item.active">
-              <v-card-text>
-                <v-text-field
-                  :error-messages="errors.collect('code')"
-                  :label="trans('Chapter Title')"
-                  @click:append="() => {resource.lockSlug = !resource.lockSlug}"
-                  outline
-                  name="code"
-                  v-model.trim="resource.item.code"
-                  v-validate="'required'"
-                  v-model="props.item.title"
-                ></v-text-field>
+            <v-slide-y-transition mode="out-in">
+              <v-card flat color="transparent" v-show="props.item.active">
+                <v-card-text>
+                  <v-text-field
+                    :error-messages="errors.collect('code')"
+                    :label="trans('Chapter Title')"
+                    @click:append="() => {resource.lockSlug = !resource.lockSlug}"
+                    outline
+                    name="code"
+                    v-model.trim="resource.item.code"
+                    v-validate="'required'"
+                    v-model="props.item.title"
+                  ></v-text-field>
 
-                <v-editor
-                  class="mb-3"
-                  hide-hints
-                  v-model="props.item.body"
-                ></v-editor>
+                  <v-editor
+                    class="mb-3"
+                    hide-hints
+                    v-model="props.item.body"
+                  ></v-editor>
 
-                <course-lessons
-                  :icon="icon"
-                  :title="title"
-                  :items.sync="props.item.lessons"
-                ></course-lessons>
-              </v-card-text>
-            </v-card>
+                  <!-- Interactive Media -->
+                  <v-interactive-media
+                    class="mb-3 "
+                  ></v-interactive-media>
+                  <!-- Interactive Media -->
+
+                  <course-lessons
+                    class="elevation-0"
+                    v-if="!noChild"
+                    no-child
+                    :icon="props.item.misc.icon"
+                    :title.sync="props.item.misc.title"
+                    :items.sync="props.item.lessons"
+                  ></course-lessons>
+                </v-card-text>
+              </v-card>
+            </v-slide-y-transition>
 
           </v-card>
         </v-flex>
       </v-data-iterator>
+
+      <v-layout row wrap align-center v-if="!empty">
+        <v-btn small @click="add">{{ __(`Add ${misc.singular}`) }}</v-btn>
+        <v-spacer></v-spacer>
+        <v-pagination :total-visible="7" v-model="dataset.pagination.page" :length="datasetTotalItems"></v-pagination>
+        <div style="max-width:30px" class="mx-2">
+          <v-select
+            auto
+            v-model="dataset.pagination.rowsPerPage"
+            :items="dataset.pagination.rowsPerPageItems"
+          ></v-select>
+        </div>
+      </v-layout>
     </v-container>
   </v-card>
 </template>
@@ -78,6 +145,10 @@ export default {
   store,
 
   name: 'CourseLessons',
+
+  model: {
+    prop: 'items',
+  },
 
   props: {
     icon: {
@@ -92,6 +163,24 @@ export default {
         return []
       }
     },
+    noChild: {
+      type: [Boolean],
+      default: false,
+    },
+    misc: {
+      type: [Object],
+      default: () => {
+        return {
+          icon: 'mdi-video',
+          title: 'Parts',
+          singular: 'Part',
+        }
+      }
+    },
+  },
+
+  created () {
+    // this.$store.registerModule('courses/create', createStore)
   },
 
   computed: {
@@ -99,18 +188,27 @@ export default {
       dialogbox: 'dialogbox/dialogbox',
     }),
 
-    datasetItems () {
-      return this.items || []
+    datasetTotalItems () {
+      console.log('dataset', Math.ceil(this.datasetItems.length / this.dataset.pagination.rowsPerPage), this.datasetItems.length / this.dataset.pagination.rowsPerPage)
+      return Math.ceil(this.datasetItems.length / this.dataset.pagination.rowsPerPage)
     },
 
-    datasetTotalItems () {
-      return Math.floor(this.datasetItems.length / this.dataset.pagination.rowsPerPage)
-    }
+    empty () {
+      return this.datasetItems.length === 0
+    },
   },
 
   data () {
     return {
-      shrinkExpand: true,
+      datasetItems: [],
+
+      itemDefault: {
+        id: null,
+        active: this.shrinkAll,
+        hasChild: true,
+        misc: this.misc,
+      },
+      shrinkAll: true,
       dataset: {
         items: [],
         pagination: {
@@ -123,6 +221,19 @@ export default {
   },
 
   methods: {
+    open (item, value) {
+      item.active = value
+    },
+
+    add () {
+      this.datasetItems.push(this.itemDefault)
+      console.log('added', this.datasetItems)
+    },
+
+    remove (items, i) {
+      items.splice(i, 1)
+    },
+
     deleteall () {
       this.$store.dispatch('dialogbox/prompt', {
         title: this.trans('Delete All Chapters?'),
@@ -131,14 +242,39 @@ export default {
         text: this.trans('You are about to delete all chapters. Any unsaved progress will be lost permanently. Are you sure you want to delete all chapters?'),
       })
     },
+
+    shrinkExpand () {
+      this.datasetItems.map(item => {
+        item.active = this.shrinkAll
+        return item
+      })
+    },
+
+    initData () {
+      let items = JSON.parse(JSON.stringify(this.items || [])) // clone
+      items = items.map(i => {
+        return Object.assign({}, this.itemDefault, i)
+      })
+
+      this.datasetItems = items
+    }
+  },
+
+  mounted () {
+    this.initData()
   },
 
   watch: {
-    'shrinkExpand': function (value) {
-      // this.dataset.items.map(item => {
-      //   return item.active = value
-      // })
-    },
-  },
+    'datasetItems': function (val) {
+      this.$emit('input', val)
+    }
+  }
 }
 </script>
+
+<style lang="stylus">
+.greyscaled {
+  filter: grayscale(0.7)
+  opacity: 0.7
+}
+</style>

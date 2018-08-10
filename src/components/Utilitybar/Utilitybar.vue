@@ -8,12 +8,13 @@
     >
 
     <v-toolbar-side-icon @click="toggle({model: !sidebar.model})"></v-toolbar-side-icon>
-
+    <brand v-if="sidebar.model"></brand>
     <!-- v-shortkey="['ctrl', '/']" @shortkey.native="search().open($event)" -->
+    <v-spacer></v-spacer>
     <v-text-field
       :placeholder="trans('Search')"
       flat
-      solo
+      solo-inverted
       hide-details
       >
     </v-text-field>

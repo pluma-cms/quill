@@ -143,7 +143,7 @@ export default {
 .ck.ck-editor__main,
 .ck-content.ck-editor__editable,
 .ck-editor__editable {
-  min-height: 200px;
+  min-height: 100px;
 }
 
 .v-editor-field {

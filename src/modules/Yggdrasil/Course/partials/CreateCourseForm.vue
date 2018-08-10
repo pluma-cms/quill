@@ -10,7 +10,7 @@
 
           <!-- Misc -->
 
-          <v-card>
+          <v-card class="mb-3">
             <v-toolbar dense flat>
               <v-icon small>mdi-book</v-icon>
               <v-toolbar-title class="subheading">{{ __('Course Details') }}</v-toolbar-title>
@@ -69,7 +69,8 @@
           <course-lessons
             :icon="course.chapter.icon"
             :title="course.chapter.title"
-            :items.sync="resource.item.chapters"
+            v-model="resource.item.chapters"
+            :misc="{singular: course.chapter.singular}"
           ></course-lessons>
 
         </v-flex>
@@ -109,6 +110,7 @@ export default {
       return {
         chapter: {
           title: 'Chapters',
+          singular: 'Chapter',
           icon: 'mdi-bookmark',
         },
       }
@@ -125,56 +127,7 @@ export default {
           user: {},
           title: '',
           chapters: [
-            {lessons: [{title: 'Chapter 1', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'}], title: 'Chapter 1', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 2', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 3', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 4', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 5', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 6', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 7', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 8', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 9', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 10', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 11', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 12', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 13', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 14', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 15', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 16', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 17', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 18', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 19', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 20', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 21', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 22', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 23', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 24', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 25', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 26', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 27', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 28', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 29', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 30', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 31', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 32', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 33', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 34', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 35', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 36', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 37', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 38', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 39', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 40', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 41', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 42', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 43', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 44', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 45', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 46', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 47', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 48', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 49', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
-            {title: 'Chapter 50', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'},
+            {hasChild: true, title: 'Chapter 01', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>', parts: [{title: 'Chapter 1', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'}]},
           ],
         },
         lockSlug: false,
@@ -203,9 +156,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus" scoped>
-.v-card {
-  margin-bottom: 2rem;
-}
-</style>
