@@ -7,7 +7,9 @@
 
           <to-do class="mb-3"></to-do>
 
-          <my-students></my-students>
+          <my-students class="mb-3"></my-students>
+
+          <my-most-popular-courses></my-most-popular-courses>
         </v-flex>
       </v-layout>
     </v-container>
@@ -23,12 +25,14 @@
 import CurrentCourseProgress from '@/modules/Yggdrasil/Course/widgets/CurrentCourseProgress.vue'
 import ToDo from '@/modules/Yggdrasil/Course/widgets/ToDo.vue'
 import MyStudents from '@/modules/Yggdrasil/Course/widgets/MyStudents.vue'
+import MyMostPopularCourses from '@/modules/Yggdrasil/Course/widgets/MyMostPopularCourses.vue'
 
 export default {
   components: {
     CurrentCourseProgress,
     ToDo,
     MyStudents,
+    MyMostPopularCourses
   },
 }
 </script>
