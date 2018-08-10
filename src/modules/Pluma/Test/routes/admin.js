@@ -1,9 +1,9 @@
 export default [
   {
-    path: '/admin/courses',
+    path: '/admin/tests',
     component: () => import('@/App.vue'),
     meta: {
-      title: 'Courses',
+      title: 'Tests',
       sort: 5,
       authenticatable: true,
       icon: 'mdi-book-multiple-variant',
@@ -11,50 +11,40 @@ export default [
     children: [
       {
         path: '',
-        name: 'courses.index',
+        name: 'tests.index',
         component: () => import('../Index.vue'),
         meta: {
-          title: 'All Courses',
+          title: 'All Tests',
           authenticatable: true,
           icon: 'mdi-book-multiple-variant',
         },
       },
       {
-        path: '/my/courses',
-        name: 'courses.my',
-        component: () => import('../My.vue'),
-        meta: {
-          title: 'My Courses',
-          authenticatable: true,
-          icon: 'mdi-bookmark-check',
-        },
-      },
-      {
         path: 'create',
-        name: 'courses.create',
+        name: 'tests.create',
         component: () => import('../Create.vue'),
         meta: {
-          title: 'Create Course',
+          title: 'Create Test',
           authenticatable: true,
           icon: 'mdi-book-plus',
         },
       },
       {
         path: 'show',
-        name: 'courses.show',
+        name: 'tests.show',
         component: () => import('../Show.vue'),
         meta: {
-          title: 'Show Course',
+          title: 'Show Test',
           authenticatable: true,
           icon: 'mdi-book-plus',
         },
       },
       {
         path: 'archived',
-        name: 'courses.archived',
+        name: 'tests.archived',
         component: () => import('../Archived.vue'),
         meta: {
-          title: 'Archived Courses',
+          title: 'Archived Tests',
           authenticatable: true,
           icon: 'mdi-delete-empty',
         },
