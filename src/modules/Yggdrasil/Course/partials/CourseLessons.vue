@@ -35,7 +35,7 @@
 
     <v-container fluid grid-list-lg>
       <v-layout row wrap align-center v-if="!empty">
-        <v-btn small @click="add">{{ __(`Add ${misc.singular}`) }}</v-btn>
+        <v-btn small @click="add">{{ __(`Add ${singular}`) }}</v-btn>
         <v-spacer></v-spacer>
         <v-pagination :total-visible="7" v-model="dataset.pagination.page" :length="datasetTotalItems"></v-pagination>
         <div style="max-width:30px" class="mx-2">
@@ -74,55 +74,72 @@
                 :positive-text="trans('Expand')"
                 negative-icon="mdi-chevron-down"
                 positive-icon="mdi-chevron-up"
+                @click.native="open(props.item, !props.item.active)"
                 small
               ></toggle-button>
-              <v-btn small icon @click="remove(datasetItems, props.index)"><v-icon small>mdi-close</v-icon></v-btn>
+              <v-menu left bottom>
+                <v-btn small icon slot="activator"><v-icon small>mdi-close</v-icon></v-btn>
+                <v-card flat>
+                  <v-card-title class="body-2">{{ __('Permanently delete this card?') }}</v-card-title>
+                  <v-card-text>
+                    {{ __('You will not be able to retrieve this card once deleted. Continue?') }}
+                  </v-card-text>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn small flat>{{ __('Cancel') }}</v-btn>
+                    <v-btn small flat @click="remove(datasetItems, props.index)">
+                      {{ __('Delete') }}
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-menu>
             </v-toolbar>
 
-            <v-slide-y-transition mode="out-in">
-              <v-card flat color="transparent" v-show="props.item.active">
-                <v-card-text>
-                  <v-text-field
-                    :error-messages="errors.collect('code')"
-                    :label="trans('Chapter Title')"
-                    @click:append="() => {resource.lockSlug = !resource.lockSlug}"
-                    outline
-                    name="code"
-                    v-model.trim="resource.item.code"
-                    v-validate="'required'"
-                    v-model="props.item.title"
-                  ></v-text-field>
+            <v-card flat transition="slide-y-transition" color="transparent" v-show="props.item.active">
+              <v-card-text>
+                <v-text-field
+                  :error-messages="errors.collect('code')"
+                  :label="trans('Chapter Title')"
+                  @click:append="() => {resource.lockSlug = !resource.lockSlug}"
+                  outline
+                  name="code"
+                  v-model.trim="resource.item.code"
+                  v-validate="'required'"
+                  v-model="props.item.title"
+                ></v-text-field>
 
-                  <v-editor
-                    class="mb-3"
-                    hide-hints
-                    v-model="props.item.body"
-                  ></v-editor>
+                <v-editor
+                  class="mb-3"
+                  hide-hints
+                  v-model="props.item.body"
+                ></v-editor>
 
-                  <!-- Interactive Media -->
-                  <v-interactive-media
-                    class="mb-3 "
-                  ></v-interactive-media>
-                  <!-- Interactive Media -->
+                <!-- Interactive Media -->
+                <v-interactive-media
+                  v-if="withMedia"
+                  class="mb-3 "
+                ></v-interactive-media>
+                <!-- Interactive Media -->
 
-                  <course-lessons
-                    class="elevation-0"
-                    v-if="!noChild"
-                    no-child
-                    :icon="props.item.misc.icon"
-                    :title.sync="props.item.misc.title"
-                    :items.sync="props.item.lessons"
-                  ></course-lessons>
-                </v-card-text>
-              </v-card>
-            </v-slide-y-transition>
+                <course-lessons
+                  class="elevation-0"
+                  v-if="!noChild"
+                  no-child
+                  with-media
+                  :icon="props.item.misc.icon"
+                  :title.sync="props.item.misc.title"
+                  :singular.sync="props.item.misc.singular"
+                  :items.sync="props.item.lessons"
+                ></course-lessons>
+              </v-card-text>
+            </v-card>
 
           </v-card>
         </v-flex>
       </v-data-iterator>
 
       <v-layout row wrap align-center v-if="!empty">
-        <v-btn small @click="add">{{ __(`Add ${misc.singular}`) }}</v-btn>
+        <v-btn small @click="add">{{ __(`Add ${singular}`) }}</v-btn>
         <v-spacer></v-spacer>
         <v-pagination :total-visible="7" v-model="dataset.pagination.page" :length="datasetTotalItems"></v-pagination>
         <div style="max-width:30px" class="mx-2">
@@ -157,6 +174,9 @@ export default {
     title: {
       type: [String],
     },
+    singular: {
+      type: [String],
+    },
     items: {
       type: [Array],
       default: () => {
@@ -177,6 +197,10 @@ export default {
         }
       }
     },
+    withMedia: {
+      type: [Boolean],
+      default: false,
+    },
   },
 
   created () {
@@ -189,7 +213,6 @@ export default {
     }),
 
     datasetTotalItems () {
-      console.log('dataset', Math.ceil(this.datasetItems.length / this.dataset.pagination.rowsPerPage), this.datasetItems.length / this.dataset.pagination.rowsPerPage)
       return Math.ceil(this.datasetItems.length / this.dataset.pagination.rowsPerPage)
     },
 
@@ -204,7 +227,7 @@ export default {
 
       itemDefault: {
         id: null,
-        active: this.shrinkAll,
+        active: !this.shrinkAll,
         hasChild: true,
         misc: this.misc,
       },
@@ -227,7 +250,6 @@ export default {
 
     add () {
       this.datasetItems.push(this.itemDefault)
-      console.log('added', this.datasetItems)
     },
 
     remove (items, i) {
@@ -262,6 +284,7 @@ export default {
 
   mounted () {
     this.initData()
+    console.log(this.datasetItems, this.misc)
   },
 
   watch: {

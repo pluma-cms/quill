@@ -7,7 +7,6 @@
           <!-- Misc -->
           <input type="hidden" name="_token" :value="resource.item._token">
           <input type="hidden" name="api_token" :value="resource.item.api_token">
-
           <!-- Misc -->
 
           <v-card class="mb-3">
@@ -68,15 +67,18 @@
 
           <course-lessons
             :icon="course.chapter.icon"
+            :misc="resource.misc"
+            :singular="course.chapter.singular"
             :title="course.chapter.title"
             v-model="resource.item.chapters"
-            :misc="{singular: course.chapter.singular}"
           ></course-lessons>
 
         </v-flex>
         <v-flex xs12 md3>
-          <v-card>
-            <v-card-text>sd</v-card-text>
+          <v-card v-sticky>
+            <v-card-text>
+              <pre v-html="resource.item"></pre>
+            </v-card-text>
           </v-card>
         </v-flex>
       </v-layout>
@@ -129,6 +131,11 @@ export default {
           chapters: [
             {hasChild: true, title: 'Chapter 01', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>', parts: [{title: 'Chapter 1', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'}]},
           ],
+        },
+        misc: {
+          icon: 'mdi-video',
+          title: 'Parts',
+          singular: 'Part',
         },
         lockSlug: false,
         viewSlug: false,
