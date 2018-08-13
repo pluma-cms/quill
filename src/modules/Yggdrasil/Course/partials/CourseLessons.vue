@@ -117,6 +117,7 @@
                 <!-- Interactive Media -->
                 <v-interactive-media
                   v-if="withMedia"
+                  v-model="props.item.feature"
                   class="mb-3 "
                 ></v-interactive-media>
                 <!-- Interactive Media -->

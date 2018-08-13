@@ -12,6 +12,7 @@
             :no-media-text="trans('Select Media')"
             hide-toolbar
             color="transparent"
+            v-model="value"
           ></mediabox>
         </div>
         <!-- Interactive -->
@@ -24,10 +25,20 @@
 export default {
   name: 'VInteractiveMedia',
 
+  model: {
+    prop: 'value',
+  },
+
   props: {
     label: {
       type: [String],
       default: 'Interactive Media',
+    },
+  },
+
+  data () {
+    return {
+      value: '',
     }
   },
 

@@ -48,7 +48,7 @@ export default {
   },
 
   model: {
-    prop: 'selected'
+    prop: 'media.thumbnail',
   },
 
   components: {
