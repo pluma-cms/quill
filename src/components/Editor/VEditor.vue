@@ -7,7 +7,7 @@
       <div class="v-editor-field__slot">
         <label class="v-label">{{ __(label) }}</label>
         <div class="wysiwyg-editor">
-          <div ref="base-editor" contenteditable="true"></div>
+          <div ref="base-editor" class="base-editor" contenteditable="true"></div>
         </div>
       </div>
     </v-input>
@@ -65,6 +65,10 @@ export default {
       }
     },
 
+    focused () {
+      this.initialize()
+    },
+
     initialize () {
       let self = this
       let options = this.getOptions()
@@ -88,9 +92,14 @@ export default {
           console.error(error)
         })
     },
+
+    destroy () {
+      console.log('destroyed')
+      this.editor.instance.destroy()
+    },
   },
 
-  mounted () {
+  created () {
     this.initialize()
   },
 }
@@ -108,6 +117,7 @@ export default {
 
 .wysiwyg-editor {
   width: 100%;
+  height: 100%;
 
   &--box,
   &--box &__content {

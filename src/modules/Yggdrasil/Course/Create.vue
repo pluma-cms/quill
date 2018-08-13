@@ -1,7 +1,6 @@
 <template>
   <section>
     <v-toolbar
-      v-sticky
       class="elevation-1"
       >
       <v-tooltip bottom>
@@ -14,7 +13,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn color="primary">{{ __('Save') }}</v-btn>
+      <!-- <v-btn color="primary">{{ __('Save') }}</v-btn> -->
     </v-toolbar>
 
     <create-course-form></create-course-form>

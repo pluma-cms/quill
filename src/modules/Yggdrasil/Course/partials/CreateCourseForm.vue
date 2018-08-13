@@ -7,6 +7,7 @@
           <!-- Misc -->
           <input type="hidden" name="_token" :value="resource.item._token">
           <input type="hidden" name="api_token" :value="resource.item.api_token">
+          <dialogbox></dialogbox>
           <!-- Misc -->
 
           <v-card class="mb-3">
@@ -77,7 +78,7 @@
         <v-flex xs12 md3>
           <v-card v-sticky>
             <v-card-text>
-              <pre v-html="resource.item"></pre>
+              <!-- <pre v-html="resource.item"></pre> -->
             </v-card-text>
           </v-card>
         </v-flex>
@@ -129,7 +130,7 @@ export default {
           user: {},
           title: '',
           chapters: [
-            {hasChild: true, title: 'Chapter 01', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>', parts: [{title: 'Chapter 1', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'}]},
+            {hasChild: true, title: 'Chapter 1', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>', parts: [{title: 'Chapter 1', body: '<p>Lorem <em>Dolores</em> <strong>ipsum</strong> dolor.</p>'}]},
           ],
         },
         misc: {

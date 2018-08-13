@@ -1,0 +1,102 @@
+<v-data-iterator
+          content-tag="v-layout" row wrap
+          hide-actions
+          class="sortable-container"
+          :items="datasetItems"
+          :rows-per-page-items="withPagination ? dataset.pagination.rowsPerPageItems : null"
+          :pagination="withPagination ? dataset.pagination : null"
+          >
+
+          <template slot="no-data">
+            <div class="text-xs-center mb-3 align-center justify-center">
+              <div class="greyscaled"><scroll width="8em" height="8em"></scroll></div>
+              <div class="mb-2">{{ __(`No ${title} found`) }}</div>
+              <v-btn color="secondary" @click="add">{{ __(`Add ${misc.singular}`) }}</v-btn>
+            </div>
+          </template>
+
+          <v-flex
+            :md12="gridWidth=='md12'"
+            :md6="gridWidth=='md6'"
+            :md4="gridWidth=='md4'"
+            slot-scope="props"
+            slot="item"
+            xs12
+            >
+            <v-card class="lesson-card">
+              <v-toolbar dense flat>
+                <v-icon small class="sortable-handle">mdi-cursor-move</v-icon>
+                <v-toolbar-title class="subheading">{{ props.item.title }}</v-toolbar-title>
+                <v-spacer></v-spacer>
+                <toggle-button
+                  :negative-text="trans('Shrink')"
+                  :positive-text="trans('Expand')"
+                  negative-icon="mdi-chevron-down"
+                  positive-icon="mdi-chevron-up"
+                  @click.native="open(props.item, !props.item.active)"
+                  small
+                ></toggle-button>
+                <v-menu left bottom>
+                  <v-btn small icon slot="activator"><v-icon small>mdi-close</v-icon></v-btn>
+                  <v-card flat>
+                    <v-card-title class="body-2">{{ __('Permanently delete this card?') }}</v-card-title>
+                    <v-card-text>
+                      {{ __('You will not be able to retrieve this card once deleted. Continue?') }}
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn small flat>{{ __('Cancel') }}</v-btn>
+                      <v-btn small flat @click="remove(datasetItems, props.index)">
+                        {{ __('Delete') }}
+                      </v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-menu>
+              </v-toolbar>
+
+              <v-card flat transition="slide-y-transition" color="transparent" v-show="props.item.active">
+                <v-card-text>
+                  <v-text-field
+                    :error-messages="errors.collect('code')"
+                    :label="trans('Chapter Title')"
+                    @click:append="() => {resource.lockSlug = !resource.lockSlug}"
+                    outline
+                    name="code"
+                    v-model.trim="resource.item.code"
+                    v-validate="'required'"
+                    v-model="props.item.title"
+                  ></v-text-field>
+
+                  <v-editor
+                    class="mb-3"
+                    hide-hints
+                    v-model="props.item.body"
+                  ></v-editor>
+
+                  <!-- Interactive Media -->
+                  <v-interactive-media
+                    v-if="withMedia"
+                    v-model="props.item.feature"
+                    class="mb-3 "
+                  ></v-interactive-media>
+                  <!-- Interactive Media -->
+
+                  <course-lessons
+                    :full-width="!fullWidth"
+                    :icon="props.item.misc.icon"
+                    :items.sync="props.item.lessons"
+                    :singular.sync="props.item.misc.singular"
+                    :title.sync="props.item.misc.title"
+                    :with-pagination="false"
+                    class="elevation-0"
+                    no-child
+                    scrollable
+                    v-if="!noChild"
+                    with-media
+                  ></course-lessons>
+                </v-card-text>
+              </v-card>
+
+            </v-card>
+          </v-flex>
+        </v-data-iterator>
