@@ -63,7 +63,8 @@
           </div>
         </template>
 
-        <v-flex xs12 :md6="$root.$vuetify.breakpoint.mdAndUp" slot="item" slot-scope="props">
+        <!-- :md6="fullWidth" -->
+        <v-flex xs12 slot="item" slot-scope="props">
           <v-card class="lesson-card">
             <v-toolbar dense flat>
               <v-icon small>mdi-bookmark</v-icon>
@@ -122,14 +123,15 @@
                 <!-- Interactive Media -->
 
                 <course-lessons
-                  class="elevation-0"
-                  v-if="!noChild"
-                  no-child
-                  with-media
+                  :full-width="!fullWidth"
                   :icon="props.item.misc.icon"
-                  :title.sync="props.item.misc.title"
-                  :singular.sync="props.item.misc.singular"
                   :items.sync="props.item.lessons"
+                  :singular.sync="props.item.misc.singular"
+                  :title.sync="props.item.misc.title"
+                  class="elevation-0"
+                  no-child
+                  v-if="!noChild"
+                  with-media
                 ></course-lessons>
               </v-card-text>
             </v-card>
@@ -170,6 +172,10 @@ export default {
   props: {
     icon: {
       type: [String],
+    },
+    fullWidth: {
+      type: [Boolean],
+      default: true,
     },
     title: {
       type: [String],
@@ -213,7 +219,9 @@ export default {
     }),
 
     datasetTotalItems () {
-      return Math.ceil(this.datasetItems.length / this.dataset.pagination.rowsPerPage)
+      let num = this.datasetItems.length / this.dataset.pagination.rowsPerPage
+      num = num <= 1 ? 1 : num
+      return Math.floor(num)
     },
 
     empty () {
@@ -236,8 +244,8 @@ export default {
         items: [],
         pagination: {
           page: 1,
-          rowsPerPage: 5,
-          rowsPerPageItems: [5, 15, 25, 50, {text: 'All', value: '-1'}]
+          rowsPerPage: 1,
+          rowsPerPageItems: [1, 5, 15, 25, 50, {text: 'All', value: '-1'}]
         }
       }
     }
