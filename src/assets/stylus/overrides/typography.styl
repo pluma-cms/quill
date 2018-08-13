@@ -11,16 +11,13 @@
 }
 
 .text--ellipsis {
-  display: -webkit-box;
-  max-width: 100%;
-  line-height: 1.4;
-  /* autoprefixer: off */
+  line-clamp: 3;
   -webkit-box-orient: vertical;
-     -moz-box-orient:  vertical;
-          box-orient:   vertical;
-  /* autoprefixer: on */
   -webkit-line-clamp: 3;
-    line-clamp: 3;
+  box-orient: vertical;
+  display: -webkit-box;
+  line-height: 1.4;
+  max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
 }

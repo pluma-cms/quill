@@ -1,55 +1,96 @@
-<template>
-  <v-card id="popularCourses">
-    <v-carousel flat
-        delimiter-icon="lens"
-        next-icon="chevron_right"
-        prev-icon="chevron_left"
-        hide-controls
+<template :dark="$store.getters['app/app'].dark">
+  <v-card hover>
+    <carousel
+      :autoplayTimeout="1000"
+      :paginationActiveColor="app.dark ? '#38a3ee' : '#0c5689'"
+      paginationColor="grey"
+      :perPage="1"
+      autoplay
       >
-        <v-carousel-item flat
-          v-for="(item, i) in dataset.items"
-          :key="i"
-          >
-          <v-card>
-            <v-card-media :src="item.src" height="160"></v-card-media>
-            <v-card-text class="emphasis--medium" v-html="item.title">
+      <template
+        v-for="(item, i) in carousel.items"
+        >
+        <slide :key="i">
+          <v-card flat :href="item.link">
+            <v-card-media
+              height="160"
+              :src="item.thumbnail"
+              >
+            </v-card-media>
+            <v-card-text>
+              <p
+                class="body-2 mb-2 primary--text text--lighten-2">
+                <strong v-html="trans(item.category)"></strong>
+              </p>
+              <v-tooltip bottom>
+                <h3
+                  slot="activator"
+                  class="title mb-3 title__text--ellipsis"
+                  v-html="trans(item.title)"
+                  >
+                </h3>
+                <span v-html="trans(item.title)"></span>
+              </v-tooltip>
+              <p>
+                <span
+                  class="text--ellipsis"
+                  v-html="trans(item.description)"
+                  >
+                </span>
+              </p>
             </v-card-text>
           </v-card>
-        </v-carousel-item>
-      </v-carousel>
+        </slide>
+      </template>
+    </carousel>
   </v-card>
 </template>
 
-<style>
-  #popularCourses .v-carousel__controls {
-    position: relative;
-    height: auto;
-  }
-</style>
-
 <script>
+import store from '@/store'
+import { mapGetters } from 'vuex'
+import { Carousel, Slide } from 'vue-carousel'
+
 export default {
+  store,
+
   name: 'MyMostPopularCourses',
+
+  components: {
+    Carousel,
+    Slide,
+  },
+
+  computed: {
+    ...mapGetters({
+      app: 'app/app',
+    }),
+  },
 
   data () {
     return {
-      dataset: {
+      carousel: {
         items: [
           {
-            title: 'This is a Sample Title',
-            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
+            thumbnail: '//cdn.dribbble.com/users/2559/screenshots/3145041/illushome_1x.png',
+            title: 'My Carousel Card',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id ut maiores enim magnam, commodi quis autem blanditiis, eligendi facere, atque optio natus animi quas repellat tempora fugit rem unde eaque ! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, maxime. A similique repellat eligendi asperiores excepturi obcaecati repudiandae dicta? Voluptatem ex ducimus placeat eius magnam debitis minus saepe. Ex, veniam? ',
+            link: 'https://www.google.com/',
+            category: 'DPE SUP'
           },
           {
-            title: 'This is a Sample Title',
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
+            thumbnail: '//cdn.dribbble.com/users/904433/screenshots/2994633/animation_fin.gif',
+            title: 'My Carousel Card',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id ut maiores enim magnam, commodi quis autem blanditiis, eligendi facere, atque optio natus animi quas repellat tempora fugit rem unde eaque!',
+            link: 'https://www.pinterest.com/',
+            category: 'PSDM SUP'
           },
           {
-            title: 'This is a Sample Title',
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
-          },
-          {
-            title: 'This is a Sample Title',
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
+            thumbnail: '//i.pinimg.com/564x/74/2b/8e/742b8e6e87ef56e698b9c8bc4e930dae.jpg',
+            title: 'My Carousel Card',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id ut maiores enim magnam, commodi quis autem blanditiis, eligendi facere, atque optio natus animi quas repellat tempora fugit rem unde eaque!',
+            link: 'https://www.medium.com/',
+            category: 'PSDM SUP'
           }
         ]
       }

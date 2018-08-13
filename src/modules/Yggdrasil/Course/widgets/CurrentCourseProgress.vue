@@ -28,6 +28,11 @@
   </v-card>
 </template>
 
+<style lang="stylus" scoped>
+  .v-progress-circular
+    margin: 1rem
+</style>
+
 <script>
 export default {
   name: 'CurrentCourseProgress',

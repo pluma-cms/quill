@@ -117,7 +117,7 @@
                       <v-icon color="warning">delete</v-icon>
                     </v-list-tile-avatar>
                     <v-list-tile-content>
-                      <v-list-tile-title>Move to Trash</v-list-tile-title>
+                      <v-list-tile-title>{{ trans('Move to Trash') }}</v-list-tile-title>
                     </v-list-tile-content>
                   </v-list-tile>
                   <v-list-tile
@@ -127,12 +127,12 @@
                       <v-icon color="error">delete_forever</v-icon>
                     </v-list-tile-avatar>
                     <v-list-tile-content>
-                      <v-list-tile-title>Delete Permanently</v-list-tile-title>
+                      <v-list-tile-title>{{ trans('Delete Permanently') }}</v-list-tile-title>
                     </v-list-tile-content>
                   </v-list-tile>
                 </v-list>
               </v-menu>
-              <span>More Actions</span>
+              <span>{{ trans('More Actions') }}</span>
             </v-tooltip>
           </v-toolbar>
           <!-- media-title -->
