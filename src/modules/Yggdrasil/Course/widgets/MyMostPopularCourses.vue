@@ -7,7 +7,7 @@
         hide-controls
       >
         <v-carousel-item flat
-          v-for="(item,i) in dataset.items"
+          v-for="(item, i) in dataset.items"
           :key="i"
           >
           <v-card>

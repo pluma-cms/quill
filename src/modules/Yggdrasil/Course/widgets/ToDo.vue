@@ -1,10 +1,10 @@
 <template :dark="$store.getters['app/app'].dark">
   <v-card id="toDo">
-    <v-toolbar flat dense class="emphasis--medium">
-      <v-toolbar-title>
-        {{ trans('My To-do\'s') }}
-      </v-toolbar-title>
-    </v-toolbar>
+    <v-card-title
+      class="emphasis--medium"
+      >
+      {{ trans('My To-do\'s') }}
+    </v-card-title>
     <v-list two-line>
       <v-list-tile
         ripple

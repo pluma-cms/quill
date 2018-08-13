@@ -2,12 +2,12 @@
   <section>
     <v-container fluid grid-list-lg>
       <v-layout row wrap>
-        <v-flex md6 xs12>
-          <current-course-progress class="mb-3"></current-course-progress>
+        <v-flex md4 xs12>
+          <!-- <current-course-progress class="mb-3"></current-course-progress> -->
 
-          <to-do class="mb-3"></to-do>
+          <!-- <to-do class="mb-3"></to-do> -->
 
-          <my-students class="mb-3"></my-students>
+          <!-- <my-students class="mb-3"></my-students> -->
 
           <my-most-popular-courses></my-most-popular-courses>
         </v-flex>
