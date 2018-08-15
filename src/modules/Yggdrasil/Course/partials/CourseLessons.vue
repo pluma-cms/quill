@@ -74,7 +74,7 @@
         <div v-else class="sortable">
           <virtual-list class="sortable__container pa-0" :size="datasetItems.length" :remain="10">
             <v-card v-for="(item, i) in datasetItems" :key="i" class="lesson-card sortable__card mb-2 elevation-1">
-              <v-toolbar dense class="elevation-1" v-sticky>
+              <v-toolbar dense class="elevation-1" v-sticky="noChild">
                 <v-chip>{{ item.sort }}</v-chip>
                 <v-icon small class="sortable-handle">mdi-cursor-move</v-icon>
                 <v-toolbar-title class="body-1">
@@ -353,17 +353,19 @@ export default {
     },
 
     initSortable () {
-      let table = document.querySelector('.sortable__container div')
+      let table = document.querySelector('.sortable__container > div')
       const self = this
-      Sortable.create(table, {
-        handle: '.sortable-handle',
-        onEnd ({newIndex, oldIndex}) {
-          self.datasetItems.map((i) => {
-            i.sort = newIndex
-            return i
-          })
-        }
-      })
+      if (table) {
+        Sortable.create(table, {
+          // handle: '.sortable-handle',
+          onEnd ({newIndex, oldIndex}) {
+            self.datasetItems.map((i) => {
+              i.sort = newIndex
+              return i
+            })
+          }
+        })
+      }
     }
   },
 
