@@ -202,8 +202,6 @@ export default {
   computed: {
     ...mapGetters({
       dialogbox: 'dialogbox/dialogbox',
-      dataiterator: 'dataiterator/dataiterator',
-      datatable: 'datatable/datatable',
       toggletoolbar: 'toolbar/toolbar',
     }),
 

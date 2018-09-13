@@ -55,7 +55,7 @@
               transition="scale-transition"
               >
               <a
-                href=""
+                href="/admin/courses/show"
                 v-html="trans(props.item.title)"
                 slot="activator"
                 >
