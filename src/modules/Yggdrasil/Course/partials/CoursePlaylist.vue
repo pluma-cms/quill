@@ -33,7 +33,7 @@
           <v-list class="transparent">
             <v-list-tile
               ripple
-              @click=""
+              @click="item.play"
               >
               <v-list-tile-avatar>
                 <v-icon color="success">check</v-icon>
@@ -44,7 +44,7 @@
             </v-list-tile>
             <v-list-tile
               ripple
-              @click=""
+              @click="item.play"
               >
               <v-list-tile-avatar>
                 <v-icon color="secondary">play_arrow</v-icon>
@@ -55,7 +55,7 @@
             </v-list-tile>
             <v-list-tile
               ripple
-              @click=""
+              @click="item.play"
               >
               <v-list-tile-avatar>
                 <v-icon color="grey">lock</v-icon>
@@ -66,7 +66,7 @@
             </v-list-tile>
             <v-list-tile
               ripple
-              @click=""
+              @click="item.play"
               >
               <v-list-tile-avatar>
                 <v-icon color="grey">lock</v-icon>
@@ -83,30 +83,33 @@
 </template>
 
 <script>
-  export default {
-    name: 'CoursePlaylist',
+export default {
+  name: 'CoursePlaylist',
 
-    data () {
-      return {
-        course: {
-          panel: [true, false, false],
-          chapters: [
-            {
-              chapterTitle: 'Chapter 1',
-              chapterSubTitle: 'How to interpret and analyse information received',
-              headerClass: 'secondary--text'
-            },
-            {
-              chapterTitle: 'Chapter 2',
-              chapterSubTitle: 'How to plan a response to information received',
-            },
-            {
-              chapterTitle: 'Chapter 3',
-              chapterSubTitle: 'How to use appropriate communication techniques',
-            }
-          ],
-        }
+  data () {
+    return {
+      course: {
+        panel: [true, false, false],
+        chapters: [
+          {
+            chapterTitle: 'Chapter 1',
+            chapterSubTitle: 'How to interpret and analyse information received',
+            headerClass: 'secondary--text',
+            play: false,
+          },
+          {
+            chapterTitle: 'Chapter 2',
+            chapterSubTitle: 'How to plan a response to information received',
+            play: false,
+          },
+          {
+            chapterTitle: 'Chapter 3',
+            chapterSubTitle: 'How to use appropriate communication techniques',
+            play: false,
+          }
+        ],
       }
     }
   }
+}
 </script>

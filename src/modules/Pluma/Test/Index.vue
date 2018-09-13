@@ -38,7 +38,7 @@
           <!-- dialogbox -->
 
           <!-- grid / list view -->
-          <template v-if="toolbar.toggleview">
+          <template v-if="toggletoolbar.toggleview">
             <data-table :items="courses"></data-table>
           </template>
 
@@ -86,7 +86,7 @@ export default {
   data () {
     return {
       toolbar: {
-        title: 'All Courses'
+        title: 'All Courses',
       },
 
       timeline: {
@@ -132,7 +132,7 @@ export default {
         bulkDestroy: false,
         selectAll: true,
         search: '',
-        cardLink: 'courses/show',
+        cardLink: '/admin/courses/show',
         chip: true,
         hover: true,
         lg3: false,
@@ -203,8 +203,8 @@ export default {
     ...mapGetters({
       dialogbox: 'dialogbox/dialogbox',
       dataiterator: 'dataiterator/dataiterator',
-      toolbar: 'toolbar/toolbar',
       datatable: 'datatable/datatable',
+      toggletoolbar: 'toolbar/toolbar',
     }),
 
     empty: function () {

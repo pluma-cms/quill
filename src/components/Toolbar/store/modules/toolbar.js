@@ -10,7 +10,7 @@ export const state = () => ({
     spacer: true,
     sort: true,
     filter: true,
-    toggleview: false,
+    toggleview: true,
     bulkdestroy: true,
     archive: true,
     raised: true,

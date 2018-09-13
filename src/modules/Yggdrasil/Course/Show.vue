@@ -85,6 +85,7 @@
           </v-flex>
         </template>
       </v-layout>
+
       <!-- course completed -->
       <course-completed></course-completed>
       <!-- course completed -->
@@ -120,7 +121,7 @@ export default {
   data () {
     return {
       course: {
-        enrolled: true,
+        enrolled: false,
         locked: false,
         hasInteractive: true,
         isForm: false,

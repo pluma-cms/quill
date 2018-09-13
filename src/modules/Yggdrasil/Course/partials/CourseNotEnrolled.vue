@@ -3,7 +3,7 @@
     class="mb-3"
     transition="scale-transition"
     >
-    <v-card-media
+    <v-img
       :src="course.thumbnail"
       style="background: linear-gradient(135deg, #003073, #029797);"
       height="500"
@@ -18,7 +18,7 @@
           </v-card-text>
         </v-card>
       </v-layout>
-    </v-card-media>
+    </v-img>
   </v-card>
 </template>
 

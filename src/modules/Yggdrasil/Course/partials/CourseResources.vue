@@ -25,6 +25,7 @@
 
         <v-tab-item href="#overview">
           <v-card
+            height="100%"
             >
             <v-card-text>
               <div class="primary--text text--lighten-2 body-1">
@@ -48,17 +49,43 @@
           </v-card>
         </v-tab-item>
         <v-tab-item ref="#resources">
-          <v-card
-            flat
-            class="pa-5 transparent"
-            >
-            <v-card-text class="text-xs-center">
-              <assignment-icon width="60" height="60"></assignment-icon>
-            </v-card-text>
-            <v-card-text class="text-xs-center">
-              {{ trans('No assignment for this course.') }}
-            </v-card-text>
-          </v-card>
+          <template v-if="course.loaded">
+            <v-card
+              height="100%"
+              flat
+              class="pa-5 transparent"
+              >
+              <v-card-text class="text-xs-center">
+                <assignment-icon width="60" height="60"></assignment-icon>
+              </v-card-text>
+              <v-card-text class="text-xs-center">
+                {{ trans('No assignment for this course.') }}
+              </v-card-text>
+            </v-card>
+          </template>
+          <template>
+            <v-card
+              flat
+              >
+              <v-list two-line>
+                <v-list-tile ripple @click="course.assignment">
+                  <v-list-tile-content>
+                    <v-list-tile-title>{{ trans('Assign No. 1') }}</v-list-tile-title>
+                  </v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile ripple @click="course.assignment">
+                  <v-list-tile-content>
+                    <v-list-tile-title>{{ trans('Assign No. 2') }}</v-list-tile-title>
+                  </v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile ripple @click="course.assignment">
+                  <v-list-tile-content>
+                    <v-list-tile-title>{{ trans('Assign No. 3') }}</v-list-tile-title>
+                  </v-list-tile-content>
+                </v-list-tile>
+              </v-list>
+            </v-card>
+          </template>
         </v-tab-item>
       </v-tabs>
     </v-card>
@@ -71,7 +98,7 @@
       <comment-icon width="120" height="120"></comment-icon>
       <v-card-text class="grey--text">
         <h3>{{ trans('No comments yet') }}</h3>
-        <p>Be the first to comment.</p>
+        <p>{{ trans('Be the first to comment.') }}</p>
       </v-card-text>
     </v-card>
 
@@ -106,6 +133,8 @@ export default {
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea corporis sapiente, blanditiis voluptas, commodi aliquid officia magni temporibus nulla iusto, unde corrupti deserunt ipsum error labore praesentium voluptatem ipsam saepe. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dignissimos alias odio architecto atque minus earum, iste aliquam laboriosam, reprehenderit sint in quas voluptas, consequatur. Neque libero doloribus esse qui.',
         created: '3 weeks ago',
         author: 'Lemony Snicket',
+        loaded: false,
+        assignment: false,
       }
     }
   }
