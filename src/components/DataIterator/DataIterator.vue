@@ -33,7 +33,7 @@
           :href="dataset.hover ? dataset.cardLink : ''"
           >
           <v-tooltip bottom>
-            <v-card-media
+            <v-img
               :class="dataset.cardMediaClass"
               :height="dataset.cardMediaHeight"
               :src="props.item.thumbnail"
@@ -51,22 +51,26 @@
               </v-layout> -->
 
               <v-layout
+                fill-height
                 align-end
                 class="ma-2"
                 justify-end
+                row
                 v-if="dataset.chip"
                 >
-                <v-chip
-                  class="elevation-2"
-                  color="success"
-                  dark
-                  text-color="white"
-                  v-if="props.item.status"
-                  >
-                  {{ props.item.status }}
-                </v-chip>
+                <v-card-text class="text-xs-right">
+                  <v-chip
+                    class="elevation-2"
+                    color="success"
+                    dark
+                    text-color="white"
+                    v-if="props.item.status"
+                    >
+                    {{ props.item.status }}
+                  </v-chip>
+                </v-card-text>
               </v-layout>
-            </v-card-media>
+            </v-img>
             <span v-html="trans(props.item.title)"></span>
           </v-tooltip>
 

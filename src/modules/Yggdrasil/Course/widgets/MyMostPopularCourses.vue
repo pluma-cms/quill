@@ -12,11 +12,11 @@
         >
         <slide :key="i">
           <v-card flat :href="item.link">
-            <v-card-media
+            <v-img
               height="160"
               :src="item.thumbnail"
               >
-            </v-card-media>
+            </v-img>
             <v-card-text>
               <p
                 class="body-2 mb-2 primary--text text--lighten-2">
@@ -25,12 +25,21 @@
               <v-tooltip bottom>
                 <h3
                   slot="activator"
-                  class="title mb-3 title__text--ellipsis"
+                  class="title mb-2 title__text--ellipsis"
                   v-html="trans(item.title)"
                   >
                 </h3>
                 <span v-html="trans(item.title)"></span>
               </v-tooltip>
+              <!-- rating -->
+              <div class="mb-3">
+                <v-icon color="secondary" small>star</v-icon>
+                <v-icon color="secondary" small>star</v-icon>
+                <v-icon color="secondary" small>star</v-icon>
+                <v-icon color="secondary" small>star_half</v-icon>
+                <v-icon color="secondary" small>star_border</v-icon>
+              </div>
+              <!-- rating -->
               <p>
                 <span
                   class="text--ellipsis"

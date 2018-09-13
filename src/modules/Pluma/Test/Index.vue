@@ -31,7 +31,7 @@
                 color="secondary"
                 @click="openDialogbox"
                 >
-                {{ trans('OPen Dialog Test') }}
+                {{ trans('Open Dialog Test') }}
               </v-btn>
             </v-card-text>
           </v-card>
@@ -203,7 +203,7 @@ export default {
     ...mapGetters({
       dialogbox: 'dialogbox/dialogbox',
       dataiterator: 'dataiterator/dataiterator',
-      // toolbar: 'toolbar/toolbar',
+      toolbar: 'toolbar/toolbar',
       datatable: 'datatable/datatable',
     }),
 
