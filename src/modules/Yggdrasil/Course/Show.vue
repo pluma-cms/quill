@@ -121,7 +121,7 @@ export default {
   data () {
     return {
       course: {
-        enrolled: false,
+        enrolled: true,
         locked: false,
         hasInteractive: true,
         isForm: false,
