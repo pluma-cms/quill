@@ -2,9 +2,15 @@
   <section>
     <v-container fluid grid-list-lg>
       <v-layout row wrap order-md1>
-        <v-flex :md8="course.md8" xs12>
-          <v-card height="100" color="grey lighten-3">
-            {{ trans('> Interactive Media') }}
+        <v-flex
+          :md8="course.md8"
+          xs12
+          >
+          <v-card
+            height="100"
+            color="grey lighten-3"
+            >
+            {{ trans('> Interavtive Media') }}
           </v-card>
           <v-card-actions color="grey lighten-3">
             <v-spacer></v-spacer>

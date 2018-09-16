@@ -1,4 +1,4 @@
-import Vue from 'vue'
+wimport Vue from 'vue'
 import Vuex from 'vuex'
 import { dialogbox } from './modules/dialogbox'
 

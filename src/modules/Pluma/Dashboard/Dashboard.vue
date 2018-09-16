@@ -22,9 +22,9 @@
             <span class="px-2 pb-2">
               <v-icon small>mdi-book-open-page-variant</v-icon>
             </span>
-            <strong class="grey--text body-2">
-              {{ trans('CONTINUE COURSE') }}
-            </strong>
+            <p class="body-2">
+              <strong>{{ trans('Continue Course') }}</strong>
+            </p>
             <v-spacer></v-spacer>
             <v-btn icon small>
               <v-icon small>more_horiz</v-icon>
@@ -41,7 +41,7 @@
               <v-flex xs6>
                 <div class="grey--text">
                   <p class="body-2">
-                    <strong>{{ trans('My Course Progress') }}</strong>
+                    {{ trans('My Course Progress') }}
                   </p>
                   <p class="title">{{ trans('34%') }}</p>
                   <v-progress-linear
@@ -80,7 +80,7 @@
                     :size="100"
                     :width="10"
                     :value="30"
-                    color="primary"
+                    color="to top, #7B1FA2, #E1BEE7"
                     >
                     34
                   </v-progress-circular>
@@ -105,6 +105,18 @@
         </v-card>
       </v-flex>
     </v-layout>
+
+    <v-layout row wrap>
+      <v-flex md8 xs12>
+        <v-card>
+          <!-- <line-chart></line-chart> -->
+          <line-chart :data="test" :options="options"></line-chart>
+        </v-card>
+      </v-flex>
+      <v-flex md4 xs12>
+        <v-card height="100"></v-card>
+      </v-flex>
+    </v-layout>
   </v-container>
 </template>
 
@@ -112,21 +124,22 @@
   .progress-bar .v-progress-linear__bar__determinate {
     background: linear-gradient(to right, #0c5689, #b53f9c) !important;
   }
-
-  .progress-bar {
-    color: linear-gradient(to right, #0c5689, #b53f9c) !important;
-  }
 </style>
 
 <script>
+import LineChart from '@/components/ChartJS/LineChart.js'
+import store from '@/store'
 import { mapGetters } from 'vuex'
 import MyMostPopularCourses from '@/modules/Yggdrasil/Course/widgets/MyMostPopularCourses.vue'
 import CurrentCourseProgress from '@/modules/Yggdrasil/Course/widgets/CurrentCourseProgress'
 
 export default {
+  store,
+
   components: {
     MyMostPopularCourses,
-    CurrentCourseProgress
+    CurrentCourseProgress,
+    LineChart,
   },
 
   computed: {
@@ -136,7 +149,32 @@ export default {
   },
 
   data () {
-    return {}
+    return {
+      test: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+          {
+            label: 'Data One',
+            backgroundColor: '#f87979',
+            data: [40, 39, 10, 40, 39, 80, 40]
+          }
+        ]
+      },
+      options: {responsive: true, maintainAspectRatio: false},
+    }
+  },
+
+  mounted () {
+    // this.renderChart({
+    //   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    //   datasets: [
+    //     {
+    //       label: 'Data One',
+    //       backgroundColor: '#f87979',
+    //       data: [40, 39, 10, 40, 39, 80, 40]
+    //     }
+    //   ]
+    // }, {responsive: true, maintainAspectRatio: false})
   }
 }
 </script>

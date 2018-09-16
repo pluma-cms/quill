@@ -34,6 +34,7 @@
     <!-- hide searchField -->
     <template v-else>
       <v-toolbar-title
+        class="primary--text"
         v-html="trans(dataset.title)"
         >
       </v-toolbar-title>
