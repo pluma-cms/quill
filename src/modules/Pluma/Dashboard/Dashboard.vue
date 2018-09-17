@@ -12,7 +12,9 @@
               >
               <v-icon>mdi-account</v-icon>
             </v-avatar>
-            <h1 class="display-1 mb-3">{{ __('179081') }}</h1>
+            <h1 class="display-1 mb-3">
+              {{ __('179081') }}
+            </h1>
             <p class="body-1 grey--text">
               {{ trans('Account Number') }}
             </p>
@@ -27,7 +29,8 @@
             <span class="grey--text px-2 pb-2">
               <v-icon
                 small
-                class="grey--text">
+                class="grey--text"
+                >
                 mdi-book-open-page-variant
               </v-icon>
             </span>
@@ -45,8 +48,19 @@
             <v-layout row wrap>
               <v-flex xs6>
                 <div class="text-xs-center">
-                  <h1 class="display-1 mb-2">{{ trans('12 340') }}</h1>
-                  <v-btn round small depressed class="emphasis--medium">{{ trans('Continue') }}</v-btn>
+                  <h1
+                    class="display-1 mb-2"
+                    >
+                    {{ trans('12 340') }}
+                  </h1>
+                  <v-btn
+                    round
+                    small
+                    depressed
+                    class="emphasis--medium"
+                    >
+                    {{ trans('Continue') }}
+                  </v-btn>
                 </div>
               </v-flex>
               <v-flex xs6>
@@ -54,10 +68,12 @@
                   <p class="body-2">
                     {{ trans('My Course Progress') }}
                   </p>
-                  <p class="title">{{ trans('34%') }}</p>
+                  <p class="title">
+                    {{ trans('34%') }}
+                  </p>
                   <v-progress-linear
                     value="50"
-                    height="10"
+                    height="6"
                     color="primary"
                     :background-color="app.dark ? 'emphasis--medium' : 'grey lighten-3'"></v-progress-linear>
                   <p>{{ trans('16 days left') }}</p>
@@ -72,7 +88,9 @@
         <v-card height="100%">
           <v-card-actions class="px-3">
             <p class="body-2 grey--text">
-              <strong>{{ trans('Rest of the Traffic') }}</strong>
+              <strong>
+                {{ trans('Rest of the Traffic') }}
+              </strong>
             </p>
             <v-spacer></v-spacer>
             <v-btn icon small>
@@ -95,9 +113,15 @@
                 </div>
               </v-flex>
               <v-flex xs6>
-                <h1 class="display-1 mb-3">{{ __('140 GB') }}</h1>
-                <p class="grey--text mb-2">{{ trans('Spent') }}</p>
-                <p class="grey--text">{{ trans('-10.356 MB') }}</p>
+                <h1 class="display-1 mb-3">
+                  {{ __('140 GB') }}
+                </h1>
+                <p class="grey--text mb-2">
+                  {{ trans('Spent') }}
+                </p>
+                <p class="grey--text">
+                  {{ trans('-10.356 MB') }}
+                </p>
               </v-flex>
             </v-layout>
           </v-card-text>
@@ -109,10 +133,17 @@
       <v-flex md8 xs12>
         <v-card>
           <v-card-text>
-            <h4 class="grey--text">{{ trans('Course Statistics') }}</h4>
+            <h4
+              class="grey--text">
+              {{ trans('Course Statistics') }}
+            </h4>
           </v-card-text>
           <v-card-text>
-            <line-chart :data="lineChart" :options="lineChart.options"></line-chart>
+            <line-chart
+              :data="lineChart"
+              :options="lineChart.options"
+              >
+            </line-chart>
           </v-card-text>
         </v-card>
       </v-flex>
@@ -124,7 +155,12 @@
               <strong>{{ trans('The Current Plan') }}</strong>
             </p>
             <v-spacer></v-spacer>
-            <v-btn small round class="emphasis--medium" flat>
+            <v-btn
+              small
+              round
+              class="emphasis--medium px-3"
+              flat
+              >
               {{ trans('Change Plan') }}
             </v-btn>
           </v-card-actions>
