@@ -100,6 +100,12 @@
         </v-card>
       </v-flex>
 
+      <v-flex md8 xs12>
+        <v-card>
+          <line-chart :data="lineChart" :options="lineChart.options"></line-chart>
+        </v-card>
+      </v-flex>
+
       <v-flex md4 xs12>
         <v-card>
           <v-list dense>
