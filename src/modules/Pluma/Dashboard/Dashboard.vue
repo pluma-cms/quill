@@ -109,8 +109,7 @@
     <v-layout row wrap>
       <v-flex md8 xs12>
         <v-card>
-          <!-- <line-chart></line-chart> -->
-          <line-chart :data="test" :options="options"></line-chart>
+          <line-chart :data="lineChart" :options="options"></line-chart>
         </v-card>
       </v-flex>
       <v-flex md4 xs12>
@@ -150,31 +149,21 @@ export default {
 
   data () {
     return {
-      test: {
+      lineChart: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [
           {
-            label: 'Data One',
+            label: 'Statistics',
             backgroundColor: '#f87979',
             data: [40, 39, 10, 40, 39, 80, 40]
           }
         ]
       },
-      options: {responsive: true, maintainAspectRatio: false},
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      },
     }
   },
-
-  mounted () {
-    // this.renderChart({
-    //   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    //   datasets: [
-    //     {
-    //       label: 'Data One',
-    //       backgroundColor: '#f87979',
-    //       data: [40, 39, 10, 40, 39, 80, 40]
-    //     }
-    //   ]
-    // }, {responsive: true, maintainAspectRatio: false})
-  }
 }
 </script>
