@@ -4,12 +4,18 @@
       <v-flex md4 xs12>
         <!-- <my-most-popular-courses class="mb-3"></my-most-popular-courses> -->
         <v-card height="100%">
-          <v-card-text class="py-5 text-xs-center">
-            <v-avatar color="emphasis--medium" class="mb-3">
+          <v-card-text
+            class="py-5 text-xs-center">
+            <v-avatar
+              color="emphasis--medium"
+              class="mb-3"
+              >
               <v-icon>mdi-account</v-icon>
             </v-avatar>
             <h1 class="display-1 mb-3">{{ __('179081') }}</h1>
-            <p class="body-1 grey--text">{{ trans('Account Number') }}</p>
+            <p class="body-1 grey--text">
+              {{ trans('Account Number') }}
+            </p>
           </v-card-text>
         </v-card>
       </v-flex>
@@ -19,10 +25,16 @@
         <v-card height="100%">
           <v-card-actions class="px-3">
             <span class="grey--text px-2 pb-2">
-              <v-icon small>mdi-book-open-page-variant</v-icon>
+              <v-icon
+                small
+                class="grey--text">
+                mdi-book-open-page-variant
+              </v-icon>
             </span>
             <p class="body-2 grey--text">
-              <strong>{{ trans('Continue Course') }}</strong>
+              <strong>
+                {{ trans('Continue Course') }}
+              </strong>
             </p>
             <v-spacer></v-spacer>
             <v-btn icon small>
@@ -45,8 +57,8 @@
                   <p class="title">{{ trans('34%') }}</p>
                   <v-progress-linear
                     value="50"
-                    class="progress-bar"
                     height="10"
+                    color="primary"
                     :background-color="app.dark ? 'emphasis--medium' : 'grey lighten-3'"></v-progress-linear>
                   <p>{{ trans('16 days left') }}</p>
                 </div>
@@ -76,7 +88,7 @@
                     :size="100"
                     :width="6"
                     :value="30"
-                    color="primary lighten-1"
+                    color="secondary"
                     >
                     {{ __('85 %') }}
                   </v-progress-circular>
@@ -96,18 +108,35 @@
     <v-layout row wrap>
       <v-flex md8 xs12>
         <v-card>
-          <line-chart :data="lineChart" :options="lineChart.options"></line-chart>
-        </v-card>
-      </v-flex>
-
-      <v-flex md8 xs12>
-        <v-card>
-          <line-chart :data="lineChart" :options="lineChart.options"></line-chart>
+          <v-card-text>
+            <h4 class="grey--text">{{ trans('Course Statistics') }}</h4>
+          </v-card-text>
+          <v-card-text>
+            <line-chart :data="lineChart" :options="lineChart.options"></line-chart>
+          </v-card-text>
         </v-card>
       </v-flex>
 
       <v-flex md4 xs12>
-        <v-card>
+        <v-card class="mb-3">
+          <v-card-actions class="pa-3">
+            <p class="body-2 grey--text">
+              <strong>{{ trans('The Current Plan') }}</strong>
+            </p>
+            <v-spacer></v-spacer>
+            <v-btn small round class="emphasis--medium" flat>
+              {{ trans('Change Plan') }}
+            </v-btn>
+          </v-card-actions>
+          <v-card-text>
+            <h1 class="headline mb-2">
+              <span class="px-2">
+                <v-icon size="20" class="pb-2 grey--text">dashboard</v-icon>
+              </span>
+              {{ trans('Fast Furious') }}
+            </h1>
+            <v-divider></v-divider>
+          </v-card-text>
           <v-list dense>
             <v-list-tile>
               <v-list-tile-avatar>
@@ -156,6 +185,7 @@
             </v-list-tile>
           </v-list>
         </v-card>
+        <to-do></to-do>
       </v-flex>
     </v-layout>
   </v-container>
@@ -173,6 +203,7 @@ import store from '@/store'
 import { mapGetters } from 'vuex'
 import MyMostPopularCourses from '@/modules/Yggdrasil/Course/widgets/MyMostPopularCourses.vue'
 import CurrentCourseProgress from '@/modules/Yggdrasil/Course/widgets/CurrentCourseProgress'
+import ToDo from '@/modules/Yggdrasil/Course/widgets/ToDo.vue'
 
 export default {
   store,
@@ -181,6 +212,7 @@ export default {
     MyMostPopularCourses,
     CurrentCourseProgress,
     LineChart,
+    ToDo
   },
 
   computed: {
@@ -196,20 +228,52 @@ export default {
         datasets: [
           {
             label: 'Statistics',
-            backgroundColor: '#23CCAB', // pink lighten-2,
-            data: [40, 39, 10, 40, 39, 80, 40]
-          }
+            backgroundColor: 'transparent',
+            data: [3, 5, 3, 4, 2, 4, 2],
+            borderColor: '#23CCAB', // accent
+            borderWidth: 3,
+            pointRadius: 6,
+            pointWidthRadius: 1,
+          },
+          {
+            label: 'Statistics',
+            backgroundColor: 'transparent',
+            data: [4, 2, 4, 2, 3, 5, 3],
+            borderColor: '#0C5689', // accent
+            borderWidth: 3,
+            pointRadius: 6,
+            pointWidthRadius: 1,
+          },
         ],
         options: {
+          layout: {
+            padding: {
+              top: 10,
+              bottom: 10,
+              left: 10,
+              right: 10,
+            }
+          },
+          legend: {
+            display: false,
+          },
           scales: {
             xAxes: [{
               gridLines: {
                 display: false,
+              },
+              ticks: {
+                display: false,
+                beginAtZero: true,
               }
             }],
             yAxes: [{
               gridLines: {
                 display: false,
+              },
+              ticks: {
+                display: false,
+                beginAtZero: true,
               }
             }]
           },

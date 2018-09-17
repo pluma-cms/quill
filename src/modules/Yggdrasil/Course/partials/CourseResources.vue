@@ -1,26 +1,27 @@
 <template>
   <div>
     <v-card
-      class="mb-5"
+      flat
+      class="mb-5 transparent"
+      height="400"
       >
       <v-tabs
-        class="transparent"
-        color="emphasis--medium"
         slider-color="accent"
+        color="transparent"
         >
         <v-tab
           ripple
           key="overview"
           id="overview"
           >
-          {{ trans('Overview') }}
+          <strong>{{ trans('Overview') }}</strong>
         </v-tab>
         <v-tab
           ripple
           key="resources"
           id="overview"
           >
-          {{ trans('Resources') }}
+          <strong>{{ trans('Resources') }}</strong>
         </v-tab>
 
         <v-tab-item href="#overview">
