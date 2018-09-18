@@ -5,7 +5,7 @@
         <!-- <my-most-popular-courses class="mb-3"></my-most-popular-courses> -->
         <v-card height="100%">
           <v-card-text
-            class="py-5 text-xs-center">
+            class="text-xs-center">
             <v-avatar
               color="emphasis--medium"
               class="mb-3"
@@ -16,7 +16,7 @@
               {{ __('179081') }}
             </h1>
             <p class="body-1 grey--text">
-              {{ trans('Account Number') }}
+              {{ trans('Over All Users') }}
             </p>
           </v-card-text>
         </v-card>
@@ -74,7 +74,7 @@
                   <v-progress-linear
                     value="50"
                     height="6"
-                    color="primary"
+                    class="progress-bar"
                     :background-color="app.dark ? 'emphasis--medium' : 'grey lighten-3'">
                   </v-progress-linear>
                   <p>{{ trans('16 days left') }}</p>
@@ -107,7 +107,7 @@
                     :size="100"
                     :width="6"
                     :value="30"
-                    color="secondary"
+                    color="#e56590"
                     >
                     {{ __('85 %') }}
                   </v-progress-circular>
@@ -145,7 +145,7 @@
               :options="lineChart.options"
               >
             </line-chart> -->
-            <canvas id="myChart"></canvas>
+            <canvas id="statisticsChart"></canvas>
           </v-card-text>
         </v-card>
       </v-flex>
@@ -154,7 +154,7 @@
         <v-card class="mb-3">
           <v-card-actions class="pa-3">
             <p class="body-2 grey--text">
-              <strong>{{ trans('The Current Plan') }}</strong>
+              <strong>{{ trans('Server Environment') }}</strong>
             </p>
             <v-spacer></v-spacer>
             <v-btn
@@ -171,9 +171,8 @@
               <span class="px-2">
                 <v-icon size="20" class="pb-2 grey--text">dashboard</v-icon>
               </span>
-              {{ trans('Fast Furious') }}
+              {{ trans('System Corner') }}
             </h1>
-            <v-divider></v-divider>
           </v-card-text>
           <v-list dense>
             <v-list-tile>
@@ -231,7 +230,7 @@
 
 <style>
   .progress-bar .v-progress-linear__bar__determinate {
-    background: linear-gradient(to right, #0c5689, #b53f9c) !important;
+    background: linear-gradient(to right, #e56590, #ffb88c) !important;
   }
 </style>
 
@@ -266,63 +265,102 @@ export default {
   methods: {
     barChart () {
       /*eslint-disable*/
-      var ctx = document.getElementById('myChart').getContext("2d");
+      var ctx = document.getElementById('statisticsChart').getContext("2d");
 
-      var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
-      gradientStroke.addColorStop(0, '#4ccbab');
+      var gradient = ctx.createLinearGradient(100, 0, 100, 400);
+      gradient.addColorStop(0, '#e56590');
+      gradient.addColorStop(1, '#ffb88c');
 
-      gradientStroke.addColorStop(1, '#3e75c8');
+      var gradient2 = ctx.createLinearGradient(100, 0, 100, 400);
+      gradient2.addColorStop(0, '#4ccbab');
+      gradient2.addColorStop(1, '#3e75c8');
 
-      var myChart = new Chart(ctx, {
-          type: 'line',
+
+      var statisticsChart = new Chart(ctx, {
+          type: 'bar',
           data: {
-            labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL"],
-            datasets: [{
-              label: "Statistics",
-              borderColor: gradientStroke,
-              pointBorderColor: gradientStroke,
-              pointBackgroundColor: gradientStroke,
-              pointHoverBackgroundColor: gradientStroke,
-              pointHoverBorderColor: gradientStroke,
-              pointWidthRadius: 1,
-              pointBorderWidth: 5,
-              pointHoverRadius: 10,
-              pointHoverBorderWidth: 3,
-              borderWidth: 3,
-              pointRadius: 6,
-              fill: false,
-              data: [100, 120, 150, 170, 180, 170, 160]
-            }]
+            labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
+            datasets: [
+              {
+                label: "Statistics",
+                borderColor: gradient,
+                pointBorderColor: gradient,
+                pointBackgroundColor: gradient,
+                pointHoverBackgroundColor: gradient,
+                pointHoverBorderColor: gradient,
+                pointWidthRadius: 1,
+                pointBorderWidth: 5,
+                pointHoverRadius: 10,
+                pointHoverBorderWidth: 3,
+                borderWidth: 3,
+                pointRadius: 6,
+                fill: false,
+                backgroundColor: gradient,
+                data: [170, 80, 100, 120, 170, 120, -70, 140, 180, 100, -40, -70,]
+              },
+              {
+                label: "Statistics",
+                borderColor: gradient2,
+                pointBorderColor: gradient2,
+                pointBackgroundColor: gradient2,
+                pointHoverBackgroundColor: gradient2,
+                pointHoverBorderColor: gradient2,
+                pointWidthRadius: 1,
+                pointBorderWidth: 5,
+                pointHoverRadius: 10,
+                pointHoverBorderWidth: 3,
+                borderWidth: 3,
+                pointRadius: 6,
+                fill: false,
+                backgroundColor: gradient2,
+                reverse: true,
+                data: [-50, 40, 130, -20, -70, 50, 170, -40, -80, 100, 120, 150,]
+              },
+            ]
           },
           options: {
+            animation: {
+              // easing: 'easeInBack'
+            },
+            layout: {
+              padding: {
+                top: 10,
+                bottom: 10,
+                left: 10,
+                right: 10,
+              }
+            },
             legend: {
-              position: "bottom"
+              display: false,
             },
             scales: {
               yAxes: [{
                 ticks: {
                   beginAtZero: true,
                   maxTicksLimit: 5,
-                  padding: 20
-              },
+                  padding: 20,
+                  display: false
+                },
                 gridLines: {
                   drawTicks: false,
                   display: false
-                }
+                },
               }],
               xAxes: [{
+                barPercentage: 0.3,
                 gridLines: {
                   zeroLineColor: "transparent",
                   display: false
                 },
                 ticks: {
                   padding: 20,
+                  display: false,
                 }
               }]
             }
           }
       });
-    }
+    },
   },
 
   data () {
@@ -350,6 +388,9 @@ export default {
           },
         ],
         options: {
+          animation: {
+            easing: "easeInOutBack"
+          },
           layout: {
             padding: {
               top: 10,

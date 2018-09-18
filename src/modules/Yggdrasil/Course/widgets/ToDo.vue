@@ -3,7 +3,7 @@
     <v-card-text>
       <v-card-actions class="px-0">
         <v-card flat class="transparent">
-          <h3 class="secondary--text">
+          <h3>
             {{ __('Thursday,') }}
             <span class="subheading">
               {{ __('10th') }}
@@ -26,6 +26,8 @@
         v-model="task"
         label="Create New Task"
         solo
+        flat
+        background-color="emphasis--medium"
         @keydown.enter="create"
         >
         <v-fade-transition slot="append">
@@ -125,16 +127,8 @@ export default {
           done: false,
           text: 'Foobar'
         },
-        {
-          done: false,
-          text: 'Fizzbuzz'
-        },
-        {
-          done: false,
-          text: 'Jengga code'
-        }
       ],
-      task: null
+      task: null,
     }
   }
 }
