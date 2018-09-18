@@ -147,7 +147,6 @@
               :ctx="ctx"
               >
             </line-chart>
-            <!-- <canvas id="statisticsChart"></canvas> -->
           </v-card-text>
         </v-card>
       </v-flex>
@@ -268,7 +267,6 @@ export default {
     barChart () {
       /*eslint-disable*/
       this.ctx = document.getElementById('statisticsChart').getContext("2d");
-      console.log('dash.canvas', document.getElementById('statisticsChart').getContext('2d'))
 
       var gradient = this.ctx.createLinearGradient(100, 0, 100, 400);
       gradient.addColorStop(0, '#e56590');
@@ -367,67 +365,6 @@ export default {
       lineChart: null,
       options: null,
       ctx: null,
-      linexxChart: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [
-          {
-            label: 'Statistics',
-            backgroundColor: 'transparent',
-            data: [3, 5, 3, 4, 2, 4, 2],
-            borderColor: '#23CCAB', // accent
-            borderWidth: 3,
-            pointRadius: 6,
-            pointWidthRadius: 1,
-          },
-          {
-            label: 'Statistics',
-            backgroundColor: 'transparent',
-            data: [4, 2, 4, 2, 3, 5, 3],
-            borderColor: '#0C5689', // accent
-            borderWidth: 3,
-            pointRadius: 6,
-            pointWidthRadius: 1,
-          },
-        ],
-        options: {
-          animation: {
-            easing: "easeInOutBack"
-          },
-          layout: {
-            padding: {
-              top: 10,
-              bottom: 10,
-              left: 10,
-              right: 10,
-            }
-          },
-          legend: {
-            display: false,
-          },
-          scales: {
-            xAxes: [{
-              gridLines: {
-                display: false,
-              },
-              ticks: {
-                display: false,
-                beginAtZero: true,
-              }
-            }],
-            yAxes: [{
-              gridLines: {
-                display: false,
-              },
-              ticks: {
-                display: false,
-                beginAtZero: true,
-              }
-            }]
-          },
-          responsive: true,
-          maintainAspectRatio: false,
-        },
-      },
     }
   }
 }

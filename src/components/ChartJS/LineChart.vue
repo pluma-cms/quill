@@ -29,13 +29,15 @@ export default {
   methods: {
     initChart () {
       /*eslint-disable*/
-      var ctx = document.getElementById(this.name).getContext('2d')
-      console.log(this.data, this.options)
-      var statisticsChart = new Chart(ctx, {
-        type: 'bar',
-        data: this.data,
-        options: this.options,
-      });
+      this.$nextTick(() => {
+        var ctx = document.getElementById(this.name).getContext('2d')
+        console.log('linechart', this.data, this.options)
+        var statisticsChart = new Chart(ctx, {
+          type: 'bar',
+          data: this.data,
+          options: this.options,
+        });
+      })
     }
   },
 
