@@ -75,7 +75,8 @@
                     value="50"
                     height="6"
                     color="primary"
-                    :background-color="app.dark ? 'emphasis--medium' : 'grey lighten-3'"></v-progress-linear>
+                    :background-color="app.dark ? 'emphasis--medium' : 'grey lighten-3'">
+                  </v-progress-linear>
                   <p>{{ trans('16 days left') }}</p>
                 </div>
               </v-flex>
@@ -139,11 +140,12 @@
             </h4>
           </v-card-text>
           <v-card-text>
-            <line-chart
+            <!-- <line-chart
               :data="lineChart"
               :options="lineChart.options"
               >
-            </line-chart>
+            </line-chart> -->
+            <canvas id="myChart"></canvas>
           </v-card-text>
         </v-card>
       </v-flex>
@@ -255,6 +257,72 @@ export default {
     ...mapGetters({
       app: 'app/app',
     }),
+  },
+
+  mounted () {
+    this.barChart()
+  },
+
+  methods: {
+    barChart () {
+      /*eslint-disable*/
+      var ctx = document.getElementById('myChart').getContext("2d");
+
+      var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+      gradientStroke.addColorStop(0, '#4ccbab');
+
+      gradientStroke.addColorStop(1, '#3e75c8');
+
+      var myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL"],
+            datasets: [{
+              label: "Statistics",
+              borderColor: gradientStroke,
+              pointBorderColor: gradientStroke,
+              pointBackgroundColor: gradientStroke,
+              pointHoverBackgroundColor: gradientStroke,
+              pointHoverBorderColor: gradientStroke,
+              pointWidthRadius: 1,
+              pointBorderWidth: 5,
+              pointHoverRadius: 10,
+              pointHoverBorderWidth: 3,
+              borderWidth: 3,
+              pointRadius: 6,
+              fill: false,
+              data: [100, 120, 150, 170, 180, 170, 160]
+            }]
+          },
+          options: {
+            legend: {
+              position: "bottom"
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  maxTicksLimit: 5,
+                  padding: 20
+              },
+                gridLines: {
+                  drawTicks: false,
+                  display: false
+                }
+              }],
+              xAxes: [{
+                gridLines: {
+                  zeroLineColor: "transparent",
+                  display: false
+                },
+                ticks: {
+                  padding: 20,
+                }
+              }]
+            }
+          }
+      });
+    }
   },
 
   data () {
