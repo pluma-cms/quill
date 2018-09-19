@@ -99,14 +99,12 @@
           hover
           href="/admin"
           class="glance__card--gradient">
-          <v-card-actions class="px-3">
-            <p class="body-2">
+          <v-card-text>
+            <p class="body-2 px-3">
               <strong>
                 {{ trans('Rest of the Traffic') }}
               </strong>
             </p>
-          </v-card-actions>
-          <v-card-text>
             <v-layout row wrap>
               <v-flex xs6>
                 <div class="text-xs-center">
@@ -141,12 +139,16 @@
     <v-layout row wrap>
       <v-flex md8 xs12>
         <v-card class="mb-3">
-          <v-card-text>
+          <v-card-actions class="pa-3">
             <h4
               class="grey--text">
               {{ trans('Course Statistics') }}
             </h4>
-          </v-card-text>
+            <v-spacer></v-spacer>
+            <v-btn icon class="mx-3"><v-icon small>chrome_reader_mode</v-icon></v-btn>
+            <v-divider vertical></v-divider>
+            <v-btn round small flat class="emphasis--medium px-3 mx-3">View History</v-btn>
+          </v-card-actions>
           <v-card-text>
             <bar-chart
               name="statisticsChart"
@@ -353,7 +355,7 @@ export default {
             },
           }],
           xAxes: [{
-            barPercentage: 0.3,
+            barPercentage: 0.5,
             gridLines: {
               zeroLineColor: "transparent",
               display: false

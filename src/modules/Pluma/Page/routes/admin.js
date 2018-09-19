@@ -4,7 +4,7 @@ export default [
     name: 'subheader:content',
     meta: {
       subheader: true,
-      sort: 4,
+      sort: 5,
       title: 'Content',
     }
   },

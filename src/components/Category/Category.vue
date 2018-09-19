@@ -1,7 +1,6 @@
 <template>
   <v-card>
     <template
-      v-model="dataset.categoryList"
       v-if="dataset.categoryList"
       >
       <v-card-text>

@@ -4,7 +4,7 @@ export default [
     component: () => import('@/App.vue'),
     meta: {
       title: 'Tests',
-      sort: 10,
+      sort: 17,
       authenticatable: true,
       icon: 'mdi-book-multiple-variant',
     },
@@ -15,6 +15,7 @@ export default [
         component: () => import('../Index.vue'),
         meta: {
           title: 'All Tests',
+          sort: 17,
           authenticatable: true,
           icon: 'mdi-book-multiple-variant',
         },
