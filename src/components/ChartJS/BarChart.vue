@@ -6,7 +6,7 @@
 import { Chart } from 'chart.js/dist/Chart.bundle.js'
 
 export default {
-  name: 'LineChart',
+  name: 'BarChart',
   props: {
     name: {
       type: [String],
@@ -32,7 +32,7 @@ export default {
       this.$nextTick(() => {
         var ctx = document.getElementById(this.name).getContext('2d')
         var statisticsChart = new Chart(ctx, {
-          type: 'line',
+          type: 'bar',
           data: this.data,
           options: this.options,
         });

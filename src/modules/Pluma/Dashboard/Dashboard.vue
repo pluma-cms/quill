@@ -2,7 +2,6 @@
   <v-container fluid grid-list-lg>
     <v-layout row wrap>
       <v-flex md4 xs12>
-        <!-- <my-most-popular-courses class="mb-3"></my-most-popular-courses> -->
         <v-card height="100%">
           <v-card-text
             class="text-xs-center">
@@ -23,7 +22,6 @@
       </v-flex>
 
       <v-flex md4 xs12>
-        <!-- <current-course-progress></current-course-progress> -->
         <v-card height="100%">
           <v-card-actions class="px-3">
             <span class="grey--text px-2 pb-2">
@@ -132,7 +130,7 @@
 
     <v-layout row wrap>
       <v-flex md8 xs12>
-        <v-card>
+        <v-card class="mb-3">
           <v-card-text>
             <h4
               class="grey--text">
@@ -140,13 +138,13 @@
             </h4>
           </v-card-text>
           <v-card-text>
-            <line-chart
+            <bar-chart
               name="statisticsChart"
-              :data="lineChart"
-              :options="options"
+              :data="statisticsChartData"
+              :options="statisticsChartOptions"
               :ctx="ctx"
               >
-            </line-chart>
+            </bar-chart>
           </v-card-text>
         </v-card>
       </v-flex>
@@ -236,21 +234,19 @@
 </style>
 
 <script>
-import LineChart from '@/components/ChartJS/LineChart.vue'
 import store from '@/store'
 import { mapGetters } from 'vuex'
-import MyMostPopularCourses from '@/modules/Yggdrasil/Course/widgets/MyMostPopularCourses.vue'
-import CurrentCourseProgress from '@/modules/Yggdrasil/Course/widgets/CurrentCourseProgress'
+import LineChart from '@/components/ChartJS/LineChart.vue'
+import BarChart from '@/components/ChartJS/BarChart.vue'
 import ToDo from '@/modules/Yggdrasil/Course/widgets/ToDo.vue'
 
 export default {
   store,
 
   components: {
-    MyMostPopularCourses,
-    CurrentCourseProgress,
     LineChart,
-    ToDo
+    BarChart,
+    ToDo,
   },
 
   computed: {
@@ -260,11 +256,11 @@ export default {
   },
 
   mounted () {
-    this.barChart()
+    this.statisticsChart()
   },
 
   methods: {
-    barChart () {
+    statisticsChart () {
       /*eslint-disable*/
       this.ctx = document.getElementById('statisticsChart').getContext("2d");
 
@@ -276,50 +272,47 @@ export default {
       gradient2.addColorStop(0, '#4ccbab');
       gradient2.addColorStop(1, '#3e75c8');
 
-      this.lineChart = {
+      this.statisticsChartData = {
         labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
         datasets: [
           {
             label: "Statistics",
+            backgroundColor: gradient,
             borderColor: gradient,
-            pointBorderColor: gradient,
+            borderWidth: 3,
+            fill: false,
+            hoverBackgroundColor: gradient,
             pointBackgroundColor: gradient,
+            pointBorderColor: gradient,
+            pointBorderWidth: 5,
             pointHoverBackgroundColor: gradient,
             pointHoverBorderColor: gradient,
-            pointWidthRadius: 1,
-            pointBorderWidth: 5,
-            pointHoverRadius: 10,
             pointHoverBorderWidth: 3,
-            borderWidth: 3,
+            pointHoverRadius: 10,
             pointRadius: 6,
-            fill: false,
-            backgroundColor: gradient,
-            data: [170, 80, 100, 120, 170, 120, -70, 140, 180, 100, -40, -70,]
+            pointWidthRadius: 1,
+            data: [170, 80, 100, 120, 170, 120, -70, 140, 180, 100, -40, -70]
           },
           {
             label: "Statistics",
+            backgroundColor: gradient2,
             borderColor: gradient2,
-            pointBorderColor: gradient2,
+            borderWidth: 3,
+            fill: false,
             pointBackgroundColor: gradient2,
+            pointBorderColor: gradient2,
+            pointBorderWidth: 5,
             pointHoverBackgroundColor: gradient2,
             pointHoverBorderColor: gradient2,
-            pointWidthRadius: 1,
-            pointBorderWidth: 5,
-            pointHoverRadius: 10,
             pointHoverBorderWidth: 3,
-            borderWidth: 3,
+            pointHoverRadius: 10,
             pointRadius: 6,
-            fill: false,
-            backgroundColor: gradient2,
-            reverse: true,
-            data: [-50, 40, 130, -20, -70, 50, 170, -40, -80, 100, 120, 150,]
+            pointWidthRadius: 1,
+            data: [-50, 40, 130, -20, -70, 50, 170, -40, -80, 100, 120, 150]
           },
         ]
       }
-      this.options = {
-        animation: {
-          // easing: 'easeInBack'
-        },
+      this.statisticsChartOptions = {
         layout: {
           padding: {
             top: 10,
@@ -362,8 +355,8 @@ export default {
 
   data () {
     return {
-      lineChart: null,
-      options: null,
+      statisticsChartData: null,
+      statisticsChartOptions: null,
       ctx: null,
     }
   }
