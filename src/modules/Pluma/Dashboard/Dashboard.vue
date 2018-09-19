@@ -1,7 +1,16 @@
 <template :dark="$store.getters['app/app'].dark">
   <v-container fluid grid-list-lg>
+    <v-card-actions>
+      <v-btn round class="px-3">
+        <v-icon left small color="accent">add</v-icon>
+        {{ trans('Add Widget') }}
+      </v-btn>
+      <v-spacer></v-spacer>
+      <v-btn icon><v-icon small>edit</v-icon></v-btn>
+      <v-btn icon><v-icon small>list</v-icon></v-btn>
+    </v-card-actions>
     <v-layout row wrap>
-      <v-flex md4 xs12>
+      <v-flex md4 sm6 xs12>
         <v-card height="100%">
           <v-card-text
             class="text-xs-center">
@@ -21,7 +30,7 @@
         </v-card>
       </v-flex>
 
-      <v-flex md4 xs12>
+      <v-flex md4 sm6 xs12>
         <v-card height="100%">
           <v-card-actions class="px-3">
             <span class="grey--text px-2 pb-2">
@@ -83,18 +92,19 @@
         </v-card>
       </v-flex>
 
-      <v-flex md4 xs12>
-        <v-card height="100%">
+      <v-flex md4 sm6 xs12>
+        <v-card
+          dark
+          height="100%"
+          hover
+          href="/admin"
+          class="glance__card--gradient">
           <v-card-actions class="px-3">
-            <p class="body-2 grey--text">
+            <p class="body-2">
               <strong>
                 {{ trans('Rest of the Traffic') }}
               </strong>
             </p>
-            <v-spacer></v-spacer>
-            <v-btn icon small>
-              <v-icon small>more_horiz</v-icon>
-            </v-btn>
           </v-card-actions>
           <v-card-text>
             <v-layout row wrap>
@@ -102,12 +112,12 @@
                 <div class="text-xs-center">
                   <v-progress-circular
                     :rotate="360"
-                    :size="100"
+                    :size="130"
                     :width="6"
-                    :value="30"
-                    color="#e56590"
+                    :value="60"
+                    color="white"
                     >
-                    {{ __('85 %') }}
+                    <h1 class="headline">{{ __('60 %') }}</h1>
                   </v-progress-circular>
                 </div>
               </v-flex>
@@ -115,10 +125,10 @@
                 <h1 class="display-1 mb-3">
                   {{ __('140 GB') }}
                 </h1>
-                <p class="grey--text mb-2">
+                <p class="mb-2">
                   {{ trans('Spent') }}
                 </p>
-                <p class="grey--text">
+                <p>
                   {{ trans('-10.356 MB') }}
                 </p>
               </v-flex>
@@ -231,6 +241,10 @@
   .progress-bar .v-progress-linear__bar__determinate {
     background: linear-gradient(to right, #e56590, #ffb88c) !important;
   }
+
+  .glance__card--gradient {
+    background: linear-gradient(45deg, #e56590 0%, #ffb88c 100%);
+  }
 </style>
 
 <script>
@@ -279,7 +293,7 @@ export default {
             label: "Statistics",
             backgroundColor: gradient,
             borderColor: gradient,
-            borderWidth: 3,
+            // borderWidth: 3,
             fill: false,
             hoverBackgroundColor: gradient,
             pointBackgroundColor: gradient,
@@ -287,7 +301,7 @@ export default {
             pointBorderWidth: 5,
             pointHoverBackgroundColor: gradient,
             pointHoverBorderColor: gradient,
-            pointHoverBorderWidth: 3,
+            // pointHoverBorderWidth: 3,
             pointHoverRadius: 10,
             pointRadius: 6,
             pointWidthRadius: 1,
@@ -296,8 +310,9 @@ export default {
           {
             label: "Statistics",
             backgroundColor: gradient2,
+            hoverBackgroundColor: gradient2,
             borderColor: gradient2,
-            borderWidth: 3,
+            // borderWidth: 3,
             fill: false,
             pointBackgroundColor: gradient2,
             pointBorderColor: gradient2,
@@ -330,7 +345,7 @@ export default {
               beginAtZero: true,
               maxTicksLimit: 5,
               padding: 20,
-              display: false
+              display: true,
             },
             gridLines: {
               drawTicks: false,
