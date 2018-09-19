@@ -1,16 +1,45 @@
 <template>
-  <v-container fluid grid-list-lg align-center justify-center>
-    <v-layout row wrap align-center justify-center>
-      <v-flex xs12 class="text-xs-center">
-        <man-with-devices width="400px" height="400px"></man-with-devices>
+  <v-container
+    fluid
+    grid-list-lg
+    align-center
+    justify-center
+    >
+    <v-layout
+      row
+      wrap
+      align-center
+      justify-center
+      >
+      <v-flex
+        xs12
+        class="text-xs-center"
+        >
+        <man-with-devices
+          width="400px"
+          height="400px"
+          >
+        </man-with-devices>
         <blockquote class="quotation-block text--disabled">
-          <em><span class="quotation-block__icon">&ldquo;</span>{{ __(quote.text) }}</em>
+          <em>
+            <span class="quotation-block__icon">&ldquo;</span>
+            {{ __(quote.text) }}
+          </em>
           <br>
-          <cite><strong>&mdash;{{ quote.cited }}</strong></cite>
+          <cite>
+            <strong>&mdash;{{ quote.cited }}</strong>
+          </cite>
         </blockquote>
 
         <div class="my-4">
-          <v-btn large color="primary" exact :to="{name: 'courses.create'}">{{ __('Create New Course') }}</v-btn>
+          <v-btn
+            large
+            color="primary"
+            exact
+            :to="{name: 'courses.create'}"
+            >
+            {{ __('Create New Course') }}
+          </v-btn>
         </div>
       </v-flex>
     </v-layout>
