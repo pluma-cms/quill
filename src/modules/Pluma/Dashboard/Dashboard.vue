@@ -317,7 +317,6 @@ export default {
             label: 'Statistics',
             backgroundColor: gradient,
             borderColor: gradient,
-            // borderWidth: 3,
             fill: false,
             hoverBackgroundColor: gradient,
             pointBackgroundColor: gradient,
@@ -325,18 +324,16 @@ export default {
             pointBorderWidth: 5,
             pointHoverBackgroundColor: gradient,
             pointHoverBorderColor: gradient,
-            // pointHoverBorderWidth: 3,
             pointHoverRadius: 10,
             pointRadius: 6,
             pointWidthRadius: 1,
-            data: [170, 80, 100, 120, 170, 120, -70, 140, 180, 100, -40, -70]
+            data: [170, 80, 100, 120, 170, 120, -70, 140, 180, 100, -40, -70],
           },
           {
             label: 'Statistics',
             backgroundColor: gradient2,
             hoverBackgroundColor: gradient2,
             borderColor: gradient2,
-            // borderWidth: 3,
             fill: false,
             pointBackgroundColor: gradient2,
             pointBorderColor: gradient2,
@@ -347,7 +344,7 @@ export default {
             pointHoverRadius: 10,
             pointRadius: 6,
             pointWidthRadius: 1,
-            data: [-50, 40, 130, -20, -70, 50, 170, -40, -80, 100, 120, 150]
+            data: [-50, 40, 130, -20, -70, 50, 170, -40, -80, 100, 120, 150],
           },
         ]
       }
