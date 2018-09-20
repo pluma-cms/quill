@@ -43,7 +43,7 @@
             </td>
           </template>
           <td v-html="props.item.id"></td>
-          <td>
+          <td v-if="dataset.avatar">
             <v-avatar size="36px">
               <img :src="props.item.thumbnail">
             </v-avatar>
@@ -63,10 +63,41 @@
               <span v-html="trans(props.item.title)"></span>
             </v-tooltip>
           </td>
-          <td v-html="trans(props.item.category)"></td>
-          <td v-html="trans(props.item.timestamp)"></td>
-          <td v-html="trans(props.item.part)"></td>
-          <td v-html="trans(props.item.status)"></td>
+          <td
+            v-if="dataset.category"
+            v-html="trans(props.item.category)"
+            >
+          </td>
+          <td
+            v-if="dataset.slug"
+            v-html="trans(props.item.slug)"
+            >
+          </td>
+          <td
+            v-if="dataset.part"
+            v-html="trans(props.item.part)"
+            >
+          </td>
+          <td
+            v-if="dataset.author"
+            v-html="trans(props.item.author)"
+            >
+          </td>
+          <td
+            v-if="dataset.status"
+            v-html="trans(props.item.status)"
+            >
+          </td>
+          <td
+            v-if="dataset.created"
+            v-html="trans(props.item.created)"
+            >
+          </td>
+          <td
+            v-if="dataset.modified"
+            v-html="trans(props.item.modified)"
+            >
+          </td>
           <td class="layout mx-0 justify-center">
             <v-tooltip bottom>
               <v-btn slot="activator" icon>
@@ -99,16 +130,10 @@
           class="text-xs-center"
           >
           <v-card-text>
-            <!-- <data-table-icon
-              width="120"
-              height="120"
-              class="mb-3"
-              >
-            </data-table-icon> -->
             <div class="grey--text">
-              Your search for
-              "{{ dataset.searchTable }}"
-              found no results.
+              {{ trans('Your search for') }}
+              "{{ __(dataset.searchTable) }}"
+              {{ trans('found no results.') }}
             </div>
           </v-card-text>
         </v-card>
@@ -118,7 +143,6 @@
 </template>
 
 <script>
-// import DataTableIcon from '@/components/Icons/DataTableIcon'
 import store from '@/store'
 import { mapGetters } from 'vuex'
 
@@ -155,9 +179,7 @@ export default {
     this.dataset = Object.assign({}, this.datatable, this.items)
   },
 
-  components: {
-    // DataTableIcon,
-  },
+  components: {},
 
   computed: {
     ...mapGetters({

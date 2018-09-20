@@ -16,8 +16,8 @@
         class="text-xs-center"
         >
         <man-with-devices
-          width="400px"
-          height="400px"
+          width="300"
+          height="300"
           >
         </man-with-devices>
         <blockquote class="quotation-block text--disabled">

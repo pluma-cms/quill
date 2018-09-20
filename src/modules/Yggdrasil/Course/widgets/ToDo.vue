@@ -21,6 +21,7 @@
           {{ __('Tasks') }}
         </p>
       </v-card-actions>
+
       <v-text-field
         hide-details
         v-model="task"

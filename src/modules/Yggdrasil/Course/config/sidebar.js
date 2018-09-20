@@ -14,7 +14,7 @@ export default [
         code: 'courses.index',
         name: 'courses.index',
         meta: {
-          title: 'All Courses',
+          title: 'Manage Courses',
           icon: 'mdi-book-multiple-variant',
           authenticatable: true,
           sort: 5,

@@ -11,7 +11,9 @@
     </v-card-actions>
     <v-layout row wrap>
       <v-flex md4 sm6 xs12>
-        <v-card height="100%">
+        <v-card
+          height="100%"
+          >
           <v-card-text
             class="text-xs-center">
             <v-avatar
@@ -31,7 +33,9 @@
       </v-flex>
 
       <v-flex md4 sm6 xs12>
-        <v-card height="100%">
+        <v-card
+          height="100%"
+          >
           <v-card-actions class="px-3">
             <span class="grey--text px-2 pb-2">
               <v-icon
@@ -110,7 +114,7 @@
                 <div class="text-xs-center">
                   <v-progress-circular
                     :rotate="360"
-                    :size="130"
+                    :size="120"
                     :width="6"
                     :value="60"
                     color="white"
@@ -119,6 +123,7 @@
                   </v-progress-circular>
                 </div>
               </v-flex>
+
               <v-flex xs6>
                 <h1 class="display-1 mb-3">
                   {{ __('140 GB') }}
@@ -169,7 +174,7 @@
         <v-card class="mb-3">
           <v-card-actions class="pa-3">
             <p class="body-2 grey--text">
-              <strong>{{ trans('Server Environment') }}</strong>
+              <strong>{{ trans('System Corner') }}</strong>
             </p>
             <v-spacer></v-spacer>
             <v-btn
@@ -186,7 +191,7 @@
               <span class="px-2">
                 <v-icon size="20" class="pb-2 grey--text">dashboard</v-icon>
               </span>
-              {{ trans('System Corner') }}
+              {{ trans('Environment') }}
             </h1>
           </v-card-text>
           <v-list dense>
@@ -245,7 +250,7 @@
 
 <style>
   .progress-bar .v-progress-linear__bar__determinate {
-    background: linear-gradient(to right, #e56590, #ffb88c) !important;
+    background: linear-gradient(to right, #e56590, #ffb88c);
   }
 
   .glance__card--gradient {
@@ -281,35 +286,35 @@ export default {
 
   methods: {
     statisticsChart () {
-      /*eslint-disable*/
-      this.ctx = document.getElementById('statisticsChart').getContext("2d");
+      // /*eslint-disable*/
+      this.ctx = document.getElementById('statisticsChart').getContext('2d')
 
-      var gradient = this.ctx.createLinearGradient(100, 0, 100, 400);
-      gradient.addColorStop(0, '#e56590');
-      gradient.addColorStop(1, '#ffb88c');
+      var gradient = this.ctx.createLinearGradient(100, 0, 100, 400)
+      gradient.addColorStop(0, '#e56590')
+      gradient.addColorStop(1, '#ffb88c')
 
-      var gradient2 = this.ctx.createLinearGradient(100, 0, 100, 400);
-      gradient2.addColorStop(0, '#4ccbab');
-      gradient2.addColorStop(1, '#3e75c8');
+      var gradient2 = this.ctx.createLinearGradient(100, 0, 100, 400)
+      gradient2.addColorStop(0, '#4ccbab')
+      gradient2.addColorStop(1, '#3e75c8')
 
       this.statisticsChartData = {
         labels: [
-          "JAN",
-          "FEB",
-          "MAR",
-          "APR",
-          "MAY",
-          "JUN",
-          "JUL",
-          "AUG",
-          "SEP",
-          "OCT",
-          "NOV",
-          "DEC"
+          'JAN',
+          'FEB',
+          'MAR',
+          'APR',
+          'MAY',
+          'JUN',
+          'JUL',
+          'AUG',
+          'SEP',
+          'OCT',
+          'NOV',
+          'DEC'
         ],
         datasets: [
           {
-            label: "Statistics",
+            label: 'Statistics',
             backgroundColor: gradient,
             borderColor: gradient,
             // borderWidth: 3,
@@ -327,7 +332,7 @@ export default {
             data: [170, 80, 100, 120, 170, 120, -70, 140, 180, 100, -40, -70]
           },
           {
-            label: "Statistics",
+            label: 'Statistics',
             backgroundColor: gradient2,
             hoverBackgroundColor: gradient2,
             borderColor: gradient2,
@@ -376,7 +381,7 @@ export default {
           xAxes: [{
             barPercentage: 0.5,
             gridLines: {
-              zeroLineColor: "transparent",
+              zeroLineColor: 'transparent',
               display: false
             },
             ticks: {

@@ -85,7 +85,10 @@
 
       <!-- grid -->
       <template v-if="toolbar.toggleview">
-        <v-tooltip bottom>
+        <v-tooltip
+          bottom
+          v-if="dataset.gridview"
+          >
           <v-btn
             @click="toggleView"
             icon
@@ -99,7 +102,10 @@
 
       <!-- list -->
       <template v-else>
-        <v-tooltip bottom>
+        <v-tooltip
+          bottom
+          v-if="dataset.listview"
+          >
           <v-btn
             icon
             slot="activator"

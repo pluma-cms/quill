@@ -2,11 +2,18 @@
   <v-responsive :aspect-ratio="16/9">
     <v-img
       :src="course.thumbnail"
-      style="background: linear-gradient(135deg, #003073, #029797);"
+      class="interactive__media--background-color"
       >
       <div class="card--overlay"></div>
-      <v-layout align-center justify-center row fill-height>
-        <v-card flat class="transparent">
+      <v-layout
+        align-center
+        justify-center
+        column
+        fill-height
+        >
+        <v-card
+          flat
+          class="transparent">
           <v-icon
             dark
             @click="course.play"
@@ -15,10 +22,27 @@
             play_arrow
           </v-icon>
         </v-card>
+
+        <v-card
+          flat
+          class="transparent"
+          >
+          <v-icon
+            dark
+            @click="course.play"
+            >
+          </v-icon>
+        </v-card>
       </v-layout>
     </v-img>
   </v-responsive>
 </template>
+
+<style lang="stylus" scoped>
+  .interactive__media--background-color {
+    background: linear-gradient(135deg, #003073, #029797)
+  }
+</style>
 
 <script>
 export default {

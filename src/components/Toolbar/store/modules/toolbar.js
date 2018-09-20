@@ -9,6 +9,8 @@ export const state = () => ({
     themeDark: false,
     spacer: true,
     sort: true,
+    listview: true,
+    gridview: true,
     filter: true,
     toggleview: true,
     bulkdestroy: true,

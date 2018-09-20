@@ -58,8 +58,7 @@ export default {
   data () {
     return {
       item: {
-        assignment: false,
-        loaded: false
+        loaded: true,
       }
     }
   }

@@ -1,17 +1,9 @@
 <template>
   <section>
-    <toolbar-menu :items="toolbar"></toolbar-menu>
-
     <v-container fluid grid-list-lg>
       <v-layout row wrap>
         <v-flex xs12>
-          <template v-if="toggletoolbar.toggleview">
-            <data-table :items="courses"></data-table>
-          </template>
-
-          <template v-else>
-            <data-iterator :items="courses"></data-iterator>
-          </template>
+          <data-iterator :items="courses"></data-iterator>
         </v-flex>
       </v-layout>
     </v-container>
@@ -20,7 +12,6 @@
 
 <script>
 import store from '@/store'
-import { mapGetters } from 'vuex'
 
 export default {
   store,
@@ -29,10 +20,6 @@ export default {
 
   data () {
     return {
-      toolbar: {
-        title: 'All Courses'
-      },
-
       courses: {
         selected: [],
         bulkDestroy: false,
@@ -105,10 +92,6 @@ export default {
   components: {},
 
   computed: {
-    ...mapGetters({
-      toggletoolbar: 'toolbar/toolbar'
-    }),
-
     empty: function () {
       return true
     },
