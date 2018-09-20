@@ -145,9 +145,13 @@
               {{ trans('Course Statistics') }}
             </h4>
             <v-spacer></v-spacer>
-            <v-btn icon class="mx-3"><v-icon small>chrome_reader_mode</v-icon></v-btn>
-            <v-divider vertical></v-divider>
-            <v-btn round small flat class="emphasis--medium px-3 mx-3">View History</v-btn>
+            <v-btn icon>
+              <v-icon small>chrome_reader_mode</v-icon>
+            </v-btn>
+            <v-divider vertical color="cyan" class="mx-3"></v-divider>
+            <v-btn round small flat class="emphasis--medium px-3">
+              {{ trans('View History') }}
+            </v-btn>
           </v-card-actions>
           <v-card-text>
             <bar-chart
@@ -289,7 +293,20 @@ export default {
       gradient2.addColorStop(1, '#3e75c8');
 
       this.statisticsChartData = {
-        labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
+        labels: [
+          "JAN",
+          "FEB",
+          "MAR",
+          "APR",
+          "MAY",
+          "JUN",
+          "JUL",
+          "AUG",
+          "SEP",
+          "OCT",
+          "NOV",
+          "DEC"
+        ],
         datasets: [
           {
             label: "Statistics",
@@ -343,15 +360,17 @@ export default {
         },
         scales: {
           yAxes: [{
+            gridLines: {
+              drawTicks: false,
+              display: false,
+              borderDash: [2, 2],
+              lineWidth: 0.9,
+            },
             ticks: {
               beginAtZero: true,
               maxTicksLimit: 5,
               padding: 20,
               display: true,
-            },
-            gridLines: {
-              drawTicks: false,
-              display: false
             },
           }],
           xAxes: [{
@@ -363,6 +382,7 @@ export default {
             ticks: {
               padding: 20,
               display: false,
+              tickMarkLength: 2,
             }
           }]
         }
