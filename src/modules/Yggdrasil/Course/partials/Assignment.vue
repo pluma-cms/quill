@@ -18,6 +18,7 @@
         </v-card-text>
       </v-card>
     </template>
+
     <template v-else>
       <v-card
         class="transparent"

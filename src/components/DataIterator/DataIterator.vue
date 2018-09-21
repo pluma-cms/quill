@@ -20,6 +20,7 @@
         :lg2="dataset.lg2"
         :lg3="dataset.lg3"
         :md2="dataset.md2"
+        :md3="dataset.md3"
         :md4="dataset.md4"
         :sm6="dataset.sm6"
         :xs12="dataset.xs12"
@@ -39,17 +40,6 @@
               :src="props.item.thumbnail"
               slot="activator"
               >
-              <!-- <v-layout
-                align-start
-                justify-start
-                class="ma-3"
-                v-if="dataset.bookmark"
-                >
-                <v-btn icon>
-                  <v-icon v-html="dataset.bookmark"></v-icon>
-                </v-btn>
-              </v-layout> -->
-
               <v-layout
                 fill-height
                 align-end

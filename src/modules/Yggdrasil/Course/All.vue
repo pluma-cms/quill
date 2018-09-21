@@ -29,8 +29,13 @@ export default {
         chip: true,
         hover: true,
         lg3: false,
+        md3: true,
+        md4: false,
         showMimetype: false,
         showToolbar: false,
+        pagination: {
+          rowsPerPage: 4
+        },
         headers: [
           { text: 'ID', value: 'id' },
           { text: 'Featured', value: 'thumbnail' },

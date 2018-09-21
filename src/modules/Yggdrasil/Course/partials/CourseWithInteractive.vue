@@ -1,41 +1,43 @@
 <template>
-  <v-responsive :aspect-ratio="16/9">
-    <v-img
-      :src="course.thumbnail"
-      class="interactive__media--background-color"
-      >
-      <div class="card--overlay"></div>
-      <v-layout
-        align-center
-        justify-center
-        column
-        fill-height
+  <v-slide-y-transition>
+    <v-responsive :aspect-ratio="16/9">
+      <v-img
+        :src="course.thumbnail"
+        class="interactive__media--background-color"
         >
-        <v-card
-          flat
-          class="transparent">
-          <v-icon
-            dark
-            @click="course.play"
-            size="150"
-            >
-            play_arrow
-          </v-icon>
-        </v-card>
-
-        <v-card
-          flat
-          class="transparent"
+        <div class="card--overlay"></div>
+        <v-layout
+          align-center
+          justify-center
+          column
+          fill-height
           >
-          <v-icon
-            dark
-            @click="course.play"
+          <v-card
+            flat
+            class="transparent">
+            <v-icon
+              dark
+              @click="course.play"
+              size="150"
+              >
+              play_arrow
+            </v-icon>
+          </v-card>
+
+          <v-card
+            flat
+            class="transparent"
             >
-          </v-icon>
-        </v-card>
-      </v-layout>
-    </v-img>
-  </v-responsive>
+            <v-icon
+              dark
+              @click="course.play"
+              >
+            </v-icon>
+          </v-card>
+        </v-layout>
+      </v-img>
+    </v-responsive>
+  </v-slide-y-transition>
 </template>
 
 <style lang="stylus" scoped>
