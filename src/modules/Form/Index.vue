@@ -6,14 +6,6 @@
         <v-flex md4 xs12>
           <data-table :items="dataset"></data-table>
         </v-flex>
-
-        <v-flex md4 xs12>
-          <data-table :items="dataset"></data-table>
-        </v-flex>
-
-        <v-flex>
-
-        </v-flex>
       </v-layout>
     </v-container>
   </section>
