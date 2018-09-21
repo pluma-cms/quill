@@ -1,5 +1,6 @@
 module.exports = {
   devServer: {
+    disableHostCheck: true,
     proxy: {
       // proxy all requests starting with /api to
       '/api/v1': {
