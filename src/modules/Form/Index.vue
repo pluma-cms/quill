@@ -5,7 +5,7 @@
     <v-container fluid grid-list-lg>
       <v-layout row wrap>
         <v-flex xs12>
-            <data-table :items="dataset"></data-table>
+          <data-table :items="dataset"></data-table>
         </v-flex>
       </v-layout>
     </v-container>
@@ -24,7 +24,11 @@ export default {
   data () {
     return {
       toolbar: {
-        title: 'All Forms'
+        title: 'All Forms',
+        sort: false,
+        filter: false,
+        gridview: false,
+        listview: false,
       },
 
       dataset: {

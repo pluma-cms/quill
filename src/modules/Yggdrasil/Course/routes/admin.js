@@ -4,7 +4,7 @@ export default [
     component: () => import('@/App.vue'),
     meta: {
       title: 'Courses',
-      sort: 6,
+      sort: 1,
       authenticatable: true,
       icon: 'mdi-book-multiple-variant',
     },
@@ -15,7 +15,7 @@ export default [
         component: () => import('../Index.vue'),
         meta: {
           title: 'Manage Courses',
-          sort: 6,
+          sort: 1,
           authenticatable: true,
           icon: 'mdi-book-multiple-variant',
         },
