@@ -6,6 +6,17 @@
       <v-layout row wrap>
         <v-flex xs12>
           <data-table :items="dataset"></data-table>
+
+          <v-card class="mb-3">
+            <v-card-text>
+              <h1 v-html="item.title"></h1>
+              <p class="grey--text" v-html="item.subtitle"></p>
+
+              <v-card-text>
+
+              </v-card-text>
+            </v-card-text>
+          </v-card>
         </v-flex>
       </v-layout>
     </v-container>
