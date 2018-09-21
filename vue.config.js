@@ -10,6 +10,6 @@ module.exports = {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Headers': 'Authorization, X-Requested-With, Origin, X-Auth-Token, X-CSRF-Token, Content-type'
-    },
+    }
   },
 }

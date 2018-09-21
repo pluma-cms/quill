@@ -23,9 +23,6 @@
             <span slot="activator">
               {{ trans(props.header.text) }}
             </span>
-            <span>
-              {{ trans(props.header.text) }}
-            </span>
           </v-tooltip>
         </template>
         <template
@@ -52,7 +49,6 @@
             <v-tooltip
               max-width="300px"
               bottom
-              transition="scale-transition"
               >
               <a
                 href="/admin/courses/show"
