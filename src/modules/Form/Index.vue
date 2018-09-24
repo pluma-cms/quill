@@ -3,7 +3,7 @@
     <toolbar-menu :items="toolbar"></toolbar-menu>
     <v-container fluid grid-list-lg>
       <v-layout row wrap>
-        <v-flex md4 xs12>
+        <v-flex xs12>
           <data-table :items="dataset"></data-table>
         </v-flex>
       </v-layout>

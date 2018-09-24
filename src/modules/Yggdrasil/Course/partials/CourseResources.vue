@@ -19,9 +19,16 @@
         <v-tab
           ripple
           key="resources"
-          id="overview"
+          id="resources"
           >
           <strong>{{ trans('Resources') }}</strong>
+        </v-tab>
+        <v-tab
+          ripple
+          key="students"
+          id="students"
+          >
+          <strong>{{ trans('Students') }}</strong>
         </v-tab>
 
         <v-tab-item href="#overview">
@@ -30,16 +37,20 @@
         <v-tab-item ref="#resources">
           <assignment></assignment>
         </v-tab-item>
+        <v-tab-item ref="#students">
+          <students></students>
+        </v-tab-item>
       </v-tabs>
     </v-card>
 
-    <comment></comment>
+    <!-- <comment></comment> -->
   </div>
 </template>
 
 <script>
 import Assignment from './Assignment.vue'
 import CourseOverview from './CourseOverview.vue'
+import Students from './Students.vue'
 
 export default {
   name: 'CourseResources',
@@ -47,6 +58,7 @@ export default {
   components: {
     Assignment,
     CourseOverview,
+    Students,
   },
 
   data () {

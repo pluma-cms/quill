@@ -2,7 +2,7 @@
   <svg
     :height="height"
     :width="width"
-    id="Layer_1"
+    id="image_icon"
     style="enable-background:new 0 0 501.551 501.551;"
     version="1.1"
     viewBox="0 0 501.551 501.551"

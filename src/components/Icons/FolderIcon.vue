@@ -2,7 +2,7 @@
   <svg
     :height="height"
     :width="width"
-    id="Capa_1"
+    id="folder_icon"
     version="1.1"
     viewBox="0 0 58 58" style="enable-background:new 0 0 58 58;"
     xml:space="preserve"

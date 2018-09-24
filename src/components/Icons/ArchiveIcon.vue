@@ -2,7 +2,7 @@
   <svg
     :height="height"
     :width="width"
-    version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    version="1.1" id="archive_icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
        viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
     <path style="fill:#E09B2D;" d="M339.689,137.952c0,18.301-9.127,34.881-23.916,46.977H196.227
       c-9.104-7.452-16.071-16.591-20.057-26.805c-2.507-6.366-3.859-13.137-3.859-20.173c0-11.08,3.351-21.536,9.278-30.744

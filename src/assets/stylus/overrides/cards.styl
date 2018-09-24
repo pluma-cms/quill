@@ -35,12 +35,13 @@
   &__actions--footer {
     background-color: rgba($material-theme.fg-color, $material-theme.divider-percent);
   }
-}
 
-
-// TODO: move to own file
-.theme--dark .navigation-drawer .divider, .application .theme--dark.navigation-drawer .divider,
-.theme--dark .divider, .application .theme--dark.divider,
-.theme--dark .navigation-drawer:not(.navigation-drawer--floating) .navigation-drawer__border, .application .theme--dark.navigation-drawer:not(.navigation-drawer--floating) .navigation-drawer__border {
-  // background-color: rgba(0,0,0,0.15) !important;
+  &--reveal {
+    align-items: center;
+    bottom: 0;
+    justify-content: center;
+    opacity: .5;
+    position: absolute;
+    width: 100%;
+  }
 }

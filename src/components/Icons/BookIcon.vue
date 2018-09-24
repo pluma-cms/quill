@@ -2,7 +2,7 @@
   <svg
     :height="height"
     :width="width"
-    id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    id="book_icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
        viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
     <path style="fill:#EADCD6;" d="M453.006,430.184H99.903c-22.593,0-40.909,18.316-40.909,40.909l0,0
       c0,22.593,18.316,40.909,40.909,40.909h342.122c6.064,0,10.981-4.916,10.981-10.981L453.006,430.184L453.006,430.184z"/>

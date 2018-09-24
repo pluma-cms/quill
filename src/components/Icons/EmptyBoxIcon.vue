@@ -2,7 +2,7 @@
   <svg
     :height="height"
     :width="width"
-    id="add_media"
+    id="empty_box_icon"
     style="enable-background:new 0 0 100 100;"
     version="1.1"
     viewBox="0 0 100 100"
