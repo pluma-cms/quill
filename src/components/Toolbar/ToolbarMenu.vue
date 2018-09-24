@@ -224,8 +224,7 @@ export default {
     },
 
     bulkDestroy () {
-      alert('show datatable + bulkdestroy')
-      this.update({bulkdestroy: this.toolbar.bulkdestroy})
+      this.update({bulkdestroy: !this.toolbar.bulkdestroy})
     }
   },
 

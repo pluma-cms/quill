@@ -29,7 +29,7 @@
           slot="items"
           slot-scope="props"
           >
-          <template v-if="dataset.bulkdestroy">
+          <template v-if="bulk.bulkdestroy">
             <td>
               <v-checkbox
                 v-model="props.selected"
@@ -179,7 +179,8 @@ export default {
 
   computed: {
     ...mapGetters({
-      datatable: 'datatable/datatable'
+      datatable: 'datatable/datatable',
+      bulk: 'toolbar/toolbar',
     })
   },
   methods: {

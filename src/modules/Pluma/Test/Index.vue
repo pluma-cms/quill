@@ -235,10 +235,9 @@ export default {
             actionColor: 'error',
             actionCallback () {
               this.model = false
-              this.showSnackbar = false
               // store.dispatch.saveUserOrSomeShitLikeThat
               // then...
-              // alert('test')
+              alert('test')
             },
 
             discard: false,
