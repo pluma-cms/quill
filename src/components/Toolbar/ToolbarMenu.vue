@@ -5,6 +5,7 @@
     :color="dataset.color"
     :dark="dataset.themeDark"
     v-model="dataset.model"
+    class="toolbarMenu"
     >
 
     <!-- show searchField -->
@@ -181,6 +182,14 @@
     </v-btn>
   </v-toolbar>
 </template>
+
+<style lang="stylus" scoped>
+  .toolbarMenu {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+</style>
 
 <script>
 import store from '@/store'
