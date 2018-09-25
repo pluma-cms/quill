@@ -56,7 +56,6 @@
             :class="dialogbox.discard ? `layout column wrap align-end` : `flex row wrap order-xs2`"
             :color="dialogbox.actionColor"
             @click.native="dialogbox.actionCallback()"
-            @click="showAction"
             flat
             >
             {{ trans(dialogbox.actionText) }}
@@ -73,15 +72,6 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-
-    <v-snackbar
-      :timeout="3000"
-      bottom
-      right
-      v-model="showSnackbar"
-      >
-      {{ trans('You successfully deleted the resources.') }}
-    </v-snackbar>
   </div>
 </template>
 
@@ -92,12 +82,6 @@ import { mapGetters } from 'vuex'
 export default {
   store,
   name: 'Dialogbox',
-
-  data () {
-    return {
-      showSnackbar: false,
-    }
-  },
 
   computed: {
     ...mapGetters({
@@ -112,10 +96,6 @@ export default {
     hide () {
       this.$store.dispatch('dialogbox/PROMPT_DIALOG', { model: false })
     },
-
-    showAction () {
-      this.showSnackbar = !this.showSnackbar
-    }
   }
 }
 </script>

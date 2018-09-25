@@ -42,19 +42,16 @@
       <v-spacer v-if="dataset.spacer"></v-spacer>
 
       <!-- bulk -->
-      <template v-if="toolbar.bulkdestroy">
-        <v-tooltip bottom
+      <v-tooltip bottom
+        >
+        <v-btn
+          icon
+          slot="activator"
           >
-          <v-btn
-            @click="bulkDestroy"
-            icon
-            slot="activator"
-            >
-            <v-icon>check_circle</v-icon>
-          </v-btn>
-          <span>Bulk Selection</span>
-        </v-tooltip>
-      </template>
+          <v-icon>check_circle</v-icon>
+        </v-btn>
+        <span>Bulk Selection</span>
+      </v-tooltip>
 
       <!-- sort -->
       <v-tooltip
@@ -222,10 +219,6 @@ export default {
     toggleView () {
       this.update({toggleview: !this.toolbar.toggleview})
     },
-
-    bulkDestroy () {
-      this.update({bulkdestroy: !this.toolbar.bulkdestroy})
-    }
   },
 
   mounted () {

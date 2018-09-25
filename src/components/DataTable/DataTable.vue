@@ -1,15 +1,6 @@
 <template>
   <v-slide-y-transition>
     <v-card>
-      <!-- <v-text-field
-        append-icon="search"git s
-        hide-details
-        label="Search"
-        single-line
-        v-model="dataset.searchTable"
-        clearable
-        clear-icon="cancel"
-      ></v-text-field> -->
       <v-data-table
         :headers="dataset.headers"
         :items="dataset.items"
@@ -29,16 +20,15 @@
           slot="items"
           slot-scope="props"
           >
-          <template v-if="bulk.bulkdestroy">
-            <td>
-              <v-checkbox
-                v-model="props.selected"
-                accent
-                color="accent"
-                hide-details
-              ></v-checkbox>
-            </td>
-          </template>
+          <td v-if="dataset.singleCheckbox">
+            <v-checkbox
+              v-model="dataset.singleCheckbox"
+              accent
+              color="accent"
+              hide-details
+              >
+            </v-checkbox>
+          </td>
           <td v-html="props.item.id"></td>
           <td v-if="dataset.avatar">
             <v-avatar size="36px">
@@ -183,14 +173,6 @@ export default {
       bulk: 'toolbar/toolbar',
     })
   },
-  methods: {
-    show () {
-      this.$store.dispatch('datatable/PROMPT_DIALOG', { model: true })
-    },
-
-    hide () {
-      this.$store.dispatch('datatable/PROMPT_DIALOG', { model: false })
-    },
-  }
+  methods: {}
 }
 </script>

@@ -32,6 +32,7 @@ export default {
 
       dataset: {
         category: false,
+        singleCheckbox: false,
         part: false,
         status: false,
         selected: [],

@@ -4,7 +4,6 @@ export const state = () => ({
     selected: [],
     headers: [],
     selectAll: false,
-    bulkdestroy: false,
     avatar: true,
     category: true,
     slug: true,
@@ -13,9 +12,7 @@ export const state = () => ({
     part: true,
     status: true,
     author: true,
-  },
-  toolbar: {
-    bulkdestroy: true,
+    singleCheckbox: false,
   },
 })
 

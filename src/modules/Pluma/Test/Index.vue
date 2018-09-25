@@ -237,7 +237,6 @@ export default {
               this.model = false
               // store.dispatch.saveUserOrSomeShitLikeThat
               // then...
-              alert('test')
             },
 
             discard: false,

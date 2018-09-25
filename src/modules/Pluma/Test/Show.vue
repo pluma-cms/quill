@@ -2,8 +2,97 @@
   <section>
     <v-container fluid grid-list-lg>
       <v-layout row wrap>
-        <v-flex md8 xs12>
-          <data-table :items="courses"></data-table>
+        <v-flex md4 xs12>
+          <v-card>
+
+            <!-- <v-textarea
+              v-model="task"
+              label="Post a Comment"
+              solo
+              flat
+              name="input-7-4"
+              background-color="grey lighten-3"
+              @keydown.enter="create"
+              >
+              <v-fade-transition slot="append">
+                <v-icon
+                  v-if="task"
+                  @click="create"
+                >
+                  add_circle
+                </v-icon>
+              </v-fade-transition>
+            </v-textarea> -->
+
+            <v-text-field
+              v-model="task"
+              label="Post a comment"
+              solo
+              rows="5"
+              flat
+              background-color="grey lighten-3"
+              @keydown.enter="create"
+              >
+              <v-fade-transition slot="append">
+                <v-icon
+                  v-if="task"
+                  @click="create"
+                  >
+                  add_circle
+                </v-icon>
+              </v-fade-transition>
+            </v-text-field>
+
+            <h2 class="subheading pl-3 mb-3">
+              Comments:&nbsp;
+              <v-fade-transition leave-absolute>
+                <span :key="`tasks-${tasks.length}`">
+                  {{ tasks.length }}
+                </span>
+              </v-fade-transition>
+            </h2>
+
+            <v-card flat v-if="tasks.length > 0">
+              <v-slide-y-transition
+                class="py-0"
+                group
+                tag="v-list"
+                >
+                <template v-for="(task, i) in tasks">
+                  <v-divider
+                    v-if="i !== 0"
+                    :key="`${i}-divider`"
+                    >
+                  </v-divider>
+
+                  <v-list-tile :key="`${i}-${task.text}`">
+                    <v-list-tile-action>
+                      <v-checkbox
+                        v-model="task.done"
+                        color="info darken-3"
+                        >
+                        <div
+                          slot="label"
+                          :class="task.done && 'grey--text' || 'text--primary'"
+                          class="ml-3"
+                          v-text="task.text"
+                        ></div>
+                      </v-checkbox>
+                    </v-list-tile-action>
+                    <v-spacer></v-spacer>
+                    <v-scroll-x-transition>
+                      <v-icon
+                        v-if="task.done"
+                        color="success"
+                        >
+                        check
+                      </v-icon>
+                    </v-scroll-x-transition>
+                  </v-list-tile>
+                </template>
+              </v-slide-y-transition>
+            </v-card>
+          </v-card>
         </v-flex>
       </v-layout>
     </v-container>
@@ -20,73 +109,41 @@ export default {
 
   data () {
     return {
-      courses: {
-        selected: [],
-        bulkDestroy: false,
-        selectAll: true,
-        search: '',
-        cardLink: '/admin/courses/show',
-        chip: true,
-        hover: true,
-        lg3: false,
-        showMimetype: false,
-        showToolbar: false,
-        headers: [
-          { text: 'ID', value: 'id' },
-          { text: 'Featured', value: 'thumbnail' },
-          { text: 'Title', value: 'title' },
-          { text: 'Category', value: 'category' },
-          { text: 'Timestamp', value: 'timestamp' },
-          { text: 'Part', value: 'part' },
-          { text: 'Status', value: 'status' },
-          {
-            text: 'Actions',
-            value: 'actions',
-            sortable: false,
-            align: 'center'
-          },
-        ],
-        items: [
-          {
-            id: '1',
-            title: 'Develop Personal Effectiveness at Operations Level',
-            thumbnail: '//preview.ibb.co/cMCYYz/card_Media.png',
-            category: 'DPE OPS',
-            timestamp: '2 hours ago',
-            description: 'Apply knowledge and skills such as establishing personal goals and relating them to workplace goals. Far far away, behind the word',
-            part: '6',
-            status: 'enrolled'
-          },
-          {
-            id: '2',
-            title: 'Solve Problems and Make Decisions at Supervisory Level',
-            thumbnail: '//cdn.dribbble.com/users/904433/screenshots/2994633/animation_fin.gif',
-            category: 'DPE OPS',
-            timestamp: '2 hours ago',
-            description: 'Apply knowledge and skills such as establishing personal goals and relating them to workplace goals. Far far away, behind the word',
-            part: '6',
-          },
-          {
-            id: '3',
-            title: 'Communicate and Relate Effectively at the Workplace at Operations Level',
-            thumbnail: '//i.pinimg.com/564x/74/2b/8e/742b8e6e87ef56e698b9c8bc4e930dae.jpg',
-            category: 'DPE OPS',
-            timestamp: '2 hours ago',
-            description: 'Apply knowledge and skills such as establishing personal goals and relating them to workplace goals. Far far away, behind the word',
-            part: '6',
-          },
-          {
-            id: '4',
-            title: 'Develop Personal Effectiveness at Supervisory Level',
-            thumbnail: '//cdn.dribbble.com/users/2559/screenshots/3145041/illushome_1x.png',
-            category: 'DPE OPS',
-            timestamp: '2 hours ago',
-            description: 'Apply knowledge and skills such as establishing personal goals and relating them to workplace goals. Far far away, behind the word',
-            part: '6',
-          },
-        ]
-      },
+      tasks: [
+        {
+          done: false,
+          text: 'Foobar'
+        },
+        {
+          done: false,
+          text: 'Fizzbuzz'
+        }
+      ],
+      task: null
     }
   },
+
+  computed: {
+    completedTasks () {
+      return this.tasks.filter(task => task.done).length
+    },
+    progress () {
+      return this.completedTasks / this.tasks.length * 100
+    },
+    remainingTasks () {
+      return this.tasks.length - this.completedTasks
+    }
+  },
+
+  methods: {
+    create () {
+      this.tasks.push({
+        done: false,
+        text: this.task
+      })
+
+      this.task = null
+    }
+  }
 }
 </script>
