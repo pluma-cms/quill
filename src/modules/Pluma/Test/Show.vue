@@ -4,44 +4,20 @@
       <v-layout row wrap>
         <v-flex md4 xs12>
           <v-card>
-
-            <!-- <v-textarea
+            <v-textarea
               v-model="task"
-              label="Post a Comment"
-              solo
-              flat
-              name="input-7-4"
-              background-color="grey lighten-3"
-              @keydown.enter="create"
-              >
-              <v-fade-transition slot="append">
-                <v-icon
-                  v-if="task"
-                  @click="create"
-                >
-                  add_circle
-                </v-icon>
-              </v-fade-transition>
-            </v-textarea> -->
-
-            <v-text-field
-              v-model="task"
-              label="Post a comment"
+              label="Leave a comment"
               solo
               rows="5"
               flat
               background-color="grey lighten-3"
               @keydown.enter="create"
               >
-              <v-fade-transition slot="append">
-                <v-icon
-                  v-if="task"
-                  @click="create"
-                  >
-                  add_circle
-                </v-icon>
-              </v-fade-transition>
-            </v-text-field>
+            </v-textarea>
+
+            <v-btn @click="create">
+              {{ trans('Submit') }}
+            </v-btn>
 
             <h2 class="subheading pl-3 mb-3">
               Comments:&nbsp;
@@ -59,26 +35,16 @@
                 tag="v-list"
                 >
                 <template v-for="(task, i) in tasks">
-                  <v-divider
-                    v-if="i !== 0"
-                    :key="`${i}-divider`"
-                    >
-                  </v-divider>
-
                   <v-list-tile :key="`${i}-${task.text}`">
-                    <v-list-tile-action>
-                      <v-checkbox
-                        v-model="task.done"
-                        color="info darken-3"
+                    <v-list-tile-avatar size="30">
+                      <img src="https://images.unsplash.com/photo-1537730170185-27027b73b19c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7060dc523caa30db26a0fa1407328392&auto=format&fit=crop&w=400&q=60" alt="">
+                    </v-list-tile-avatar>
+                    <v-list-tile-content>
+                      <v-list-tile-title
+                        v-html="task.text"
                         >
-                        <div
-                          slot="label"
-                          :class="task.done && 'grey--text' || 'text--primary'"
-                          class="ml-3"
-                          v-text="task.text"
-                        ></div>
-                      </v-checkbox>
-                    </v-list-tile-action>
+                      </v-list-tile-title>
+                    </v-list-tile-content>
                     <v-spacer></v-spacer>
                     <v-scroll-x-transition>
                       <v-icon
