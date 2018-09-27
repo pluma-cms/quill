@@ -250,11 +250,13 @@
 
 <style>
   .progress-bar .v-progress-linear__bar__determinate {
-    background: linear-gradient(to right, #e56590, #ffb88c);
+    /*background: linear-gradient(to right, #e56590, #ffb88c);*/
+    background: linear-gradient(to right, #8b3ffe, #ef90b7);
   }
 
   .glance__card--gradient {
-    background: linear-gradient(45deg, #e56590 0%, #ffb88c 100%);
+    /*background: linear-gradient(45deg, #e56590 0%, #ffb88c 100%);*/
+    background: linear-gradient(45deg, #8b3ffe 0%, #ef90b7 100%);
   }
 </style>
 
@@ -289,9 +291,11 @@ export default {
       // /*eslint-disable*/
       this.ctx = document.getElementById('statisticsChart').getContext('2d')
 
-      var gradient = this.ctx.createLinearGradient(100, 0, 100, 400)
-      gradient.addColorStop(0, '#e56590')
-      gradient.addColorStop(1, '#ffb88c')
+      var gradient = this.ctx.createLinearGradient(100, 0, 100, 200)
+      // gradient.addColorStop(0, '#e56590')
+      // gradient.addColorStop(1, '#ffb88c')
+      gradient.addColorStop(0, '#8b3ffe')
+      gradient.addColorStop(1, '#ef90b7')
 
       var gradient2 = this.ctx.createLinearGradient(100, 0, 100, 400)
       gradient2.addColorStop(0, '#4ccbab')
