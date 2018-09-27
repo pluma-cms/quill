@@ -4,9 +4,11 @@
       <v-layout row wrap justify-center align-center>
         <v-card flat>
           <v-card-text>
-            <h3>Progressive Web Application</h3>
-            <p>Lorem ipsum dolor</p>
-            <span class="grey--text">Last accessed: Aug 02, 2018</span>
+            <h3>{{ trans('Progressive Web Application') }}</h3>
+            <p>{{ trans('Lorem ipsum dolor') }}</p>
+            <span class="grey--text">
+              {{ trans('Last accessed: Aug 02, 2018') }}
+            </span>
           </v-card-text>
         </v-card>
         <v-spacer></v-spacer>
