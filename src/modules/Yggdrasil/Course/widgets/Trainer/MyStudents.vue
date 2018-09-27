@@ -1,9 +1,15 @@
 <template>
   <v-card>
-    <v-card-title
+    <v-toolbar
+      dense
+      flat
       class="emphasis--medium"
       >
-      {{ dataset.title }}
+      <v-toolbar-title
+        v-html="dataset.title"
+        class="subheading"
+        >
+      </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-tooltip bottom>
         <v-btn
@@ -11,9 +17,9 @@
           small icon>
           <v-icon small>open_in_new</v-icon>
         </v-btn>
-        <span>Open All List</span>
+        <span>{{ trans('Open All List') }}</span>
       </v-tooltip>
-    </v-card-title>
+    </v-toolbar>
     <v-list>
       <v-list-tile
         v-for="(item, i) in dataset.items"

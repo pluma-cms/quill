@@ -265,7 +265,7 @@ import store from '@/store'
 import { mapGetters } from 'vuex'
 import LineChart from '@/components/ChartJS/LineChart.vue'
 import BarChart from '@/components/ChartJS/BarChart.vue'
-import ToDo from '@/modules/Yggdrasil/Course/widgets/ToDo.vue'
+import ToDo from '@/modules/Yggdrasil/Course/widgets/Student/ToDo.vue'
 
 export default {
   store,

@@ -18,7 +18,7 @@ import { mapGetters } from 'vuex'
 export default {
   store,
 
-  name: 'Index',
+  name: 'My',
 
   computed: {
     ...mapGetters({

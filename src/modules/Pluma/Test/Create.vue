@@ -3,11 +3,11 @@
     <v-container fluid grid-list-lg>
       <v-layout row wrap>
         <v-flex md6 xs12>
-          <!-- <current-course-progress class="mb-3"></current-course-progress> -->
+          <current-course-progress class="mb-3"></current-course-progress>
 
-          <!-- <to-do class="mb-3"></to-do> -->
+          <to-do class="mb-3"></to-do>
 
-          <!-- <my-students class="mb-3"></my-students> -->
+          <my-students class="mb-3"></my-students>
 
           <my-most-popular-courses></my-most-popular-courses>
         </v-flex>
@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import CurrentCourseProgress from '@/modules/Yggdrasil/Course/widgets/CurrentCourseProgress.vue'
-import ToDo from '@/modules/Yggdrasil/Course/widgets/ToDo.vue'
-import MyStudents from '@/modules/Yggdrasil/Course/widgets/MyStudents.vue'
-import MyMostPopularCourses from '@/modules/Yggdrasil/Course/widgets/MyMostPopularCourses.vue'
+import CurrentCourseProgress from '@/modules/Yggdrasil/Course/widgets/Student/CurrentCourseProgress.vue'
+import ToDo from '@/modules/Yggdrasil/Course/widgets/Student/ToDo.vue'
+import MyStudents from '@/modules/Yggdrasil/Course/widgets/Trainer/MyStudents.vue'
+import MyMostPopularCourses from '@/modules/Yggdrasil/Course/widgets/Trainer/MyMostPopularCourses.vue'
 
 export default {
 
