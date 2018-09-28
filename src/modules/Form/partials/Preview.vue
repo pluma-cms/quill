@@ -1,6 +1,10 @@
 <template>
   <v-container fluid grid-list-lg>
-    <v-btn class="px-3" flat round>
+    <v-btn
+      class="px-3"
+      flat
+      round
+      >
       <v-icon left>mdi-arrow-left</v-icon>
       {{ trans('Back') }}
     </v-btn>

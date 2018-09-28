@@ -11,9 +11,9 @@
       <v-btn v-if="!empty" color="primary" :to="{name: 'pages.create'}">{{ trans('Create Course') }}</v-btn>
     </v-toolbar>
 
-    <v-slide-y-transition mode="out-in">
+    <!-- <v-slide-y-transition mode="out-in">
       <course-empty-state v-show="empty"></course-empty-state>
-    </v-slide-y-transition>
+    </v-slide-y-transition> -->
 
   </section>
 </template>

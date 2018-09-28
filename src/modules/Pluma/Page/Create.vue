@@ -11,7 +11,6 @@
     <v-container fluid grid-list-lg>
       <v-layout row wrap>
         <v-flex xs12>
-          asd
         </v-flex>
       </v-layout>
     </v-container>

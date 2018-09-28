@@ -50,6 +50,18 @@ export default [
           icon: 'mdi-delete-empty',
         },
       },
+
+      // Partials
+      {
+        path: 'preview',
+        name: 'forms.preview',
+        component: () => import('../partials/Preview.vue'),
+        meta: {
+          title: 'Preview Component',
+          authenticatable: true,
+          icon: 'mdi-delete-empty',
+        },
+      },
     ],
   }
 ]

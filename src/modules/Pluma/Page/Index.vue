@@ -3,7 +3,6 @@
     <v-toolbar
       color="transparent"
       flat
-      light
       >
       <v-icon v-if="page.icon">{{ page.icon }}</v-icon>
       <v-toolbar-title>{{ trans(page.title) }}</v-toolbar-title>

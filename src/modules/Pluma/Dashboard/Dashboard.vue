@@ -250,8 +250,8 @@
 
 <style>
   .glance__card--gradient {
-    background: linear-gradient(45deg, #e56590 0%, #ffb88c 100%);
-    /*background: linear-gradient(45deg, #8b3ffe 0%, #ef90b7 100%);*/
+    /*background: linear-gradient(45deg, #e56590 0%, #ffb88c 100%);*/
+    background: linear-gradient(45deg, #3e75c8 0%, #4ccbab 100%);
   }
 </style>
 
@@ -289,8 +289,6 @@ export default {
       var gradient = this.ctx.createLinearGradient(100, 0, 100, 200)
       gradient.addColorStop(0, '#e56590')
       gradient.addColorStop(1, '#ffb88c')
-      // gradient.addColorStop(0, '#8b3ffe')
-      // gradient.addColorStop(1, '#ef90b7')
 
       var gradient2 = this.ctx.createLinearGradient(100, 0, 100, 400)
       gradient2.addColorStop(0, '#4ccbab')

@@ -44,7 +44,7 @@ export default {
         chip: true,
         hover: true,
         lg3: false,
-        titleLink: '/admin/forms/show',
+        titleLink: '/admin/forms/preview',
         showMimetype: false,
         showToolbar: false,
         headers: [
