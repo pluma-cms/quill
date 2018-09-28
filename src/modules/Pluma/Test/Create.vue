@@ -7,11 +7,11 @@
           <to-do class="mb-3"></to-do>
           <my-students class="mb-3"></my-students>
           <my-most-popular-courses></my-most-popular-courses> -->
-          <responses class="mb-3"></responses>
+          <!-- <responses class="mb-3"></responses> -->
+          <single-response class="mb-3"></single-response>
         </v-flex>
         <v-flex md6 xs12>
           <single-response-chart class="mb-3"></single-response-chart>
-          <!-- <single-response class="mb-3"></single-response> -->
         </v-flex>
       </v-layout>
     </v-container>

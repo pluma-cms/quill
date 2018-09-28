@@ -44,6 +44,7 @@ export default {
         chip: true,
         hover: true,
         lg3: false,
+        titleLink: '/admin/forms/show',
         showMimetype: false,
         showToolbar: false,
         headers: [
@@ -63,36 +64,20 @@ export default {
         items: [
           {
             id: '1',
-            title: 'Develop Personal Effectiveness at Operations Level',
-            slug: 'DPE OPS',
+            title: 'Post-workshop Evaluation Form',
+            slug: 'Post-workshop-evaluation-form',
             author: 'Lemony Snicket',
             created: '2 hours ago',
             modified: '2 hours ago',
           },
           {
             id: '2',
-            title: 'Solve Problems and Make Decisions at Supervisory Level',
-            slug: 'DPE OPS',
+            title: 'PDPC E-learning Programme Assessment',
+            slug: 'pdpc-e-elarning-programme-assessment',
             author: 'Lemony Snicket',
             created: '2 hours ago',
             modified: '2 hours ago',
-          },
-          {
-            id: '3',
-            title: 'Communicate and Relate Effectively at the Workplace at Operations Level',
-            slug: 'DPE OPS',
-            author: 'Lemony Snicket',
-            created: '2 hours ago',
-            modified: '2 hours ago',
-          },
-          {
-            id: '4',
-            title: 'Develop Personal Effectiveness at Supervisory Level',
-            slug: 'DPE OPS',
-            author: 'Lemony Snicket',
-            created: '2 hours ago',
-            modified: '2 hours ago',
-          },
+          }
         ]
       }
     }

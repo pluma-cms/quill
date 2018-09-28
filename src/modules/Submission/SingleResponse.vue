@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h5 class="mb-3">Submission</h5>
+    <h5 class="mb-3">{{ trans('Submission') }}</h5>
     <v-card>
       <v-toolbar
         flat
@@ -12,7 +12,16 @@
           </span>
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn outline color="secondary">Export</v-btn>
+        <v-tooltip bottom>
+          <v-btn
+            slot="activator"
+            outline
+            color="secondary"
+            >
+            {{ trans('Export') }}
+          </v-btn>
+          <span>{{ trans('Export to PDF') }}</span>
+        </v-tooltip>
       </v-toolbar>
       <v-list dense class="py-4">
         <v-list-tile avatar>
@@ -52,7 +61,7 @@
               </p>
               <p>
                 <v-icon color="error" class="mr-3">cancel</v-icon>
-                <span><strong>You answered</strong></span>
+                <span><strong>Your answer</strong></span>
               </p>
               <p>
                 <v-icon color="success" class="mr-3">check_circle</v-icon>
@@ -84,7 +93,7 @@ export default {
             title: 'What is asked?',
           },
           {
-            title: 'What is the date today?',
+            title: 'Why 192.168.1.1 is most common default gateway for routers?',
           }
         ]
       }

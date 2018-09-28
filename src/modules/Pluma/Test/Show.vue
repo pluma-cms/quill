@@ -1,8 +1,8 @@
 <template>
   <section>
-    <v-container fluid grid-list-lg>
-      <v-layout row wrap>
-        <v-flex md4 xs12>
+    <!-- <v-container fluid grid-list-lg>
+      <v-layout row wrap justify-center align-center> -->
+        <!-- <v-flex md4 xs12>
           <v-textarea
             v-model="task"
             label="Leave a comment"
@@ -58,19 +58,32 @@
               </template>
             </v-slide-y-transition>
           </v-card>
-        </v-flex>
-      </v-layout>
-    </v-container>
+        </v-flex> -->
+
+        <!-- <v-flex md8 xs12> -->
+          <!-- <v-card> -->
+            <!-- <v-card-text> -->
+              <display-assignment></display-assignment>
+            <!-- </v-card-text> -->
+          <!-- </v-card> -->
+        <!-- </v-flex> -->
+      <!-- </v-layout> -->
+    <!-- </v-container> -->
   </section>
 </template>
 
 <script>
 import store from './store'
+import DisplayAssignment from '@/modules/Yggdrasil/Assignment/Assignment.vue'
 
 export default {
   store,
 
   name: 'TestShow',
+
+  components: {
+    DisplayAssignment
+  },
 
   data () {
     return {

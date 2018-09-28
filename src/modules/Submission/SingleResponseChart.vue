@@ -10,9 +10,16 @@
         </span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn outline color="secondary">
-        {{ trans('Export') }}
-      </v-btn>
+      <v-tooltip bottom>
+        <v-btn
+          slot="activator"
+          outline
+          color="secondary"
+          >
+          {{ trans('Export') }}
+        </v-btn>
+        <span>{{ trans('Export to PDF') }}</span>
+      </v-tooltip>
     </v-toolbar>
     <v-card-text>
       <v-progress-linear

@@ -41,7 +41,7 @@
               bottom
               >
               <a
-                href="/admin/courses/show"
+                :href="dataset.titleLink"
                 v-html="trans(props.item.title)"
                 slot="activator"
                 >
@@ -55,6 +55,7 @@
             >
           </td>
           <td
+            class="table--ellipsis"
             v-if="dataset.slug"
             v-html="trans(props.item.slug)"
             >
