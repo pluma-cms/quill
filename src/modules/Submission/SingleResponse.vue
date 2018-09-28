@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h5 class="mb-3">{{ trans('Submission') }}</h5>
     <v-card>
       <v-toolbar
         flat
@@ -8,7 +7,7 @@
         >
         <v-toolbar-title>
           <span class="subheading">
-            {{ trans('Sample Form Title') }}
+            <strong v-html="item.formTitle"></strong>
           </span>
         </v-toolbar-title>
         <v-spacer></v-spacer>
@@ -82,6 +81,7 @@ export default {
   data () {
     return {
       item: {
+        formTitle: 'Post-workshop Evaluation Form',
         thumbnail: 'https://demo.rippl3s.com/assets/user/images/avatars/female-01.png',
         fullname: 'Princess Alto',
         score: '01/01',

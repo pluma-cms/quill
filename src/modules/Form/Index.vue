@@ -18,7 +18,7 @@ import { mapGetters } from 'vuex'
 export default {
   store,
 
-  name: 'FormIndex',
+  name: 'Index',
 
   data () {
     return {

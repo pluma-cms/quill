@@ -10,6 +10,6 @@ import store from '@/store'
 export default {
   store,
 
-  name: 'FormEdit'
+  name: 'Edit'
 }
 </script>

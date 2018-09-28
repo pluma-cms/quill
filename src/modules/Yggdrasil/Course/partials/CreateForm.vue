@@ -81,7 +81,7 @@
 </template>
 
 <script>
-import CourseLessons from './CourseLessons'
+import CourseLessons from './Lessons'
 import store from '@/store'
 import { mapGetters } from 'vuex'
 

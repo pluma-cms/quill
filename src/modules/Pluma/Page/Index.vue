@@ -40,7 +40,7 @@ import { mapGetters } from 'vuex'
 
 export default {
   store,
-  name: 'PageIndex',
+  name: 'Index',
 
   components: {
     EmptyState,

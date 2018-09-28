@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import CreateCourseForm from './partials/CreateCourseForm'
+import CreateCourseForm from './partials/CreateForm'
 
 export default {
   name: 'Create',

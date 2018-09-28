@@ -49,7 +49,7 @@
 
 <script>
 import Assignment from './Assignment.vue'
-import CourseOverview from './CourseOverview.vue'
+import CourseOverview from './Overview.vue'
 import Students from './Students.vue'
 
 export default {

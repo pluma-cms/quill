@@ -95,17 +95,19 @@
 
 <script>
 import store from '@/store'
-import CourseCompleted from './partials/CourseCompleted.vue'
-import CourseForm from './partials/CourseForm.vue'
-import CourseLocked from './partials/CourseLocked.vue'
-import CourseNotEnrolled from './partials/CourseNotEnrolled.vue'
-import CoursePlaylist from './partials/CoursePlaylist.vue'
-import CourseResources from './partials/CourseResources.vue'
-import CourseWithInteractive from './partials/CourseWithInteractive.vue'
-import CourseWithoutInteractive from './partials/CourseWithoutInteractive.vue'
+import CourseCompleted from './partials/Completed.vue'
+import CourseForm from './partials/Form.vue'
+import CourseLocked from './partials/Locked.vue'
+import CourseNotEnrolled from './partials/NotEnrolled.vue'
+import CoursePlaylist from './partials/Playlist.vue'
+import CourseResources from './partials/Resources.vue'
+import CourseWithInteractive from './partials/WithInteractive.vue'
+import CourseWithoutInteractive from './partials/WithoutInteractive.vue'
 
 export default {
   store,
+
+  name: 'Show',
 
   components: {
     CourseCompleted,

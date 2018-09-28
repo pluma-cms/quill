@@ -4,6 +4,7 @@
       <v-icon left>mdi-arrow-left</v-icon>
       {{ trans('Back') }}
     </v-btn>
+    <v-spacer></v-spacer>
     <v-layout
       row
       wrap
@@ -141,7 +142,7 @@
 
 <script>
 export default {
-  name: 'FormShow',
+  name: 'FormPreview',
 
   data () {
     return {

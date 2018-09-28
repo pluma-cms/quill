@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'Create',
+  name: 'Trashed',
 
   computed: {
     page: function () {

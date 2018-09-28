@@ -41,16 +41,6 @@ export default [
         },
       },
       {
-        path: 'show',
-        name: 'forms.show',
-        component: () => import('../Show.vue'),
-        meta: {
-          title: 'Show Form',
-          authenticatable: true,
-          icon: 'mdi-book-plus',
-        },
-      },
-      {
         path: 'archived',
         name: 'forms.archived',
         component: () => import('../Archived.vue'),

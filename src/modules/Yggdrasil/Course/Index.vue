@@ -21,7 +21,7 @@
 <script>
 import store from './store'
 import { mapGetters } from 'vuex'
-import CourseEmptyState from './partials/CourseEmptyState'
+import CourseEmptyState from './partials/EmptyState'
 
 export default {
   store,
