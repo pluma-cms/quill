@@ -1,8 +1,8 @@
 <template :dark="$store.getters['app/app'].dark">
   <v-container fluid grid-list-lg>
     <v-card-actions>
-      <v-btn round class="px-3">
-        <v-icon left small color="accent">add</v-icon>
+      <v-btn round large class="px-3">
+        <v-icon left color="primary">add</v-icon>
         {{ trans('Add Widget') }}
       </v-btn>
       <v-spacer></v-spacer>

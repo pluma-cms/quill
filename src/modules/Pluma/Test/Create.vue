@@ -9,9 +9,18 @@
           <my-most-popular-courses></my-most-popular-courses> -->
           <responses class="mb-3"></responses>
           <single-response class="mb-3"></single-response>
+
+          <v-card class="mb-2">
+            <v-card-text>
+              <v-btn dark icon class="red lighten-5">
+                <v-icon color="red">mdi-delete-outline</v-icon>
+              </v-btn>
+            </v-card-text>
+          </v-card>
         </v-flex>
+
         <v-flex md6 xs12>
-          <single-response-chart class="mb-3"></single-response-chart>
+          <!-- <single-response-chart></single-response-chart> -->
         </v-flex>
       </v-layout>
     </v-container>

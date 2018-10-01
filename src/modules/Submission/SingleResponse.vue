@@ -6,18 +6,17 @@
         class="emphasis--medium"
         >
         <v-toolbar-title>
-          <span class="subheading">
-            <strong v-html="item.formTitle"></strong>
+          <span class="subheading" v-html="item.formTitle">
           </span>
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-tooltip bottom>
           <v-btn
             slot="activator"
-            outline
-            color="secondary"
+            depressed
+            color="pink lighten-5"
             >
-            {{ trans('Export') }}
+            <span class="pink--text">{{ trans('Export') }}</span>
           </v-btn>
           <span>{{ trans('Export to PDF') }}</span>
         </v-tooltip>
@@ -49,21 +48,20 @@
         <ol>
           <template v-for="(item, i) in questions.items">
             <li class="mb-4" :key="i">
-              <h4 class="mb-3" v-html="item.title"></h4>
-              <p>
+              <p v-html="item.title">
                 <v-icon class="mr-3">radio_button_unchecked</v-icon>
                 <span>Option 1</span>
               </p>
-               <p>
+              <p>
                 <v-icon class="mr-3">radio_button_unchecked</v-icon>
                 <span>Option 2</span>
               </p>
               <p>
-                <v-icon color="error" class="mr-3">cancel</v-icon>
+                <v-icon color="error" class="mr-3">mdi-close</v-icon>
                 <span><strong>Your answer</strong></span>
               </p>
               <p>
-                <v-icon color="success" class="mr-3">check_circle</v-icon>
+                <v-icon color="success" class="mr-3">mdi-check</v-icon>
                 <span>Correct Answer</span>
               </p>
             </li>
@@ -85,7 +83,7 @@ export default {
         thumbnail: 'https://demo.rippl3s.com/assets/user/images/avatars/female-01.png',
         fullname: 'Princess Alto',
         score: '01/01',
-        timestamp: '2 hours ago'
+        timestamp: '2 hours ago',
       },
       questions: {
         items: [

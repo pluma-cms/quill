@@ -11,9 +11,9 @@ s<template>
         </span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-chip color="secondary">
-        <span class="white--text">3</span>
-      </v-chip>
+      <v-avatar size="30" color="pink lighten-5">
+        <strong class="mb-1 pink--text">3</strong>
+      </v-avatar>
     </v-toolbar>
     <v-list dense>
       <template v-for="(item, i) in dataset.items">

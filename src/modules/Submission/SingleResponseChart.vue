@@ -51,7 +51,7 @@ export default {
       item: {
         fieldTitle: 'Favorite Color?',
         options: 'Black',
-      }
+      },
     }
   },
 
