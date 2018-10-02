@@ -32,7 +32,7 @@
         </v-card>
       </v-flex>
 
-      <v-flex md4 sm6 xs12>
+      <v-flex md4 sm6>
         <v-card
           height="100%"
           >
@@ -244,6 +244,10 @@
         </v-card>
         <to-do></to-do>
       </v-flex>
+
+      <v-flex md4 xs12>
+        <my-most-popular-courses></my-most-popular-courses>
+      </v-flex>
     </v-layout>
   </v-container>
 </template>
@@ -261,6 +265,7 @@ import { mapGetters } from 'vuex'
 import LineChart from '@/components/ChartJS/LineChart.vue'
 import BarChart from '@/components/ChartJS/BarChart.vue'
 import ToDo from '@/modules/Yggdrasil/Course/widgets/Student/ToDo.vue'
+import MyMostPopularCourses from '@/modules/Yggdrasil/Course/widgets/Trainer/MyMostPopularCourses.vue'
 
 export default {
   store,
@@ -269,6 +274,7 @@ export default {
     LineChart,
     BarChart,
     ToDo,
+    MyMostPopularCourses,
   },
 
   computed: {

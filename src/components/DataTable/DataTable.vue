@@ -40,12 +40,7 @@
               max-width="300px"
               bottom
               >
-              <a
-                :href="dataset.titleLink"
-                v-html="trans(props.item.title)"
-                slot="activator"
-                >
-              </a>
+              <span slot="activator" v-html="trans(props.item.title)"></span>
               <span v-html="trans(props.item.title)"></span>
             </v-tooltip>
           </td>
@@ -92,7 +87,18 @@
                   small
                   class="mx-3"
                   >
-                  edit
+                  mdi-open-in-new
+                </v-icon>
+              </v-btn>
+              <span>{{ trans('View Details') }}</span>
+            </v-tooltip>
+            <v-tooltip bottom>
+              <v-btn slot="activator" icon>
+                <v-icon
+                  small
+                  class="mx-3"
+                  >
+                  mdi-circle-edit-outline
                 </v-icon>
               </v-btn>
               <span>{{ trans('Edit') }}</span>
@@ -103,7 +109,7 @@
                   small
                   class="mx-3"
                   >
-                  delete
+                  mdi-delete-outline
                 </v-icon>
               </v-btn>
               <span>{{ trans('Move to trash') }}</span>

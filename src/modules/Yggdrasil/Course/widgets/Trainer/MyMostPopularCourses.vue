@@ -19,7 +19,7 @@
             </v-img>
             <v-card-text>
               <p
-                class="body-2 mb-2 primary--text text--lighten-2">
+                class="body-2 mb-2 primary--text">
                 <strong v-html="trans(item.category)"></strong>
               </p>
               <v-tooltip bottom>

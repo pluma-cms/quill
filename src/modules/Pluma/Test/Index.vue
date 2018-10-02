@@ -1,25 +1,22 @@
 <template>
   <section>
-    <!-- toolbar -->
-    <toolbar-menu :items="toolbar"></toolbar-menu>
-    <!-- toolbar -->
-
     <v-container fluid grid-list-lg>
+      <toolbar-menu :items="toolbar" class="mb-3"></toolbar-menu>
       <v-layout row wrap>
-        <v-flex md8 xs12>
+        <v-flex xs12>
           <!-- iconmenu -->
-          <v-card class="mb-3">
+          <!-- <v-card class="mb-3">
             <v-card-title class="emphasis--medium">
               {{ trans('Icon Menu') }}
             </v-card-title>
             <v-card-text>
               <icon-menu :items="iconmenu"></icon-menu>
             </v-card-text>
-          </v-card>
+          </v-card> -->
           <!-- iconmenu -->
 
           <!-- dialogbox -->
-          <v-card flat class="mb-3 text-xs-center">
+          <!-- <v-card flat class="mb-3 text-xs-center">
             <v-card-title
               class="emphasis--medium"
               >
@@ -28,13 +25,13 @@
             <v-card-text>
               <dialogbox></dialogbox>
               <v-btn
-                color="secondary"
+                class="v-btn--gradient"
                 @click="openDialogbox"
                 >
                 {{ trans('Open Dialog Test') }}
               </v-btn>
             </v-card-text>
-          </v-card>
+          </v-card> -->
           <!-- dialogbox -->
 
           <!-- grid / list view -->
@@ -50,23 +47,23 @@
 
         <v-flex md4 xs12>
           <!-- tag -->
-          <v-card class="mb-3">
+          <!-- <v-card class="mb-3">
             <v-card-title class="emphasis--medium">
               {{ trans('Tags Card') }}
             </v-card-title>
             <v-card-text>
               <tag :items="tag"></tag>
             </v-card-text>
-          </v-card>
+          </v-card> -->
           <!-- tag -->
 
           <!-- category -->
-          <v-card class="mb-3 emphasis--medium">
+         <!--  <v-card class="mb-3 emphasis--medium">
             <v-card-title>
               {{ trans('Category Card') }}
             </v-card-title>
             <category :items="category"></category>
-          </v-card>
+          </v-card> -->
           <!-- category -->
         </v-flex>
       </v-layout>
@@ -128,6 +125,11 @@ export default {
       },
 
       courses: {
+        timestamp: false,
+        slug: false,
+        author: false,
+        created: false,
+        modified: false,
         selected: [],
         bulkDestroy: false,
         selectAll: true,
@@ -143,7 +145,6 @@ export default {
           { text: 'Featured', value: 'thumbnail' },
           { text: 'Title', value: 'title' },
           { text: 'Category', value: 'category' },
-          { text: 'Timestamp', value: 'timestamp' },
           { text: 'Part', value: 'part' },
           { text: 'Status', value: 'status' },
           {

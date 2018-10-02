@@ -13,7 +13,6 @@ export const state = () => ({
     status: true,
     author: true,
     singleCheckbox: false,
-    titleLink: '',
   },
 })
 

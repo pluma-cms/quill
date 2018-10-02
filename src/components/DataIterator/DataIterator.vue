@@ -50,9 +50,10 @@
                 >
                 <v-card-text class="text-xs-right">
                   <v-chip
-                    class="elevation-2"
-                    color="success"
+                    class="pb-1 elevation-2"
+                    color="secondary"
                     dark
+                    small
                     text-color="white"
                     v-if="props.item.status"
                     >
@@ -136,7 +137,7 @@
             v-if="dataset.showCardText"
             >
             <p
-              class="body-2 mb-2 primary--text text--lighten-2">
+              class="body-2 mb-2 primary--text">
               <strong v-html="trans(props.item.category)"></strong>
             </p>
             <v-tooltip bottom>
@@ -174,9 +175,8 @@
               class="body-1"
               v-if="dataset.showPart"
               >
-              <v-icon class="grey--text">list</v-icon>
               <span v-html="trans(props.item.part)"></span>
-              <span>Parts</span>
+              <span> Parts</span>
             </span>
             <!-- part -->
 

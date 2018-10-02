@@ -3,7 +3,6 @@ export const state = () => ({
     model: '',
     title: '',
     search: '',
-    toolbarClass: 'sticky v-toolbar__main',
     color: 'light',
     flat: true,
     themeDark: false,

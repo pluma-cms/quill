@@ -1,11 +1,10 @@
 <template>
   <v-toolbar
-    :class="dataset.toolbarClass"
-    :flat="dataset.flat"
+    class="toolbarMenu sticky transparent"
+    flat
     :color="dataset.color"
     :dark="dataset.themeDark"
     v-model="dataset.model"
-    class="toolbarMenu"
     >
 
     <!-- show searchField -->
@@ -36,8 +35,8 @@
     <template v-else>
       <v-toolbar-title
         class="primary--text"
-        v-html="trans(dataset.title)"
         >
+        <strong v-html="trans(dataset.title)"></strong>
       </v-toolbar-title>
       <v-spacer v-if="dataset.spacer"></v-spacer>
 
@@ -48,9 +47,9 @@
           icon
           slot="activator"
           >
-          <v-icon>check_circle</v-icon>
+          <v-icon small>mdi-check-all</v-icon>
         </v-btn>
-        <span>Bulk Selection</span>
+        <span>{{ trans('Bulk Selection') }}</span>
       </v-tooltip>
 
       <!-- sort -->
@@ -62,7 +61,7 @@
           icon
           slot="activator"
           >
-          <v-icon v-html="dataset.sort ? 'mdi-sort-ascending' : 'mdi-sort-descending'"></v-icon>
+          <v-icon small v-html="dataset.sort ? 'mdi-sort-ascending' : 'mdi-sort-descending'"></v-icon>
         </v-btn>
         <span>Sort</span>
       </v-tooltip>
@@ -76,7 +75,7 @@
           icon
           slot="activator"
           >
-          <v-icon>mdi-filter</v-icon>
+          <v-icon small>mdi-filter-outline</v-icon>
         </v-btn>
         <span>Filter</span>
       </v-tooltip>
@@ -92,7 +91,7 @@
             icon
             slot="activator"
             >
-            <v-icon>view_module</v-icon>
+            <v-icon small>mdi-grid-large</v-icon>
           </v-btn>
           <span>Switch to Grid View</span>
         </v-tooltip>
@@ -109,7 +108,7 @@
             slot="activator"
             @click="toggleView"
             >
-            <v-icon>view_list</v-icon>
+            <v-icon small>mdi-format-list-checkbox</v-icon>
           </v-btn>
           <span>Switch to List View</span>
         </v-tooltip>
@@ -124,7 +123,7 @@
           icon
           slot="activator"
           >
-          <v-icon>archive</v-icon>
+          <v-icon small>mdi-package-variant</v-icon>
         </v-btn>
         <span>Trashed List</span>
       </v-tooltip>
@@ -141,7 +140,7 @@
           slot="activator"
           @click="dataset.searchField = !dataset.searchButton"
           >
-          <v-icon>close</v-icon></v-btn>
+          <v-icon small>close</v-icon></v-btn>
         <span>Close Searchbar</span>
       </v-tooltip>
     </template>
@@ -154,7 +153,7 @@
           slot="activator"
           @click="dataset.searchField = !dataset.searchField"
           >
-          <v-icon>search</v-icon>
+          <v-icon small>search</v-icon>
         </v-btn>
         <span>Search Resources</span>
       </v-tooltip>
@@ -172,21 +171,16 @@
 
     <!-- raised -->
     <v-btn
-      color="secondary"
+      class="v-btn--gradient"
+      dark
+      large
+      round
       v-html="trans(dataset.raisedTitle)"
       v-if="dataset.raised"
       >
     </v-btn>
   </v-toolbar>
 </template>
-
-<style lang="stylus" scoped>
-  .toolbarMenu {
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-  }
-</style>
 
 <script>
 import store from '@/store'

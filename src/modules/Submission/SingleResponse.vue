@@ -21,6 +21,7 @@
           <span>{{ trans('Export to PDF') }}</span>
         </v-tooltip>
       </v-toolbar>
+
       <v-list dense class="py-4">
         <v-list-tile avatar>
           <v-list-tile-avatar>
