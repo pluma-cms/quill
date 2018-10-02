@@ -18,9 +18,9 @@
             <v-icon
               dark
               @click="course.play"
-              size="150"
+              size="120"
               >
-              play_arrow
+              mdi-youtube
             </v-icon>
           </v-card>
 

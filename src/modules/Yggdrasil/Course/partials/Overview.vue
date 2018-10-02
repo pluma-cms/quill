@@ -4,14 +4,13 @@
     height="100%"
     >
     <v-card-text>
-      <div class="primary--text text--lighten-2 body-1">
+      <div class="primary--text body-1">
         <strong>{{ __('PSDM SUP') }}</strong>
       </div>
       <h2 v-html="item.title"></h2>
       <div class="grey--text">
         {{ item.created }} {{ trans('by') }}
         <a
-          class="author"
           href=""
           v-html="item.author"
           >

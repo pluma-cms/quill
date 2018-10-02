@@ -63,7 +63,7 @@
           >
           <v-icon small v-html="dataset.sort ? 'mdi-sort-ascending' : 'mdi-sort-descending'"></v-icon>
         </v-btn>
-        <span>Sort</span>
+        <span>{{ trans('Sort') }}</span>
       </v-tooltip>
 
       <!-- filter -->
@@ -93,7 +93,7 @@
             >
             <v-icon small>mdi-grid-large</v-icon>
           </v-btn>
-          <span>Switch to Grid View</span>
+          <span>{{ trans('Switch to Grid View') }}</span>
         </v-tooltip>
       </template>
 
@@ -110,7 +110,7 @@
             >
             <v-icon small>mdi-format-list-checkbox</v-icon>
           </v-btn>
-          <span>Switch to List View</span>
+          <span>{{ trans('Switch to List View') }}</span>
         </v-tooltip>
       </template>
 
@@ -125,7 +125,7 @@
           >
           <v-icon small>mdi-package-variant</v-icon>
         </v-btn>
-        <span>Trashed List</span>
+        <span>{{ trans('Trashed List') }}</span>
       </v-tooltip>
     </template>
     <!-- hide searchField -->
@@ -141,7 +141,7 @@
           @click="dataset.searchField = !dataset.searchButton"
           >
           <v-icon small>close</v-icon></v-btn>
-        <span>Close Searchbar</span>
+        <span>{{ trans('Close Searchbar') }}</span>
       </v-tooltip>
     </template>
 
@@ -155,7 +155,7 @@
           >
           <v-icon small>search</v-icon>
         </v-btn>
-        <span>Search Resources</span>
+        <span>{{ trans('Search Resources') }}</span>
       </v-tooltip>
     </template>
 
