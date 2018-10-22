@@ -1,6 +1,6 @@
 {
-  "$primary"  : "#a97af2",
-  "$secondary": "#E56E37",
+  "$primary"  : "#A97AF2",
+  "$secondary": "#ce82ef",
   "$accent"   : "#23CCAB",
   "$success"  : "#30A300",
   "$warning"  : "#EAC011",

@@ -1,8 +1,8 @@
 <template :dark="$store.getters['app/app'].dark">
   <v-container fluid grid-list-lg>
     <v-card-actions>
-      <v-btn round large class="px-3">
-        <v-icon left color="primary">add</v-icon>
+      <v-btn dark round large class="v-btn--gradient px-3">
+        <v-icon left>add</v-icon>
         {{ trans('Add Widget') }}
       </v-btn>
       <v-spacer></v-spacer>
@@ -159,13 +159,13 @@
             </v-btn>
           </v-card-actions>
           <v-card-text>
-            <bar-chart
+            <line-chart
               name="statisticsChart"
               :data="statisticsChartData"
               :options="statisticsChartOptions"
               :ctx="ctx"
               >
-            </bar-chart>
+            </line-chart>
           </v-card-text>
         </v-card>
       </v-flex>
@@ -187,17 +187,16 @@
             </v-btn>
           </v-card-actions>
           <v-card-text>
-            <h1 class="headline mb-2">
+            <h3>
               <span class="px-2">
-                <v-icon size="20" class="pb-2 grey--text">dashboard</v-icon>
               </span>
               {{ trans('Environment') }}
-            </h1>
+            </h3>
           </v-card-text>
           <v-list dense>
             <v-list-tile>
               <v-list-tile-avatar>
-                <v-icon small color="primary lighten-2">mdi-camera-account</v-icon>
+                <v-icon dark small>mdi-camera-account</v-icon>
               </v-list-tile-avatar>
               <v-list-tile-content>
                 <v-list-tile-title>
@@ -212,7 +211,7 @@
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-avatar>
-                <v-icon small color="secondary">mdi-download</v-icon>
+                <v-icon dark small>mdi-download</v-icon>
               </v-list-tile-avatar>
               <v-list-tile-content>
                 <v-list-tile-title>
@@ -227,7 +226,7 @@
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-avatar>
-                <v-icon small color="accent">mdi-upload</v-icon>
+                <v-icon dark small>mdi-upload</v-icon>
               </v-list-tile-avatar>
               <v-list-tile-content>
                 <v-list-tile-title>
@@ -244,20 +243,9 @@
         </v-card>
         <to-do></to-do>
       </v-flex>
-
-      <v-flex md4 xs12>
-        <my-most-popular-courses></my-most-popular-courses>
-      </v-flex>
     </v-layout>
   </v-container>
 </template>
-
-<style>
-  .glance__card--gradient {
-    /*background: linear-gradient(45deg, #e56590 0%, #ffb88c 100%);*/
-    background: linear-gradient(45deg, #3e75c8 0%, #4ccbab 100%);
-  }
-</style>
 
 <script>
 import store from '@/store'
@@ -293,8 +281,8 @@ export default {
       this.ctx = document.getElementById('statisticsChart').getContext('2d')
 
       var gradient = this.ctx.createLinearGradient(100, 0, 100, 200)
-      gradient.addColorStop(0, '#e56590')
-      gradient.addColorStop(1, '#ffb88c')
+      gradient.addColorStop(0, '#686AF3')
+      gradient.addColorStop(1, '#ce82ef')
 
       var gradient2 = this.ctx.createLinearGradient(100, 0, 100, 400)
       gradient2.addColorStop(0, '#4ccbab')
@@ -317,38 +305,21 @@ export default {
         ],
         datasets: [
           {
-            label: 'Statistics',
             backgroundColor: gradient,
             borderColor: gradient,
+            data: [40, 28, 44, 32, 81, 25, 65, 49, 82, 64, 82, 75],
             fill: false,
             hoverBackgroundColor: gradient,
+            label: 'Statistics',
             pointBackgroundColor: gradient,
             pointBorderColor: gradient,
             pointBorderWidth: 5,
             pointHoverBackgroundColor: gradient,
             pointHoverBorderColor: gradient,
             pointHoverRadius: 10,
-            pointRadius: 6,
-            pointWidthRadius: 1,
-            data: [170, 80, 100, 120, 170, 120, -70, 140, 180, 100, -40, -70],
-          },
-          {
-            label: 'Statistics',
-            backgroundColor: gradient2,
-            hoverBackgroundColor: gradient2,
-            borderColor: gradient2,
-            fill: false,
-            pointBackgroundColor: gradient2,
-            pointBorderColor: gradient2,
-            pointBorderWidth: 5,
-            pointHoverBackgroundColor: gradient2,
-            pointHoverBorderColor: gradient2,
-            pointHoverBorderWidth: 3,
-            pointHoverRadius: 10,
-            pointRadius: 6,
-            pointWidthRadius: 1,
-            data: [-50, 40, 130, -20, -70, 50, 170, -40, -80, 100, 120, 150],
-          },
+            pointRadius: 0,
+            pointWidthRadius: 0,
+          }
         ]
       }
       this.statisticsChartOptions = {
@@ -367,7 +338,7 @@ export default {
           yAxes: [{
             gridLines: {
               drawTicks: false,
-              display: false,
+              display: true,
               borderDash: [2, 2],
               lineWidth: 0.9,
             },
@@ -389,7 +360,14 @@ export default {
               display: false,
               tickMarkLength: 2,
             }
-          }]
+          }],
+          elements: {
+            point: {
+              radius: 0,
+              hitRadius: 10,
+              hoverRadius: 5,
+            }
+          }
         }
       }
     },

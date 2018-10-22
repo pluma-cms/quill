@@ -1,9 +1,9 @@
 <template>
   <section>
-    <toolbar-menu :items="toolbar"></toolbar-menu>
     <v-container fluid grid-list-lg>
       <v-layout row wrap>
         <v-flex xs12>
+          <toolbar-menu class="mb-3" :items="toolbar"></toolbar-menu>
           <data-table :items="dataset"></data-table>
         </v-flex>
       </v-layout>

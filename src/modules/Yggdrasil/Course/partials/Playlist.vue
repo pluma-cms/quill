@@ -39,7 +39,7 @@
                 <v-icon color="success">check</v-icon>
               </v-list-tile-avatar>
               <v-list-tile-content>
-                <v-list-tile-title class="success--text">Introduction</v-list-tile-title>
+                <v-list-tile-title class="success--text">{{ trans('Introduction') }}</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-list-tile
@@ -50,7 +50,7 @@
                 <v-icon color="secondary">play_arrow</v-icon>
               </v-list-tile-avatar>
               <v-list-tile-content>
-                <v-list-tile-title class="secondary--text">Interaction</v-list-tile-title>
+                <v-list-tile-title class="secondary--text">{{ trans('Interaction') }}</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-list-tile
@@ -61,7 +61,7 @@
                 <v-icon color="grey">lock</v-icon>
               </v-list-tile-avatar>
               <v-list-tile-content>
-                <v-list-tile-title class="grey--text">Video</v-list-tile-title>
+                <v-list-tile-title class="grey--text">{{ trans('Video') }}</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-list-tile
@@ -72,7 +72,7 @@
                 <v-icon color="grey">lock</v-icon>
               </v-list-tile-avatar>
               <v-list-tile-content>
-                <v-list-tile-title class="grey--text">Knowledge Check</v-list-tile-title>
+                <v-list-tile-title class="grey--text">{{ trans('Knowledge Check') }}</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
