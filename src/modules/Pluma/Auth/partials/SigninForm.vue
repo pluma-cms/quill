@@ -92,6 +92,7 @@ export default {
           if (ok) {
             this.$store.dispatch('authentication/login', credentials)
               .then((response) => {
+                console.log(this.$router)
                 this.$router.push({name: 'admin'})
                 this.$store.dispatch('sidebar/toggle', {model: true})
                 this.$store.dispatch('utilitybar/toggle', {model: true})

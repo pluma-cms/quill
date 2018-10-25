@@ -66,7 +66,7 @@ export const actions = {
   login: ({commit, dispatch}, payload) => {
     return new Promise((resolve, reject) => {
       commit('ATTEMPT', payload)
-      axios({url: 'http://localhost:8000/api/v1/login', data: payload, method: 'POST'})
+      axios({url: '/api/v1/login', data: payload, method: 'POST'})
         .then(response => {
           const apiToken = response.data.api_token
           const rememberToken = response.data.remember_token

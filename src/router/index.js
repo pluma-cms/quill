@@ -13,20 +13,12 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.authenticatable === true)) {
-    // next({name: 'login.show'})
-    authenticated()
-      .then(tokenExists => {
-        if (tokenExists) {
-          // If user:token value from sessionStorage
-          // exists then redirect to the guarded admin page
-          console.log('tokeexists')
-          next()
-        } else {
-          let fromname = from.name || 'login.show'
-          // else, access the guarded admin page, anyway. NOT!
-          next({name: fromname}) // stay in the login page
-        }
-      })
+    // next()
+    if (authenticated()) {
+      next()
+    } else {
+      next({name: 'login.show'})
+    }
   } else {
     next()
   }
