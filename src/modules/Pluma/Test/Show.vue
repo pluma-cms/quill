@@ -63,7 +63,7 @@
         <!-- <v-flex md8 xs12> -->
           <!-- <v-card> -->
             <!-- <v-card-text> -->
-              <display-assignment></display-assignment>
+              <!-- <display-assignment></display-assignment> -->
             <!-- </v-card-text> -->
           <!-- </v-card> -->
         <!-- </v-flex> -->
@@ -75,7 +75,6 @@
 <script>
 import store from './store'
 import DisplayAssignment from '@/modules/Yggdrasil/Assignment/Assignment.vue'
-
 export default {
   store,
 
@@ -98,7 +97,17 @@ export default {
           comment: 'Fizzbuzz'
         },
       ],
-      task: null
+      task: null,
+      resource: {
+        rowsPerPageItems: [3, 6, 9, 12, 'All'],
+        pagination: {
+          rowsPerPage: 3,
+        },
+        search: '',
+        selected: [],
+        items: [],
+        data: null,
+      },
     }
   },
 

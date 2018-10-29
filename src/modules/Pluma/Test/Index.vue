@@ -1,7 +1,7 @@
 <template>
   <section>
+    <toolbar-menu :items="toolbar" class="mb-3"></toolbar-menu>
     <v-container fluid grid-list-lg>
-      <toolbar-menu :items="toolbar" class="mb-3"></toolbar-menu>
       <v-layout row wrap>
         <v-flex xs12>
           <!-- iconmenu -->

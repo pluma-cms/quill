@@ -1,9 +1,9 @@
 export default [
   {
-    path: '/admin/forms',
+    path: '/admin/announcements',
     component: () => import('@/App.vue'),
     meta: {
-      title: 'Forms',
+      title: 'Announcements',
       sort: 6,
       authenticatable: true,
       icon: 'mdi-book-multiple-variant',
@@ -11,10 +11,10 @@ export default [
     children: [
       {
         path: '',
-        name: 'forms.index',
+        name: 'announcements.index',
         component: () => import('../Index.vue'),
         meta: {
-          title: 'All Forms',
+          title: 'All Announcements',
           sort: 6,
           authenticatable: true,
           icon: 'mdi-book-multiple-variant',
@@ -22,42 +22,30 @@ export default [
       },
       {
         path: 'create',
-        name: 'forms.create',
+        name: 'announcements.create',
         component: () => import('../Create.vue'),
         meta: {
-          title: 'Create Form',
+          title: 'Create Announcement',
           authenticatable: true,
           icon: 'mdi-book-plus',
         },
       },
       {
         path: 'edit',
-        name: 'forms.edit',
+        name: 'announcements.edit',
         component: () => import('../Edit.vue'),
         meta: {
-          title: 'Edit Form',
+          title: 'Edit Announcement',
           authenticatable: true,
           icon: 'mdi-book-plus',
         },
       },
       {
         path: 'archived',
-        name: 'forms.archived',
+        name: 'announcements.archived',
         component: () => import('../Archived.vue'),
         meta: {
-          title: 'Archived Forms',
-          authenticatable: true,
-          icon: 'mdi-delete-empty',
-        },
-      },
-
-      // Partials
-      {
-        path: 'preview',
-        name: 'forms.preview',
-        component: () => import('../partials/Preview.vue'),
-        meta: {
-          title: 'Preview Component',
+          title: 'Archived Announcements',
           authenticatable: true,
           icon: 'mdi-delete-empty',
         },

@@ -1,20 +1,20 @@
 export default [
   {
-    code: 'forms',
-    name: 'forms',
+    code: 'announcements',
+    name: 'announcements',
     meta: {
-      title: 'Form',
+      title: 'Announcement',
       icon: 'mdi-book-multiple-variant',
       authenticatable: true,
       sort: 5,
     },
     children: [
-      // Admin Form
+      // Admin Announcement
       {
-        code: 'forms.index',
-        name: 'forms.index',
+        code: 'announcements.index',
+        name: 'announcements.index',
         meta: {
-          title: 'All Forms',
+          title: 'All Announcements',
           icon: 'mdi-book-multiple-variant',
           authenticatable: true,
           sort: 5,
@@ -22,10 +22,10 @@ export default [
       },
       // Create
       {
-        code: 'forms.create',
-        name: 'forms.create',
+        code: 'announcements.create',
+        name: 'announcements.create',
         meta: {
-          title: 'Create Form',
+          title: 'Create Announcement',
           icon: 'mdi-book-plus',
           authenticatable: true,
           sort: 6,
@@ -34,8 +34,8 @@ export default [
 
       // Divider
       {
-        code: 'divider:forms/create.trashed',
-        name: 'divider:forms/create.trashed',
+        code: 'divider:announcements/create.trashed',
+        name: 'divider:announcements/create.trashed',
         meta: {
           divider: true,
           sort: 7,
@@ -44,10 +44,10 @@ export default [
 
       // Archived
       {
-        code: 'forms.archived',
-        name: 'forms.archived',
+        code: 'announcements.archived',
+        name: 'announcements.archived',
         meta: {
-          title: 'Archived Form',
+          title: 'Archived Announcement',
           icon: 'mdi-delete-empty',
           authenticatable: true,
           sort: 8,

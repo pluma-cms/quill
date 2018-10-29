@@ -1,5 +1,6 @@
 <template>
  <v-card
+    flat
     class="transparent"
     height="100%"
     >
