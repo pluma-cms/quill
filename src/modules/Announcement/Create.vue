@@ -24,7 +24,7 @@
       </v-toolbar>
       <v-container grid-list-lg>
         <v-layout row wrap>
-          <v-flex md9 xs12>
+          <v-flex md9 sm7 xs12>
             <v-card class="pa-3">
               <v-card-text>
                 <v-text-field
@@ -64,6 +64,19 @@
               </v-card-text>
             </v-card>
           </v-flex>
+
+          <v-flex md3 sm5 xs12>
+            <v-card hover flat height="160" class="pa-4 transparent featured-image__card">
+              <v-layout column fill-height justify-center align-center>
+                <student-icon
+                  width="80"
+                  height="80"
+                  >
+                </student-icon>
+                <div class="grey--text text--darken-1">{{ __('Click to add cover photo') }}</div>
+              </v-layout>
+            </v-card>
+          </v-flex>
         </v-layout>
       </v-container>
     </v-form>
@@ -85,13 +98,6 @@ export default {
 
   components: {
     axios,
-  },
-
-  mounted () {
-    /*eslint-disable*/
-    axios.get('/api/v1/announcements/all').then(response => {
-      this.resource.items = response.data.data
-    })
   },
 
   data () {
@@ -124,8 +130,7 @@ export default {
     onSubmit () {
       /* eslint-disable */
       axios.post('/api/v1/announcements/store').then(response => {
-        this.resource.name = response.data
-        this.resource.code = response.data
+        this.resource = response.data.data
       })
     }
   }
