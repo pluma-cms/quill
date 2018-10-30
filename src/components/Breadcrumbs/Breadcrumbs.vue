@@ -1,6 +1,6 @@
 <template>
   <v-breadcrumbs v-if="breadcrumbs.model" class="px-4 py-2">
-    <v-icon slot="divider">keyboard_arrow_right</v-icon>
+    <v-icon slot="divider">/</v-icon>
     <v-breadcrumbs-item
       :key="i"
       :to="breadcrumb.path"

@@ -27,7 +27,7 @@
       <v-list dense>
         <v-list-tile ripple href="#">
           <v-list-tile-action>
-            <v-icon>mdi-account-outline</v-icon>
+            <v-icon small>mdi-account-outline</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>{{ trans('My Profile') }}</v-list-tile-title>
@@ -35,7 +35,7 @@
         </v-list-tile>
         <v-list-tile ripple href="#">
           <v-list-tile-action>
-            <v-icon>mdi-book</v-icon>
+            <v-icon small>mdi-book-open-page-variant</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>{{ trans('My Courses') }}</v-list-tile-title>
@@ -44,7 +44,7 @@
         <v-divider></v-divider>
         <v-list-tile ripple exact :to="{name: 'login.logout'}">
           <v-list-tile-action>
-            <v-icon>mdi-logout-variant</v-icon>
+            <v-icon small>mdi-logout-variant</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>{{ trans('Logout') }}</v-list-tile-title>

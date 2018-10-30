@@ -21,7 +21,19 @@ export default [
         },
       },
       {
+        path: ':code',
+        props: true,
+        name: 'announcements.show',
+        component: () => import('../Show.vue'),
+        meta: {
+          title: 'Show Announcement',
+          authenticatable: true,
+          icon: 'mdi-book-plus',
+        },
+      },
+      {
         path: 'create',
+        props: true,
         name: 'announcements.create',
         component: () => import('../Create.vue'),
         meta: {
@@ -31,23 +43,14 @@ export default [
         },
       },
       {
-        path: 'edit',
+        path: ':code/edit',
+        props: true,
         name: 'announcements.edit',
         component: () => import('../Edit.vue'),
         meta: {
           title: 'Edit Announcement',
           authenticatable: true,
           icon: 'mdi-book-plus',
-        },
-      },
-      {
-        path: 'archived',
-        name: 'announcements.archived',
-        component: () => import('../Archived.vue'),
-        meta: {
-          title: 'Archived Announcements',
-          authenticatable: true,
-          icon: 'mdi-delete-empty',
         },
       },
     ],

@@ -1,11 +1,11 @@
 <template>
   <section>
-    Edit View
+    Show Details view
   </section>
 </template>
 
 <script>
 export default {
-  name: 'Edit',
+  name: 'Show',
 }
 </script>

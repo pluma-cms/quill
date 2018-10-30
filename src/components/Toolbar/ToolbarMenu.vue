@@ -1,9 +1,7 @@
 <template>
   <v-toolbar
-    class="toolbarMenu sticky grey lighten-5 px-4"
+    class="toolbarMenu sticky px-4 emphasis--medium"
     flat
-    :color="dataset.color"
-    :dark="dataset.themeDark"
     v-model="dataset.model"
     >
 
@@ -47,7 +45,7 @@
           icon
           slot="activator"
           >
-          <v-icon>mdi-check-all</v-icon>
+          <v-icon small>mdi-check-all</v-icon>
         </v-btn>
         <span>{{ trans('Bulk Selection') }}</span>
       </v-tooltip>
@@ -61,7 +59,7 @@
           icon
           slot="activator"
           >
-          <v-icon v-html="dataset.sort ? 'mdi-sort-ascending' : 'mdi-sort-descending'"></v-icon>
+          <v-icon small v-html="dataset.sort ? 'mdi-sort-ascending' : 'mdi-sort-descending'"></v-icon>
         </v-btn>
         <span>{{ trans('Sort') }}</span>
       </v-tooltip>
@@ -75,7 +73,7 @@
           icon
           slot="activator"
           >
-          <v-icon>mdi-filter-outline</v-icon>
+          <v-icon small>mdi-filter-outline</v-icon>
         </v-btn>
         <span>Filter</span>
       </v-tooltip>
@@ -91,7 +89,7 @@
             icon
             slot="activator"
             >
-            <v-icon>mdi-grid-large</v-icon>
+            <v-icon small>mdi-grid-large</v-icon>
           </v-btn>
           <span>{{ trans('Switch to Grid View') }}</span>
         </v-tooltip>
@@ -108,7 +106,7 @@
             slot="activator"
             @click="toggleView"
             >
-            <v-icon>mdi-format-list-checkbox</v-icon>
+            <v-icon small>mdi-format-list-checkbox</v-icon>
           </v-btn>
           <span>{{ trans('Switch to List View') }}</span>
         </v-tooltip>
@@ -123,7 +121,7 @@
           icon
           slot="activator"
           >
-          <v-icon>mdi-package-variant</v-icon>
+          <v-icon small>mdi-package-variant</v-icon>
         </v-btn>
         <span>{{ trans('Trashed List') }}</span>
       </v-tooltip>
@@ -140,7 +138,7 @@
           slot="activator"
           @click="dataset.searchField = !dataset.searchButton"
           >
-          <v-icon>close</v-icon></v-btn>
+          <v-icon small>close</v-icon></v-btn>
         <span>{{ trans('Close Searchbar') }}</span>
       </v-tooltip>
     </template>
@@ -153,7 +151,7 @@
           slot="activator"
           @click="dataset.searchField = !dataset.searchField"
           >
-          <v-icon>search</v-icon>
+          <v-icon small>search</v-icon>
         </v-btn>
         <span>{{ trans('Search Resources') }}</span>
       </v-tooltip>

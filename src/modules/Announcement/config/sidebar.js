@@ -41,18 +41,6 @@ export default [
           sort: 7,
         },
       },
-
-      // Archived
-      {
-        code: 'announcements.archived',
-        name: 'announcements.archived',
-        meta: {
-          title: 'Archived Announcement',
-          icon: 'mdi-delete-empty',
-          authenticatable: true,
-          sort: 8,
-        },
-      },
     ],
   }
 ]
