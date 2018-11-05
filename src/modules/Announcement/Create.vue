@@ -113,7 +113,8 @@ export default {
     onSubmit () {
       let uri = '/api/v1/announcements/store'
       axios.post(uri, this.resource).then((response) => {
-        console.log(response)
+        // console.log(response)
+        alert('clicked')
       })
     }
   }
