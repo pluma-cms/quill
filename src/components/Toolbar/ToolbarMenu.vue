@@ -169,13 +169,16 @@
 
     <!-- raised -->
     <v-btn
+      :to="{
+        name: 'announcements.create',
+      }"
       class="v-btn--gradient"
       dark
       large
       round
-      v-html="trans(dataset.raisedTitle)"
       v-if="dataset.raised"
       >
+      {{ __('Create') }}
     </v-btn>
   </v-toolbar>
 </template>

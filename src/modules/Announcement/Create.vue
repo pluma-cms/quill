@@ -1,10 +1,7 @@
 <template>
   <section>
     <v-form
-      v-model="resource.form.model"
-      @keyup.enter="beforeFormSubmit"
       @submit.prevent="beforeFormSubmit"
-      method="post"
       >
       <v-toolbar flat class="emphasis--medium">
         <v-toolbar-title>
@@ -85,7 +82,6 @@
 
 <script>
 import store from '@/store'
-// import axios from '@/plugins/axios.js'
 import axios from 'axios'
 
 export default {
@@ -96,22 +92,9 @@ export default {
   store,
   name: 'Create',
 
-  components: {
-    axios,
-  },
-
   data () {
     return {
-      resource: {
-        form: {
-          model: false,
-        },
-        title: null,
-        code: null,
-        feature: null,
-        body: null,
-        delta: null,
-      }
+      resource: {}
     }
   },
 
@@ -128,9 +111,9 @@ export default {
     },
 
     onSubmit () {
-      /* eslint-disable */
-      axios.post('/api/v1/announcements/store').then(response => {
-        this.resource = response.data.data
+      let uri = '/api/v1/announcements/store'
+      axios.post(uri, this.resource).then((response) => {
+        console.log(response)
       })
     }
   }

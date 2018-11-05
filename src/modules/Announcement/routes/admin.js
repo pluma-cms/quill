@@ -21,7 +21,7 @@ export default [
         },
       },
       {
-        path: ':code',
+        path: '/announcements/:code',
         props: true,
         name: 'announcements.show',
         component: () => import('../Show.vue'),
