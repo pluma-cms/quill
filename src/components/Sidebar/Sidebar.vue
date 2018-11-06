@@ -43,7 +43,7 @@
             <v-icon slot="appendIcon" small>keyboard_arrow_down</v-icon>
             <v-list-tile ripple slot="activator" v-model="parent.active">
               <v-list-tile-action>
-                <v-icon>{{ parent.meta.icon }}</v-icon>
+                <v-icon class="subheading">{{ parent.meta.icon }}</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
                 <v-list-tile-title>{{ __(parent.meta.title) }}</v-list-tile-title>
@@ -121,7 +121,7 @@ export default {
 
     sidebarmodel: {
       set (value) {
-        this.toggle({model: value})
+        this.toggle({ model: value })
       },
       get () {
         return this.sidebar.model

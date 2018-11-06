@@ -53,6 +53,18 @@ export default [
           icon: 'mdi-book-plus',
         },
       },
+      {
+        path: 'archived',
+        props: true,
+        name: 'announcements.archived',
+        component: () => import('../Archived.vue'),
+        meta: {
+          title: 'Archived Announcement',
+          authenticatable: true,
+          icon: 'mdi-delete-outline'
+
+        }
+      }
     ],
   }
 ]

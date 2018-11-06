@@ -118,12 +118,15 @@
         v-if="dataset.archive"
         >
         <v-btn
+          :to="{
+            name: 'announcements.archived',
+          }"
           icon
           slot="activator"
           >
           <v-icon small>mdi-package-variant</v-icon>
         </v-btn>
-        <span>{{ trans('Trashed List') }}</span>
+        <span>{{ trans('Archived List') }}</span>
       </v-tooltip>
     </template>
     <!-- hide searchField -->

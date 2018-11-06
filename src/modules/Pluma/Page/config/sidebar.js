@@ -4,7 +4,7 @@ export default [
     name: 'pages',
     meta: {
       title: 'Pages',
-      icon: 'mdi-book-open-page-variant',
+      icon: 'mdi-file-document-outline',
       authenticatable: true,
       sort: 4,
     },

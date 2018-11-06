@@ -4,7 +4,7 @@ export default [
     name: 'announcements',
     meta: {
       title: 'Announcement',
-      icon: 'mdi-book-multiple-variant',
+      icon: 'mdi-bullhorn-outline',
       authenticatable: true,
       sort: 5,
     },
@@ -31,14 +31,24 @@ export default [
           sort: 6,
         },
       },
-
       // Divider
       {
-        code: 'divider:announcements/create.trashed',
-        name: 'divider:announcements/create.trashed',
+        code: 'divider:announcements/create.archived',
+        name: 'divider:announcements/create.archived',
         meta: {
           divider: true,
           sort: 7,
+        },
+      },
+      // Archived
+      {
+        code: 'announcements.archived',
+        name: 'announcements.archived',
+        meta: {
+          title: 'Archived Announcements',
+          icon: 'mdi-book-plus',
+          authenticatable: true,
+          sort: 8,
         },
       },
     ],

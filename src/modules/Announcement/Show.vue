@@ -1,26 +1,33 @@
 <template>
   <section>
     <v-container grid-list-lg>
-      <v-flex xs12>
-        <v-card>
-          <v-img
-            height="350"
-            :src="item.feature"
-            >
-          </v-img>
-          <v-card-text>
-            <h1
-              v-html="item.title"
-            >
-            </h1>
-            <p>
-              <span class="grey--text body-1" v-html="item.created"></span>
-              <span class="grey--text body-1" v-html="item.expired"></span>
-            </p>
-            <p v-html="item.body"></p>
-          </v-card-text>
-        </v-card>
-      </v-flex>
+      <v-layout row wrap justify-center align-center>
+        <v-flex lg8 md10 xs12>
+          <v-card>
+            <v-img
+              height="350"
+              :src="item.feature"
+              >
+            </v-img>
+            <v-card-text>
+              <div>
+                <span class="primary--text text--uppercase body-1">
+                  <strong v-html="item.categoryname"></strong>
+                </span>
+              </div>
+              <h1
+                v-html="item.title"
+              >
+              </h1>
+              <p>
+                <span class="grey--text body-1" v-html="item.created"></span>
+              </p>
+              <v-card flat height="30"></v-card>
+              <p v-html="item.body"></p>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+      </v-layout>
     </v-container>
   </section>
 </template>

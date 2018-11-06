@@ -1,6 +1,6 @@
 <template>
   <section>
-    <toolbar-menu :items="toolbar"></toolbar-menu>
+    <!-- <toolbar-menu :items="toolbar"></toolbar-menu> -->
     <v-container fluid grid-list-lg>
       <v-layout row wrap>
         <v-flex xs12>
@@ -109,7 +109,7 @@
 import axios from 'axios'
 
 export default {
-  name: 'Index',
+  name: 'Archived',
 
   mounted () {
     /*eslint-disable*/

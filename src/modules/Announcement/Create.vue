@@ -63,7 +63,7 @@
           </v-flex>
 
           <v-flex md3 sm5 xs12>
-            <v-card hover flat height="160" class="pa-4 transparent featured-image__card">
+            <v-card hover flat height="160" class="mb-3 pa-4 transparent featured-image__card">
               <v-layout column fill-height justify-center align-center>
                 <student-icon
                   width="80"
@@ -72,6 +72,15 @@
                 </student-icon>
                 <div class="grey--text text--darken-1">{{ __('Click to add cover photo') }}</div>
               </v-layout>
+            </v-card>
+
+            <v-card>
+              <v-card-title class="body-2 grey--text">
+                {{ __('Meta') }}
+              </v-card-title>
+              <v-card-text>
+                //
+              </v-card-text>
             </v-card>
           </v-flex>
         </v-layout>
@@ -114,7 +123,7 @@ export default {
       let uri = '/api/v1/announcements/store'
       axios.post(uri, this.resource).then((response) => {
         // console.log(response)
-        alert('clicked')
+        // alert('clicked')
       })
     }
   }
