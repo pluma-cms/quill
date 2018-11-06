@@ -46,7 +46,7 @@
           icon
           slot="activator"
           >
-          <v-icon small>mdi-check-all</v-icon>
+          <v-icon small>mdi-checkbox-multiple-marked-circle-outline</v-icon>
         </v-btn>
         <span>{{ trans('Bulk Selection') }}</span>
       </v-tooltip>
@@ -161,8 +161,6 @@
     <v-divider
       vertical
       class="mr-2"
-      dark
-      inset
       >
     </v-divider>
 

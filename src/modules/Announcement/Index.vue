@@ -4,15 +4,15 @@
     <v-container fluid grid-list-lg>
       <v-layout row wrap>
         <v-flex xs12>
-          <v-card>
+          <v-card flat>
             <v-data-table
               :headers="resource.headers"
               :items="resource.items"
               :pagination.sync="resource.pagination"
-              class="elevation-1"
               item-key="title"
               select-all
               v-model="resource.selected"
+              v-bind="bulk.destroy.model?{'select-all':'primary'}:[]"
               >
               <template slot="headerCell" slot-scope="props">
                 <span>
@@ -23,7 +23,7 @@
                 <tr :active="props.selected" @click="props.selected = !props.selected">
                   <td>
                     <v-checkbox
-                      :input-value="props.selected"
+                      :imput-value="props.selected"
                       primary
                       hide-details
                     ></v-checkbox>
@@ -31,7 +31,7 @@
                   <td v-html="props.item.id"></td>
                   <td class="table--ellipsis">
                     <v-tooltip
-                      max-width="300px"
+                      max-width="300"
                       bottom
                       >
                       <span slot="activator" v-html="trans(props.item.title)"></span>
@@ -122,6 +122,11 @@ export default {
 
   data () {
     return {
+      bulk: {
+          destroy: {
+              model: false,
+          },
+      },
       toolbar: {
         title: 'All Announcements',
         listGridView: false,
@@ -149,26 +154,7 @@ export default {
           { text: 'Actions', align: 'center', sortable: false },
         ],
       },
-      actions: {
-
-      }
     }
   },
-
-  methods: {
-    toggleAll () {
-      if (this.resource.selected.length) this.resource.selected = []
-      else this.resource.selected = this.items.slice()
-    },
-
-    changeSort (column) {
-      if (this.resource.pagination.sortBy === column) {
-        this.resource.pagination.descending = !this.resource.pagination.descending
-      } else {
-        this.resource.pagination.sortBy = column
-        this.resource.pagination.descending = false
-      }
-    }
-  }
 }
 </script>

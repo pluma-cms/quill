@@ -5,8 +5,8 @@
         :headers="dataset.headers"
         :items="dataset.items"
         :search="dataset.searchTable"
-        item-key="title"
         :select-all="dataset.bulkdestroy"
+        item-key="title"
         v-model="dataset.selected"
         >
         <template slot="headerCell" slot-scope="props">
