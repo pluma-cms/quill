@@ -3,26 +3,10 @@ export const state = () => ({
     model: '',
     title: '',
     search: '',
-    color: 'light',
-    flat: true,
-    themeDark: false,
-    spacer: true,
-    sort: true,
-    listview: true,
-    gridview: true,
-    filter: true,
-    toggleview: true,
-    bulkdestroy: true,
-    archive: true,
-    raised: true,
-    raisedButton: true,
-    raisedTitle: 'Create',
-    raisedColor: 'primary',
-    raisedLink: '',
     searchField: false,
     searchButton: true,
-    settings: true,
-    dividerVertical: true,
+    listGridView: true,
+    toggleview: true,
   },
 })
 
@@ -41,7 +25,7 @@ export const mutations = {
 }
 
 export const actions = {
-  update: ({commit}, payload) => {
+  update: ({ commit }, payload) => {
     commit('UPDATE', payload)
   },
 }

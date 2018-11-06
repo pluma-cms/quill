@@ -1,6 +1,6 @@
 <template>
   <section>
-    <!-- <toolbar-menu :items="toolbar"></toolbar-menu> -->
+    <toolbar-archived :items="toolbar"></toolbar-archived>
     <v-container fluid grid-list-lg>
       <v-layout row wrap>
         <v-flex xs12>
@@ -37,63 +37,36 @@
                     <span v-html="trans(props.item.title)"></span>
                   </v-tooltip>
                 </td>
-                <td v-html="props.item.author"></td>
-                <td v-html="props.item.categoryname"></td>
                 <td v-html="props.item.created"></td>
-                <!-- <td v-html="props.item.modified"></td> -->
+                <td v-html="props.item.deleted_at"></td>
                 <td class="layout mx-0 justify-center">
                   <v-tooltip bottom>
                     <v-btn
                       slot="activator"
                       icon
-                      :to="{
-                        name: 'announcements.show',
-                        params: {
-                          code: props.item.code,
-                          meta: { item: props.item }
-                        },
-                      }"
                       >
                       <v-icon
                         small
                         class="mx-3"
                         >
-                        mdi-open-in-new
+                        mdi-restore
                       </v-icon>
                     </v-btn>
-                    <span>{{ trans('View Details') }}</span>
+                    <span>{{ trans('Restore') }}</span>
                   </v-tooltip>
                   <v-tooltip bottom>
                     <v-btn
                       slot="activator"
                       icon
-                      :to="{
-                        name: 'announcements.edit',
-                        params: {
-                          code: props.item.code,
-                          meta: { item: props.item }
-                        },
-                      }"
                       >
                       <v-icon
                         small
                         class="mx-3"
                         >
-                        mdi-circle-edit-outline
+                        mdi-delete-forever
                       </v-icon>
                     </v-btn>
-                    <span>{{ trans('Edit') }}</span>
-                  </v-tooltip>
-                  <v-tooltip bottom>
-                    <v-btn slot="activator" icon>
-                      <v-icon
-                        small
-                        class="mx-3"
-                        >
-                        mdi-delete-outline
-                      </v-icon>
-                    </v-btn>
-                    <span>{{ trans('Move to Archive') }}</span>
+                    <span>{{ trans('Permanently Delete') }}</span>
                   </v-tooltip>
                 </td>
               </tr>
@@ -113,7 +86,7 @@ export default {
 
   mounted () {
     /*eslint-disable*/
-    axios.get('/api/v1/announcements/all').then(response => {
+    axios.get('/api/v1/announcements/archived').then(response => {
       this.resource.items = response.data.data
     })
   },
@@ -121,9 +94,10 @@ export default {
   data () {
     return {
       toolbar: {
-        title: 'All Announcements',
-        gridview: false,
-        listview: false
+        title: 'Trashed Announcements',
+        homeBtn: {
+          name: 'announcements.index',
+        }
       },
       resource: {
         items: [],
@@ -135,10 +109,8 @@ export default {
         headers: [
           { text: 'ID', align: 'left', value: 'id' },
           { text: 'Title', align: 'left', value: 'title' },
-          { text: 'Author', align: 'left', value: 'user_id' },
-          { text: 'Category', align: 'left', value: 'category_at' },
           { text: 'Created', align: 'left', value: 'created_at' },
-          // { text: 'Modified', align: 'left', value: 'updated_at' },
+          { text: 'Removed', align: 'left', value: 'deleted_at' },
           { text: 'Actions', align: 'center', sortable: false },
         ],
       },

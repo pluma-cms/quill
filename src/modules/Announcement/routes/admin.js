@@ -11,6 +11,7 @@ export default [
     children: [
       {
         path: '',
+        props: true,
         name: 'announcements.index',
         component: () => import('../Index.vue'),
         meta: {

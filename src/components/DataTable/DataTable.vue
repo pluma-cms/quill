@@ -31,13 +31,13 @@
           </td>
           <td v-html="props.item.id"></td>
           <td v-if="dataset.avatar">
-            <v-avatar size="36px">
+            <v-avatar size="36">
               <img :src="props.item.thumbnail">
             </v-avatar>
           </td>
           <td class="table--ellipsis">
             <v-tooltip
-              max-width="300px"
+              max-width="300"
               bottom
               >
               <span slot="activator" v-html="trans(props.item.title)"></span>

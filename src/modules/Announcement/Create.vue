@@ -78,9 +78,7 @@
               <v-card-title class="body-2 grey--text">
                 {{ __('Meta') }}
               </v-card-title>
-              <v-card-text>
-                //
-              </v-card-text>
+              <v-card-text></v-card-text>
             </v-card>
           </v-flex>
         </v-layout>

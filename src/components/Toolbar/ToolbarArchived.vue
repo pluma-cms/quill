@@ -36,7 +36,6 @@
         >
         <strong v-html="trans(dataset.title)"></strong>
       </v-toolbar-title>
-
       <v-spacer></v-spacer>
 
       <!-- bulk -->
@@ -49,81 +48,6 @@
           <v-icon small>mdi-check-all</v-icon>
         </v-btn>
         <span>{{ trans('Bulk Selection') }}</span>
-      </v-tooltip>
-
-      <!-- sort -->
-      <v-tooltip
-        bottom
-        >
-        <v-btn
-          icon
-          slot="activator"
-          >
-          <v-icon small v-html="dataset.sort ? 'mdi-sort-ascending' : 'mdi-sort-descending'"></v-icon>
-        </v-btn>
-        <span>{{ trans('Sort') }}</span>
-      </v-tooltip>
-
-      <!-- filter -->
-      <v-tooltip
-        bottom
-        >
-        <v-btn
-          icon
-          slot="activator"
-          >
-          <v-icon small>mdi-filter-outline</v-icon>
-        </v-btn>
-        <span>Filter</span>
-      </v-tooltip>
-
-      <!-- list and grid view -->
-      <template v-if="dataset.listGridView">
-        <!-- grid -->
-        <template v-if="toolbar.toggleview">
-          <v-tooltip
-            bottom
-            >
-            <v-btn
-              @click="toggleView"
-              icon
-              slot="activator"
-              >
-              <v-icon small>mdi-grid-large</v-icon>
-            </v-btn>
-            <span>{{ trans('Switch to Grid View') }}</span>
-          </v-tooltip>
-        </template>
-
-        <!-- list -->
-        <template v-else>
-          <v-tooltip
-            bottom
-            >
-            <v-btn
-              icon
-              slot="activator"
-              @click="toggleView"
-              >
-              <v-icon small>mdi-format-list-checkbox</v-icon>
-            </v-btn>
-            <span>{{ trans('Switch to List View') }}</span>
-          </v-tooltip>
-        </template>
-      </template>
-
-      <!-- archive -->
-      <v-tooltip
-        bottom
-        >
-        <v-btn
-          :to="dataset.archivedBtn"
-          icon
-          slot="activator"
-          >
-          <v-icon small>mdi-package-variant</v-icon>
-        </v-btn>
-        <span>{{ trans('Archived List') }}</span>
       </v-tooltip>
     </template>
     <!-- hide searchField -->
@@ -166,16 +90,19 @@
       >
     </v-divider>
 
-    <!-- create -->
-    <v-btn
-      :to="dataset.createBtn"
-      class="v-btn--gradient"
-      dark
-      large
-      round
+    <!-- back to home -->
+    <v-tooltip
+      bottom
       >
-      {{ __('Create') }}
-    </v-btn>
+      <v-btn
+        :to="dataset.homeBtn"
+        icon
+        slot="activator"
+        >
+        <v-icon small>mdi-home-outline</v-icon>
+      </v-btn>
+      <span>{{ trans('Go back to All Announcements') }}</span>
+    </v-tooltip>
   </v-toolbar>
 </template>
 
@@ -185,7 +112,7 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   store,
-  name: 'ToolbarMenu',
+  name: 'ToolbarArchived',
 
   props: {
     items: {
