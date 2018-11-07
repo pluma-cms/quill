@@ -1,7 +1,10 @@
 <template>
   <section>
     <v-form
-      @submit.prevent="beforeFormSubmit"
+      method="POST"
+      action="/api/v1/announcements/store"
+      @keydown="errors.clear($event)"
+      @submit.prevent="onSubmit"
       >
       <v-toolbar flat class="emphasis--medium">
         <v-toolbar-title>
@@ -32,7 +35,7 @@
                   autofocus
                   label="Title"
                   name="title"
-                  v-model="resource.title"
+                  v-model="title"
                 ></v-text-field>
 
                 <v-text-field
@@ -43,7 +46,7 @@
                   autofocus
                   label="Code"
                   name="code"
-                  v-model="resource.code"
+                  v-model="code"
                 ></v-text-field>
 
                 <v-textarea
@@ -55,7 +58,7 @@
                   :data-vv-as="trans('Message')"
                   name="body"
                   required
-                  v-model="resource.body"
+                  v-model="body"
                   v-validate="'required'"
                 ></v-textarea>
               </v-card-text>
@@ -101,7 +104,10 @@ export default {
 
   data () {
     return {
-      resource: {}
+      resource: {},
+      title: '',
+      code: '',
+      body: '',
     }
   },
 
@@ -118,11 +124,11 @@ export default {
     },
 
     onSubmit () {
-      let uri = '/api/v1/announcements/store'
-      axios.post(uri, this.resource).then((response) => {
-        // console.log(response)
-        // alert('clicked')
-      })
+      // let uri = '/api/v1/announcements/store'
+      // axios.post(uri, this.resource).then((response) => {
+      // })
+
+      axios.post('/api/v1/announcements/store', this.resource)
     }
   }
 }
