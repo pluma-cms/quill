@@ -3,7 +3,6 @@
     <v-form
       method="POST"
       action="/api/v1/announcements/store"
-      @keydown="errors.clear($event)"
       @submit.prevent="onSubmit"
       >
       <v-toolbar flat class="emphasis--medium">
@@ -35,7 +34,7 @@
                   autofocus
                   label="Title"
                   name="title"
-                  v-model="title"
+                  v-model="resource.title"
                 ></v-text-field>
 
                 <v-text-field
@@ -46,7 +45,7 @@
                   autofocus
                   label="Code"
                   name="code"
-                  v-model="code"
+                  v-model="resource.code"
                 ></v-text-field>
 
                 <v-textarea
@@ -58,7 +57,7 @@
                   :data-vv-as="trans('Message')"
                   name="body"
                   required
-                  v-model="body"
+                  v-model="resource.body"
                   v-validate="'required'"
                 ></v-textarea>
               </v-card-text>
@@ -104,10 +103,11 @@ export default {
 
   data () {
     return {
-      resource: {},
-      title: '',
-      code: '',
-      body: '',
+      resource: {
+        title: '',
+        code: '',
+        body: '',
+      },
     }
   },
 

@@ -143,7 +143,6 @@ export default {
         pagination: {
           sortBy: 'title'
         },
-        selected: [],
         headers: [
           { text: 'ID', align: 'left', value: 'id' },
           { text: 'Title', align: 'left', value: 'title' },

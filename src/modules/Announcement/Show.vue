@@ -3,6 +3,21 @@
     <v-container grid-list-lg>
       <v-layout row wrap justify-center align-center>
         <v-flex lg8 md10 xs12>
+          <v-card flat class="transparent mb-3">
+            <v-btn
+              class="ma-0"
+              color="medium--emphasis"
+              depressed
+              :to="{
+                name: 'announcements.index'
+              }"
+              large
+              >
+              <v-icon left>mdi-keyboard-backspace</v-icon>
+              {{ __('All Announcements') }}
+            </v-btn>
+          </v-card>
+
           <v-card>
             <v-img
               height="350"
