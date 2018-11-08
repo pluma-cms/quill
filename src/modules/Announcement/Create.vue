@@ -129,7 +129,7 @@ export default {
       // })
 
       axios.post('/api/v1/announcements/store', this.resource)
-    }
+    },
   }
 }
 </script>

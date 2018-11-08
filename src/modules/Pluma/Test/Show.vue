@@ -232,7 +232,7 @@ export default {
       // you've made optimizations! :)
       await pause(300)
 
-      return fetch('https://jsonplaceholder.typicode.com/comments')
+      return fetch('https://jsonplaceholder.typicode.com/comments/')
         .then(res => res.json())
         .then(json => (item.children.push(...json)))
         .catch(err => console.warn(err))
