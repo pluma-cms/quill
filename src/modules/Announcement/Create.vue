@@ -67,11 +67,14 @@
           <v-flex md3 sm5 xs12>
             <v-card hover flat height="160" class="mb-3 pa-4 transparent featured-image__card">
               <v-layout column fill-height justify-center align-center>
-                <student-icon
+                <!-- <student-icon
                   width="80"
                   height="80"
                   >
-                </student-icon>
+                </student-icon> -->
+                <v-icon class="grey--text text--lighten-2" size="80">
+                  mdi-image-filter-center-focus
+                </v-icon>
                 <div class="grey--text text--darken-1">{{ __('Click to add cover photo') }}</div>
               </v-layout>
             </v-card>
@@ -80,7 +83,9 @@
               <v-card-title class="body-2 grey--text">
                 {{ __('Meta') }}
               </v-card-title>
-              <v-card-text></v-card-text>
+              <v-card-text>
+                //
+              </v-card-text>
             </v-card>
           </v-flex>
         </v-layout>

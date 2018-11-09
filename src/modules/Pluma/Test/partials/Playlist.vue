@@ -1,6 +1,6 @@
 <template>
   <section>
-    <v-card>
+    <v-card class="mt-3">
       <v-card-title>
         {{ __('Chapter') }}
       </v-card-title>
@@ -32,10 +32,10 @@
         <v-card-title>
           {{ __('Part') }}
         </v-card-title>
-        <v-card color="emphasis--medium">
+        <v-card flat color="emphasis--medium">
           <v-card-text>
 
-            <v-card>
+            <v-card flat>
               <v-card-text>
                 <template
                   class="mt-3 mb-4"

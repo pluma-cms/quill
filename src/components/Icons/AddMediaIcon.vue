@@ -41,6 +41,8 @@
 
 <script>
 export default {
+  name: 'AddMediaIcon',
+
   props: {
     width: {
       type: [Number, String],
