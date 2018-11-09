@@ -41,6 +41,16 @@ export default [
         },
       },
       {
+        path: 'test',
+        name: 'tests.test',
+        component: () => import('../Test.vue'),
+        meta: {
+          title: 'Show Test',
+          authenticatable: true,
+          icon: 'mdi-book-plus',
+        },
+      },
+      {
         path: 'archived',
         name: 'tests.archived',
         component: () => import('../Archived.vue'),

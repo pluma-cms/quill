@@ -1,0 +1,78 @@
+<template>
+  <section>
+    <v-toolbar class="sticky emphasis--medium" flat>
+      <v-toolbar-title>
+        {{ __('Create Course') }}
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn round depressed color="secondary">Save</v-btn>
+    </v-toolbar>
+    <v-container grid-list-lg>
+      <v-layout row wrap justify-center align-center>
+        <v-flex md10 xs12>
+          <v-tabs
+            slider-color="red"
+            >
+            <v-tabs-slider></v-tabs-slider>
+            <v-tab
+              ripple
+              key="course"
+              id="course"
+              >
+              <strong>{{ trans('Course') }}</strong>
+            </v-tab>
+            <v-tab
+              ripple
+              key="meta"
+              id="meta"
+              >
+              <strong>{{ trans('Meta') }}</strong>
+            </v-tab>
+            <v-tab
+              ripple
+              key="playlist"
+              id="playlist"
+              >
+              <strong>{{ trans('Playlist') }}</strong>
+            </v-tab>
+
+            <v-tab-item href="#course">
+              <course></course>
+            </v-tab-item>
+            <v-tab-item ref="#meta">
+              <meta-card></meta-card>
+            </v-tab-item>
+            <v-tab-item ref="#playlist">
+              <playlist></playlist>
+            </v-tab-item>
+          </v-tabs>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </section>
+</template>
+
+<script>
+import store from './store'
+import Course from './partials/Course.vue'
+import MetaCard from './partials/MetaCard.vue'
+import Playlist from './partials/Playlist.vue'
+
+export default {
+  store,
+
+  name: 'Test',
+
+  components: {
+    Course,
+    MetaCard,
+    Playlist,
+  },
+
+  data () {
+    return {
+      tab: null,
+    }
+  }
+}
+</script>
