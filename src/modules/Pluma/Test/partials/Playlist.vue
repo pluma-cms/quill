@@ -119,7 +119,7 @@
                             height="80"
                             >
                           </student-icon>
-                          <div class="grey--text text--darken-1">{{ __('Click to add cover photo') }}</div>
+                          <div class="grey--text text--darken-1">{{ __('Add interactive content') }}</div>
                         </v-layout>
                       </v-card>
                     </v-flex>
@@ -173,11 +173,11 @@ export default {
       avatar: null,
       users: [],
       courses: [
-        {
-          done: false,
-          title: 'Foobar',
-          body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro totam nisi nostrum ipsam? Inventore provident at accusamus aut, optio cum reprehenderit explicabo sed in. Odio rem enim asperiores voluptatem adipisci.'
-        },
+        // {
+        //   done: false,
+        //   title: 'Foobar',
+        //   body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro totam nisi nostrum ipsam? Inventore provident at accusamus aut, optio cum reprehenderit explicabo sed in. Odio rem enim asperiores voluptatem adipisci.'
+        // },
       ],
       title: null,
       body: null,

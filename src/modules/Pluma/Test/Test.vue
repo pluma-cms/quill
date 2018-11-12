@@ -11,9 +11,9 @@
       <v-layout row wrap justify-center align-center>
         <v-flex md10 xs12>
           <v-tabs
-            slider-color="red"
+            color="transparent"
             >
-            <v-tabs-slider></v-tabs-slider>
+            <v-tabs-slider color="secondary"></v-tabs-slider>
             <v-tab
               ripple
               key="course"
