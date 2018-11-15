@@ -2,7 +2,7 @@ export const state = () => ({
   breadcrumbs: {
     model: true,
     items: [],
-    leaf: null,
+    // leaf: null,
   }
 })
 
@@ -21,11 +21,11 @@ export const mutations = {
 }
 
 export const actions = {
-  set: ({commit}, payload) => {
+  set: ({ commit }, payload) => {
     commit('SET', payload)
   },
 
-  toggle: ({commit}, payload) => {
+  toggle: ({ commit }, payload) => {
     commit('TOGGLE', payload)
   },
 }

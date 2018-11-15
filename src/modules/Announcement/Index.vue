@@ -6,13 +6,13 @@
         <v-flex xs12>
           <v-card flat>
             <v-data-table
+              v-model="resource.selected"
               :headers="resource.headers"
               :items="resource.items"
               :pagination.sync="resource.pagination"
-              item-key="title"
               select-all
-              v-model="resource.selected"
-              v-bind="bulk.destroy.model?{'select-all':'primary'}:[]"
+              item-key="title"
+              class="elevation-1"
               >
               <template slot="headerCell" slot-scope="props">
                 <span>
@@ -23,7 +23,7 @@
                 <tr :active="props.selected" @click="props.selected = !props.selected">
                   <td>
                     <v-checkbox
-                      :imput-value="props.selected"
+                      :input-value="props.selected"
                       primary
                       hide-details
                     ></v-checkbox>
@@ -114,7 +114,6 @@ export default {
   name: 'Index',
 
   mounted () {
-    /*eslint-disable*/
     axios.get('/api/v1/announcements/all').then(response => {
       this.resource.items = response.data.data
     })
@@ -123,9 +122,9 @@ export default {
   data () {
     return {
       bulk: {
-          destroy: {
-              model: false,
-          },
+        destroy: {
+          model: false,
+        },
       },
       toolbar: {
         title: 'All Announcements',
