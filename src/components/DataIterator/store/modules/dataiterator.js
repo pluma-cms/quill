@@ -21,7 +21,7 @@ export const state = () => ({
     // Pagination
     rowsPerPageItems: [3, 6, 9, 12, 'All'],
     pagination: {
-      rowsPerPage: 3
+      rowsPerPage: 3,
     },
 
     // Toolbar
