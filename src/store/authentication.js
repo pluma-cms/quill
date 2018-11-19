@@ -63,15 +63,15 @@ export const mutations = {
 }
 
 export const actions = {
-  login: ({commit, dispatch}, payload) => {
+  login: ({ commit, dispatch }, payload) => {
     return new Promise((resolve, reject) => {
       commit('ATTEMPT', payload)
-      axios({url: '/api/v1/login', data: payload, method: 'POST'})
+      axios({ url: '/api/v1/login', data: payload, method: 'POST' })
         .then(response => {
           const apiToken = response.data.api_token
           const rememberToken = response.data.remember_token
           const user = response.data.user
-          const payload = {apiToken, rememberToken, user}
+          const payload = { apiToken, rememberToken, user }
 
           axios.defaults.headers.common['Authorization'] = apiToken
 
@@ -91,7 +91,7 @@ export const actions = {
     })
   },
 
-  logout: ({commit}) => {
+  logout: ({ commit }) => {
     commit('LOGOUT')
   },
 }
