@@ -3,8 +3,6 @@
     <v-toolbar flat class="sticky emphasis--medium">
       <v-btn
         flat
-        large
-        round
         :to="{
           name: 'announcements.index'
         }"

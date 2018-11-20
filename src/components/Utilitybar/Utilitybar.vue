@@ -27,9 +27,10 @@
       prepend-inner-icon="search"
       solo
       flat
-      background-color="grey lighten-4"
+      background-color="emphasis--medium"
       hide-details
-    ></v-text-field>
+      >
+    </v-text-field>
 
     <v-spacer></v-spacer>
 
