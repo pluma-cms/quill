@@ -1,117 +1,132 @@
 <template>
   <section>
-    <toolbar-menu :items="toolbar"></toolbar-menu>
-    <v-container fluid grid-list-lg>
-      <v-layout row wrap>
-        <v-flex xs12>
-          <v-card flat>
-            <v-data-table
-              v-model="resource.selected"
-              :headers="resource.headers"
-              :items="resource.items"
-              :pagination.sync="resource.pagination"
-              select-all
-              item-key="title"
-              class="elevation-1"
-              >
-              <template slot="headerCell" slot-scope="props">
-                <span>
-                  {{ trans(props.header.text) }}
-                </span>
-              </template>
-              <template slot="items" slot-scope="props">
-                <tr :active="props.selected" @click="props.selected = !props.selected">
-                  <td>
-                    <v-checkbox
-                      :input-value="props.selected"
-                      primary
-                      hide-details
-                    ></v-checkbox>
-                  </td>
-                  <td v-html="props.item.id"></td>
-                  <td class="table--ellipsis">
-                    <v-tooltip
-                      max-width="300"
-                      bottom
-                      >
-                      <span slot="activator" v-html="trans(props.item.title)"></span>
-                      <span v-html="trans(props.item.title)"></span>
-                    </v-tooltip>
-                  </td>
-                  <td v-html="props.item.author"></td>
-                  <td v-html="props.item.categoryname"></td>
-                  <td v-html="props.item.created"></td>
-                  <td v-html="props.item.modified"></td>
-                  <td class="layout mx-0 justify-center">
-                    <v-tooltip bottom>
-                      <v-btn
-                        slot="activator"
-                        icon
-                        :to="{
-                          name: 'announcements.show',
-                          params: {
-                            code: props.item.code,
-                            meta: { item: props.item }
-                          },
-                        }"
+    <template v-if="dataset.loaded">
+      <toolbar-menu :items="toolbar"></toolbar-menu>
+      <v-container fluid grid-list-lg>
+        <v-layout row wrap>
+          <v-flex xs12>
+            <v-card flat>
+              <v-data-table
+                v-model="resource.selected"
+                :headers="resource.headers"
+                :items="resource.items"
+                :pagination.sync="resource.pagination"
+                select-all
+                item-key="title"
+                class="elevation-1"
+                >
+                <template slot="headerCell" slot-scope="props">
+                  <span>
+                    {{ trans(props.header.text) }}
+                  </span>
+                </template>
+                <template slot="items" slot-scope="props">
+                  <tr :active="props.selected" @click="props.selected = !props.selected">
+                    <td>
+                      <v-checkbox
+                        :input-value="props.selected"
+                        primary
+                        hide-details
+                      ></v-checkbox>
+                    </td>
+                    <td v-html="props.item.id"></td>
+                    <td class="table--ellipsis">
+                      <v-tooltip
+                        max-width="300"
+                        bottom
                         >
-                        <v-icon
-                          small
-                          class="mx-3"
+                        <span slot="activator" v-html="trans(props.item.title)"></span>
+                        <span v-html="trans(props.item.title)"></span>
+                      </v-tooltip>
+                    </td>
+                    <td v-html="props.item.author"></td>
+                    <td v-html="props.item.categoryname"></td>
+                    <td v-html="props.item.created"></td>
+                    <td v-html="props.item.modified"></td>
+                    <td class="layout mx-0 justify-center">
+                      <v-tooltip bottom>
+                        <v-btn
+                          slot="activator"
+                          icon
+                          :to="{
+                            name: 'announcements.show',
+                            params: {
+                              code: props.item.code,
+                              meta: { item: props.item }
+                            },
+                          }"
                           >
-                          mdi-open-in-new
-                        </v-icon>
-                      </v-btn>
-                      <span>{{ trans('View Details') }}</span>
-                    </v-tooltip>
-                    <v-tooltip bottom>
-                      <v-btn
-                        slot="activator"
-                        icon
-                        :to="{
-                          name: 'announcements.edit',
-                          params: {
-                            code: props.item.code,
-                            meta: { item: props.item }
-                          },
-                        }"
-                        >
-                        <v-icon
-                          small
-                          class="mx-3"
+                          <v-icon
+                            small
+                            class="mx-3"
+                            >
+                            mdi-open-in-new
+                          </v-icon>
+                        </v-btn>
+                        <span>{{ trans('View Details') }}</span>
+                      </v-tooltip>
+                      <v-tooltip bottom>
+                        <v-btn
+                          slot="activator"
+                          icon
+                          :to="{
+                            name: 'announcements.edit',
+                            params: {
+                              code: props.item.code,
+                              meta: { item: props.item }
+                            },
+                          }"
                           >
-                          mdi-circle-edit-outline
-                        </v-icon>
-                      </v-btn>
-                      <span>{{ trans('Edit') }}</span>
-                    </v-tooltip>
-                    <v-tooltip bottom>
-                      <v-btn slot="activator" icon>
-                        <v-icon
-                          small
-                          class="mx-3"
-                          >
-                          mdi-delete-outline
-                        </v-icon>
-                      </v-btn>
-                      <span>{{ trans('Move to Archive') }}</span>
-                    </v-tooltip>
-                  </td>
-                </tr>
-              </template>
-            </v-data-table>
-          </v-card>
-        </v-flex>
-      </v-layout>
-    </v-container>
+                          <v-icon
+                            small
+                            class="mx-3"
+                            >
+                            mdi-circle-edit-outline
+                          </v-icon>
+                        </v-btn>
+                        <span>{{ trans('Edit') }}</span>
+                      </v-tooltip>
+                      <v-tooltip bottom>
+                        <v-btn slot="activator" icon>
+                          <v-icon
+                            small
+                            class="mx-3"
+                            >
+                            mdi-delete-outline
+                          </v-icon>
+                        </v-btn>
+                        <span>{{ trans('Move to Archive') }}</span>
+                      </v-tooltip>
+                    </td>
+                  </tr>
+                </template>
+              </v-data-table>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </template>
+
+    <template v-else>
+      <v-card flat class="transparent">
+        <v-card-text>
+          <empty-state></empty-state>
+        </v-card-text>
+      </v-card>
+    </template>
   </section>
 </template>
 
 <script>
 import axios from 'axios'
+import EmptyState from './partials/EmptyState'
 
 export default {
   name: 'Index',
+
+  components: {
+    EmptyState
+  },
 
   mounted () {
     axios.get('/api/v1/announcements/all').then(response => {
@@ -121,6 +136,9 @@ export default {
 
   data () {
     return {
+      dataset: {
+        loaded: true,
+      },
       bulk: {
         destroy: {
           model: false,

@@ -5,7 +5,7 @@
 
           <v-toolbar flat class="wer transparent">
             <v-toolbar-title class="primary--text">
-              <strong>Account Settings</strong>
+              <strong>{{ __('Account Settings') }}</strong>
             </v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn flat deppress round class="emphasis--medium">
@@ -98,7 +98,7 @@
                     ></v-text-field>
                   </v-flex>
                 </v-layout>
-                <v-btn dark large class="v-btn--gradient">Submit</v-btn>
+                <v-btn dark large class="secondary">Submit</v-btn>
               </v-flex>
             </v-layout>
           </v-card>

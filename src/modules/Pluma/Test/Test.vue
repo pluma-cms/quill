@@ -53,14 +53,11 @@
 </template>
 
 <script>
-import store from './store'
-import Course from './partials/Course.vue'
-import MetaCard from './partials/MetaCard.vue'
-import Playlist from './partials/Playlist.vue'
+import Course from './partials/Course'
+import MetaCard from './partials/MetaCard'
+import Playlist from './partials/Playlist'
 
 export default {
-  store,
-
   name: 'Test',
 
   components: {

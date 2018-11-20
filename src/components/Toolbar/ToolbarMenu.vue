@@ -1,6 +1,7 @@
 <template>
   <v-toolbar
-    class="toolbarMenu sticky px-4 emphasis--medium"
+    class="toolbarMenu sticky px-4"
+    color="primary"
     flat
     v-model="dataset.model"
     >
@@ -32,7 +33,7 @@
     <!-- hide searchField -->
     <template v-else>
       <v-toolbar-title
-        class="primary--text"
+        class="white--text"
         >
         <strong v-html="trans(dataset.title)"></strong>
       </v-toolbar-title>
@@ -167,10 +168,9 @@
     <!-- create -->
     <v-btn
       :to="dataset.createBtn"
-      class="v-btn--gradient"
+      color="secondary"
       dark
-      large
-      round
+      depressed
       >
       {{ __('Create') }}
     </v-btn>

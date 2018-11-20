@@ -1,6 +1,7 @@
-<template>
+<template :dark="$store.getters['app/app'].dark">
   <v-toolbar
     :clipped-left="sidebar.clipped"
+    :color="app.dark ? 'dark' : 'white'"
     app
     flat
     scroll-off-screen
@@ -17,9 +18,18 @@
       hide-details
       >
     </v-text-field> -->
-    <v-btn icon>
+    <!-- <v-btn icon>
       <v-icon>search</v-icon>
-    </v-btn>
+    </v-btn> -->
+
+    <v-text-field
+      label="Search"
+      prepend-inner-icon="search"
+      solo
+      flat
+      background-color="grey lighten-4"
+      hide-details
+    ></v-text-field>
 
     <v-spacer></v-spacer>
 
@@ -68,6 +78,7 @@ export default {
 
   computed: {
     ...mapGetters({
+      app: 'app/app',
       utilitybar: 'utilitybar/utilitybar',
       sidebar: 'sidebar/sidebar',
     }),

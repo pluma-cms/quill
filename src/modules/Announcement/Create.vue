@@ -11,11 +11,9 @@
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn
-          color="primary"
-          large
+          color="secondary"
           dark
           depressed
-          round
           type="submit"
           >
           {{ __('Save') }}
