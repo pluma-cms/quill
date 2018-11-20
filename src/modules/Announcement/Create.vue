@@ -46,6 +46,13 @@
                   v-model="resource.code"
                 ></v-text-field>
 
+                <!-- <v-text-field
+                  name="user_id"
+                  value="1"
+                  v-model="resource.user_id"
+                  >
+                </v-text-field> -->
+
                 <v-textarea
                   outline
                   hide-details
@@ -130,7 +137,6 @@ export default {
       // let uri = '/api/v1/announcements/store'
       // axios.post(uri, this.resource).then((response) => {
       // })
-
       axios.post('/api/v1/announcements/store', this.resource)
     },
   }

@@ -17,19 +17,23 @@
           <v-card>
             <v-img
               :src="item.feature"
-              height="350"
               v-if="item.feature"
+              height="350"
               >
             </v-img>
             <v-card-text>
-              <div>
+              <div v-if="item.categoryname">
                 <span class="primary--text text--uppercase body-1">
                   <strong v-html="item.categoryname"></strong>
                 </span>
               </div>
               <h1 v-html="item.title"></h1>
               <p>
-                <span class="grey--text body-1" v-html="item.created"></span>
+                <span
+                  class="grey--text body-1"
+                  v-html="item.created"
+                  >
+                </span>
               </p>
               <v-card flat height="30"></v-card>
               <p v-html="item.body"></p>

@@ -42,7 +42,7 @@
                     <td v-html="props.item.author"></td>
                     <td v-html="props.item.categoryname"></td>
                     <td v-html="props.item.created"></td>
-                    <td v-html="props.item.modified"></td>
+                    <td v-html="props.item.deleted_at"></td>
                     <td class="layout mx-0 justify-center">
                       <v-tooltip bottom>
                         <v-btn
