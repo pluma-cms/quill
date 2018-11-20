@@ -16,8 +16,9 @@
         <v-flex lg8 md10 xs12>
           <v-card>
             <v-img
-              height="350"
               :src="item.feature"
+              height="350"
+              v-if="item.feature"
               >
             </v-img>
             <v-card-text>
@@ -26,10 +27,7 @@
                   <strong v-html="item.categoryname"></strong>
                 </span>
               </div>
-              <h1
-                v-html="item.title"
-              >
-              </h1>
+              <h1 v-html="item.title"></h1>
               <p>
                 <span class="grey--text body-1" v-html="item.created"></span>
               </p>
