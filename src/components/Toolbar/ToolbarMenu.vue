@@ -45,6 +45,7 @@
         >
         <v-btn
           icon
+          dark
           slot="activator"
           >
           <v-icon small>mdi-checkbox-multiple-marked-circle-outline</v-icon>
@@ -58,6 +59,7 @@
         >
         <v-btn
           icon
+          dark
           slot="activator"
           >
           <v-icon small v-html="dataset.sort ? 'mdi-sort-ascending' : 'mdi-sort-descending'"></v-icon>
@@ -71,6 +73,7 @@
         >
         <v-btn
           icon
+          dark
           slot="activator"
           >
           <v-icon small>mdi-filter-outline</v-icon>
@@ -120,6 +123,7 @@
         <v-btn
           :to="dataset.archivedBtn"
           icon
+          dark
           slot="activator"
           >
           <v-icon small>mdi-package-variant</v-icon>
@@ -136,6 +140,7 @@
       <v-tooltip bottom>
         <v-btn
           icon
+          dark
           slot="activator"
           @click="dataset.searchField = !dataset.searchButton"
           >
@@ -149,6 +154,7 @@
       <v-tooltip bottom>
         <v-btn
           icon
+          dark
           slot="activator"
           @click="dataset.searchField = !dataset.searchField"
           >
