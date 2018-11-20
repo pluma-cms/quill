@@ -60,8 +60,10 @@
                             <img src="https://images.unsplash.com/photo-1541603617355-5f53b42522f9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1b7f9c25a0cce01cea8650d30a588629&auto=format&fit=crop&w=375&q=80" alt="">
                           </v-avatar>
                           <div>
-                            <p><strong v-html="item.title"></strong></p>
-                            <p v-html="item.body"></p>
+                            <p class="pb-0 mb-0">
+                              <strong v-html="item.title"></strong>
+                            </p>
+                            <p class="pb-0 mb-0" v-html="item.body"></p>
                           </div>
                           <v-spacer></v-spacer>
                           <v-tooltip bottom>
