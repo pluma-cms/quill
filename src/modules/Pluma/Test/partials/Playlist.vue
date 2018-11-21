@@ -117,8 +117,8 @@
                       <v-card hover flat height="100%" class="mb-3 pa-4 transparent featured-image__card">
                         <v-layout column fill-height justify-center align-center>
                           <student-icon
-                            width="80"
-                            height="80"
+                            width="60"
+                            height="60"
                             >
                           </student-icon>
                           <div class="grey--text text--darken-1">{{ __('Add interactive content') }}</div>
@@ -148,7 +148,7 @@
                     </v-flex>
                   </v-layout>
                   <div class="mt-3">
-                    <v-btn type="submit" color="primary" class="ma-0" outline>
+                    <v-btn type="submit" color="secondary" class="ma-0" outline>
                       {{ trans('Add Part') }}
                     </v-btn>
                   </div>
@@ -158,7 +158,7 @@
           </v-card-text>
         </v-card>
         <v-card-text>
-          <v-btn outline color="primary">{{ __('Add Chapter') }}</v-btn>
+          <v-btn outline color="secondary">{{ __('Add Chapter') }}</v-btn>
         </v-card-text>
       </v-card>
     </v-card>
@@ -175,11 +175,11 @@ export default {
       avatar: null,
       users: [],
       courses: [
-        // {
-        //   done: false,
-        //   title: 'Foobar',
-        //   body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro totam nisi nostrum ipsam? Inventore provident at accusamus aut, optio cum reprehenderit explicabo sed in. Odio rem enim asperiores voluptatem adipisci.'
-        // },
+        {
+          done: false,
+          title: 'Foobar',
+          body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro totam nisi nostrum ipsam? Inventore provident at accusamus aut, optio cum reprehenderit explicabo sed in. Odio rem enim asperiores voluptatem adipisci.'
+        },
       ],
       title: null,
       body: null,

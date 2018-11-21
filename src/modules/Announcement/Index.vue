@@ -5,7 +5,7 @@
       <v-container fluid grid-list-lg>
         <v-layout row wrap>
           <v-flex xs12>
-            <v-card flat>
+            <v-card flat class="mb-3">
               <v-data-table
                 v-model="resource.selected"
                 :headers="resource.headers"
@@ -102,6 +102,16 @@
                 </template>
               </v-data-table>
             </v-card>
+
+            <v-card>
+              <ol>
+                <li
+                  v-for="(item, i) in categories.items"
+                  :key="i">
+                  <p v-html="item.title"></p>
+                </li>
+              </ol>
+            </v-card>
           </v-flex>
         </v-layout>
       </v-container>
@@ -129,6 +139,12 @@ export default {
   },
 
   mounted () {
+    console.log(this.categories.items)
+
+    axios.get('/api/v1/categories/{type}/all').then(response => {
+      this.categories.items = response.data.data
+    })
+
     axios.get('/api/v1/announcements/all').then(response => {
       this.resource.items = response.data.data
     })
@@ -153,6 +169,9 @@ export default {
         archivedBtn: {
           name: 'announcements.archived',
         },
+      },
+      categories: {
+        items: []
       },
       resource: {
         items: [],

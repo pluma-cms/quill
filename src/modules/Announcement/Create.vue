@@ -88,12 +88,28 @@
               <v-card-title class="body-2 grey--text">
                 {{ __('Meta') }}
               </v-card-title>
-              <v-card-text>
-                //
+              <v-card-text v-for="(item, i) in categories" :key="i">
+                <p v-html="item.name"></p>
               </v-card-text>
             </v-card>
           </v-flex>
         </v-layout>
+      </v-container>
+
+      <!-- axios -->
+
+      <v-container fluid list-grid-lg>
+        <v-slide-y-transition>
+          <card class="elevation-1">
+            <v-layout row wrap justify-center>
+              <v-flex md4>
+                <v-data-iterator>
+
+                </v-data-iterator>
+              </v-flex>
+            </v-layout>
+          </card>
+        </v-slide-y-transition>
       </v-container>
     </v-form>
   </section>
@@ -113,6 +129,7 @@ export default {
 
   data () {
     return {
+      categories: [],
       resource: {
         title: '',
         code: '',
@@ -134,11 +151,15 @@ export default {
     },
 
     onSubmit () {
-      // let uri = '/api/v1/announcements/store'
-      // axios.post(uri, this.resource).then((response) => {
-      // })
       axios.post('/api/v1/announcements/store', this.resource)
     },
+  },
+
+  mounted () {
+    console.log(this.categories, 'cat')
+    axios.get('/api/v1/categories/{announcements}/all').then(response => {
+      this.categories = response.data.data
+    })
   }
 }
 </script>
