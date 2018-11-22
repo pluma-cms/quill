@@ -147,6 +147,6 @@ export default {
     axios.get('/api/v1/categories/{announcements}/all').then(response => {
       this.categories = response.data.data
     })
-  }
+  },
 }
 </script>
