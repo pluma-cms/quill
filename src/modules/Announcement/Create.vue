@@ -121,6 +121,7 @@ export default {
         title: '',
         code: '',
         body: '',
+        user_id: user().user.id
       },
     }
   },
@@ -133,7 +134,6 @@ export default {
           if (ok) {
             this.onSubmit()
           }
-          // this.resource.form.loading = false
         })
     },
 
@@ -143,7 +143,7 @@ export default {
   },
 
   mounted () {
-    console.log(this.categories, 'cat')
+    console.log(this.categories, 'data')
     axios.get('/api/v1/categories/{announcements}/all').then(response => {
       this.categories = response.data.data
     })
