@@ -18,7 +18,7 @@
             <v-img
               :src="item.feature"
               v-if="item.feature"
-              height="350"
+              height="auto"
               >
             </v-img>
             <v-card-text>
