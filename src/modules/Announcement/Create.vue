@@ -121,7 +121,6 @@ export default {
         title: '',
         code: '',
         body: '',
-        user_id: user().user.id
       },
     }
   },
@@ -143,10 +142,10 @@ export default {
   },
 
   mounted () {
-    console.log(this.categories, 'data')
+    console.log(this.categories, 'cat')
     axios.get('/api/v1/categories/{announcements}/all').then(response => {
       this.categories = response.data.data
     })
-  },
+  }
 }
 </script>
