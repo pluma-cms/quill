@@ -22,50 +22,6 @@
       <v-container grid-list-lg>
         <v-layout row wrap>
           <v-flex md9 sm7 xs12>
-            <v-card class="pa-3 mb-3">
-              <v-card-title class="grey--text">{{ __('Meta') }}</v-card-title>
-              <v-card-text>
-                <v-autocomplete
-                  v-model="resource.categories"
-                  :items="categories.items"
-                  outline
-                  chips
-                  small-chips
-                  color="blue-grey lighten-2"
-                  label="Select Category"
-                  item-text="name"
-                  item-value="name"
-                  hide-details
-                >
-                  <template
-                    slot="selection"
-                    slot-scope="data"
-                  >
-                    <v-chip
-                      :selected="data.selected"
-                      class="chip--select-multi"
-                      @input="data.item"
-                    >
-                      {{ data.item.name }}
-                    </v-chip>
-                  </template>
-                  <template
-                    slot="item"
-                    slot-scope="data"
-                  >
-                    <template v-if="typeof data.item !== 'object'">
-                      <v-list-tile-content v-text="data.item"></v-list-tile-content>
-                    </template>
-                    <template v-else>
-                      <v-list-tile-content>
-                        <v-list-tile-title v-html="data.item.name"></v-list-tile-title>
-                      </v-list-tile-content>
-                    </template>
-                  </template>
-                </v-autocomplete>
-              </v-card-text>
-            </v-card>
-
             <v-card class="pa-3">
               <v-card-text>
                 <v-text-field
@@ -127,6 +83,50 @@
                 <div class="grey--text text--darken-1">{{ __('Click to add cover photo') }}</div>
               </v-layout>
             </v-card>
+
+            <v-card>
+              <v-card-title class="grey--text">{{ __('Meta') }}</v-card-title>
+              <v-card-text>
+                <v-autocomplete
+                  v-model="categoryModel"
+                  :items="categories.items"
+                  outline
+                  chips
+                  small-chips
+                  append-icon="keyboard_arrow_down"
+                  color="blue-grey lighten-2"
+                  label="Select Category"
+                  item-text="name"
+                  item-value="name"
+                  hide-details
+                  >
+                  <template
+                    slot="selection"
+                    slot-scope="data"
+                    >
+                    <v-chip
+                      :selected="data.selected"
+                      @input="remove(data.item)"
+                      >
+                      {{ data.item.name }}
+                    </v-chip>
+                  </template>
+                  <template
+                    slot="item"
+                    slot-scope="data"
+                    >
+                    <template v-if="typeof data.item !== 'object'">
+                      <v-list-tile-content v-text="data.item"></v-list-tile-content>
+                    </template>
+                    <template v-else>
+                      <v-list-tile-content>
+                        <v-list-tile-title v-html="data.item.name"></v-list-tile-title>
+                      </v-list-tile-content>
+                    </template>
+                  </template>
+                </v-autocomplete>
+              </v-card-text>
+            </v-card>
           </v-flex>
         </v-layout>
       </v-container>
@@ -148,6 +148,7 @@ export default {
 
   data () {
     return {
+      categoryModel: [],
       categories: {
         items: []
       },
@@ -155,9 +156,15 @@ export default {
         title: '',
         code: '',
         body: '',
-        categories: '',
       },
     }
+  },
+
+  mounted () {
+    // console.log(this.categories.items, 'cat data')
+    axios.get('/api/v1/categories/announcements/all').then(response => {
+      this.categories.items = response.data.data
+    })
   },
 
   methods: {
@@ -175,17 +182,10 @@ export default {
       axios.post('/api/v1/announcements/store', this.resource)
     },
 
-    categoryRemove (item) {
-      const index = this.resource.categories.indexOf(item.title)
-      if (index >= 0) this.resource.categories.splice(index, 1)
+    remove (item) {
+      const index = this.categoryModel.indexOf(item.name)
+      if (index >= 0) this.categoryModel.splice(index, 1)
     }
   },
-
-  mounted () {
-    // console.log(this.categories.items, 'cat data')
-    axios.get('/api/v1/categories/{type}/all').then(response => {
-      this.categories.items = response.data.data
-    })
-  }
 }
 </script>
