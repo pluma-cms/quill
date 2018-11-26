@@ -156,7 +156,6 @@ export default {
         title: '',
         code: '',
         body: '',
-        // user_id: user().id
       },
     }
   },

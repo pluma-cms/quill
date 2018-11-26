@@ -45,7 +45,7 @@
           <!-- grid / list view -->
         </v-flex>
 
-        <v-flex md4 xs12>
+        <v-flex sm4 xs12>
           <!-- tag -->
           <!-- <v-card class="mb-3">
             <v-card-title class="emphasis--medium">
@@ -58,12 +58,12 @@
           <!-- tag -->
 
           <!-- category -->
-         <!--  <v-card class="mb-3 emphasis--medium">
+          <v-card class="mb-3 emphasis--medium">
             <v-card-title>
               {{ trans('Category Card') }}
             </v-card-title>
             <category :items="category"></category>
-          </v-card> -->
+          </v-card>
           <!-- category -->
         </v-flex>
       </v-layout>

@@ -103,7 +103,7 @@
           @click="dataset.categoryList = !dataset.categoryList"
           >
           <v-icon left>add</v-icon>
-          Create
+          {{ __('Create New') }}
         </v-btn>
       </v-card-actions>
     </template>
