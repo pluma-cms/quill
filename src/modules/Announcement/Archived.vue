@@ -55,20 +55,27 @@
                     </v-btn>
                     <span>{{ trans('Restore') }}</span>
                   </v-tooltip>
-                  <v-tooltip bottom>
-                    <v-btn
-                      slot="activator"
-                      icon
-                      >
-                      <v-icon
-                        small
-                        class="mx-3"
+                  <v-form
+                    method="POST"
+                    action="/api/v1/announcements/delete"
+                    @submit.prevent="deleteDestroy"
+                    >
+                    <v-tooltip bottom>
+                      <v-btn
+                        slot="activator"
+                        icon
+                        type="submit"
                         >
-                        mdi-delete-forever
-                      </v-icon>
-                    </v-btn>
-                    <span>{{ trans('Permanently Delete') }}</span>
-                  </v-tooltip>
+                        <v-icon
+                          small
+                          class="mx-3"
+                          >
+                          mdi-delete-forever
+                        </v-icon>
+                      </v-btn>
+                      <span>{{ trans('Permanently Delete') }}</span>
+                    </v-tooltip>
+                  </v-form>
                 </td>
               </tr>
             </template>
@@ -132,6 +139,11 @@ export default {
         this.resource.pagination.sortBy = column
         this.resource.pagination.descending = false
       }
+    },
+
+    deleteDestroy () {
+      console.log(this.resource.items, 'data.resource')
+      axios.delete('/api/v1/announcements/delete' + this.resource.items)
     }
   }
 }
