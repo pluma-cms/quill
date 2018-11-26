@@ -156,12 +156,13 @@ export default {
         title: '',
         code: '',
         body: '',
+        // user_id: user().id
       },
     }
   },
 
   mounted () {
-    // console.log(this.categories.items, 'data')
+    console.log(this.categories.items, 'data')
     axios.get('/api/v1/categories/announcements/all').then(response => {
       this.categories.items = response.data.data
     })

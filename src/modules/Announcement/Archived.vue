@@ -57,7 +57,7 @@
                   </v-tooltip>
                   <v-form
                     method="POST"
-                    action="/api/v1/announcements/delete"
+                    action="/api/v1/announcements/{id}/delete"
                     @submit.prevent="deleteDestroy"
                     >
                     <v-tooltip bottom>
@@ -143,7 +143,7 @@ export default {
 
     deleteDestroy () {
       console.log(this.resource.items, 'data.resource')
-      axios.delete('/api/v1/announcements/delete' + this.resource.items)
+      axios.delete('/api/v1/announcements/{announcement}/delete', this.resource)
     }
   }
 }
