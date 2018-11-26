@@ -37,8 +37,9 @@
                     <span v-html="trans(props.item.title)"></span>
                   </v-tooltip>
                 </td>
-                <td v-html="props.item.created"></td>
-                <td v-html="props.item.deleted_at"></td>
+                <td v-html="props.item.author"></td>
+                <td v-html="props.item.categoryname"></td>
+                <td v-html="props.item.removed"></td>
                 <td class="layout mx-0 justify-center">
                   <v-tooltip bottom>
                     <v-btn
@@ -109,7 +110,8 @@ export default {
         headers: [
           { text: 'ID', align: 'left', value: 'id' },
           { text: 'Title', align: 'left', value: 'title' },
-          { text: 'Created', align: 'left', value: 'created_at' },
+          { text: 'Author', align: 'left', value: 'author' },
+          { text: 'Category', align: 'left', value: 'categoryname' },
           { text: 'Removed', align: 'left', value: 'deleted_at' },
           { text: 'Actions', align: 'center', sortable: false },
         ],

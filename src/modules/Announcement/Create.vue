@@ -84,7 +84,7 @@
               </v-layout>
             </v-card>
 
-            <v-card>
+            <v-card class="mb-3">
               <v-card-title class="grey--text">{{ __('Meta') }}</v-card-title>
               <v-card-text>
                 <v-autocomplete
@@ -161,7 +161,7 @@ export default {
   },
 
   mounted () {
-    // console.log(this.categories.items, 'cat data')
+    // console.log(this.categories.items, 'data')
     axios.get('/api/v1/categories/announcements/all').then(response => {
       this.categories.items = response.data.data
     })
