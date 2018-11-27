@@ -104,14 +104,6 @@
                 </template>
               </v-data-table>
             </v-card>
-
-            <v-card flat class="mb-3">
-              <data-table :items="resource"></data-table>
-            </v-card>
-
-            <v-card flat class="mb-3">
-              <data-table :items="resource"></data-table>
-            </v-card>
           </v-flex>
         </v-layout>
       </v-container>

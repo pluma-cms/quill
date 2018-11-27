@@ -92,7 +92,7 @@ export default {
             title: 'A Series of UnforssfasdfEvef',
             category: 'video'
           }
-        ]
+        ],
       },
 
       iconmenu: {
