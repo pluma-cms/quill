@@ -197,9 +197,6 @@ export default {
     }
   },
 
-  components: {
-  },
-
   computed: {
     ...mapGetters({
       dialogbox: 'dialogbox/dialogbox',

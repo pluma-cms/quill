@@ -5,7 +5,7 @@
       action="/api/v1/announcements/store"
       @submit.prevent="onSubmit"
       >
-      <v-toolbar flat class="emphasis--medium">
+      <v-toolbar flat class="emphasis--medium sticky">
         <v-toolbar-title>
           {{ __('Create') }}
         </v-toolbar-title>

@@ -91,6 +91,7 @@
             <v-btn
               @click="toggleView"
               icon
+              dark
               slot="activator"
               >
               <v-icon small>mdi-grid-large</v-icon>
@@ -98,7 +99,6 @@
             <span>{{ trans('Switch to Grid View') }}</span>
           </v-tooltip>
         </template>
-
         <!-- list -->
         <template v-else>
           <v-tooltip
@@ -106,6 +106,7 @@
             >
             <v-btn
               icon
+              dark
               slot="activator"
               @click="toggleView"
               >

@@ -8,6 +8,7 @@
         <v-btn
           large
           dark
+          depressed
           color="secondary"
           round
           exact

@@ -5,7 +5,7 @@
         {{ __('Create Course') }}
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn round depressed large color="secondary">Save</v-btn>
+      <v-btn depressed color="secondary">Save</v-btn>
     </v-toolbar>
     <v-container grid-list-lg>
       <v-layout row wrap justify-center align-center>

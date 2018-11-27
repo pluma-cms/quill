@@ -104,6 +104,10 @@
                 </template>
               </v-data-table>
             </v-card>
+
+            <v-card flat class="mb-3">
+              <data-table :items="resource"></data-table>
+            </v-card>
           </v-flex>
         </v-layout>
       </v-container>
@@ -120,10 +124,13 @@
 </template>
 
 <script>
+import store from '@/store'
 import axios from 'axios'
 import EmptyState from './partials/EmptyState'
 
 export default {
+  store,
+
   name: 'Index',
 
   components: {
