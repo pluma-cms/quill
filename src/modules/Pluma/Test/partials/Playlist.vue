@@ -74,30 +74,6 @@
                           </v-tooltip>
                         </v-layout>
                       </v-card-text>
-
-                      <!-- edit-dialog -->
-                      <v-edit-dialog
-                        :key="i"
-                        :return-value.sync="item.name"
-                        @cancel="cancel"
-                        @close="close"
-                        @open="open"
-                        @save="save"
-                        large
-                        lazy
-                        persistent
-                      >
-                        <div>{{ item.name }}</div>
-                        <div slot="input" class="mt-3 title">{{ __('Update') }}</div>
-                        <v-text-field
-                          slot="input"
-                          v-model="item.name"
-                          label="Edit"
-                          single-line
-                          counter
-                          autofocus
-                        ></v-text-field>
-                      </v-edit-dialog>
                     </template>
                   </v-slide-y-transition>
                 </template>
@@ -109,19 +85,21 @@
                 <!-- editor -->
                 <form
                   action=""
-                  @submit.prevent="create"
+                  @submit.prevent="addPart"
                   >
 
                   <v-layout row wrap>
                     <v-flex md4 xs12>
                       <v-card hover flat height="100%" class="mb-3 pa-4 transparent featured-image__card">
                         <v-layout column fill-height justify-center align-center>
-                          <student-icon
+                          <interactive-content-icon
                             width="60"
                             height="60"
                             >
-                          </student-icon>
-                          <div class="grey--text text--darken-1">{{ __('Add interactive content') }}</div>
+                          </interactive-content-icon>
+                          <div class="grey--text pt-3">
+                            {{ __('Add interactive content') }}
+                          </div>
                         </v-layout>
                       </v-card>
                     </v-flex>
@@ -147,8 +125,8 @@
                       </v-card>
                     </v-flex>
                   </v-layout>
-                  <div class="mt-3">
-                    <v-btn type="submit" color="secondary" class="ma-0" outline>
+                  <div class="mt-3 text-xs-right">
+                    <v-btn type="submit" color="secondary" class="ma-0" flat>
                       {{ trans('Add Part') }}
                     </v-btn>
                   </div>
@@ -157,9 +135,6 @@
             </v-card>
           </v-card-text>
         </v-card>
-        <v-card-text>
-          <v-btn outline color="secondary">{{ __('Add Chapter') }}</v-btn>
-        </v-card-text>
       </v-card>
     </v-card>
   </section>
@@ -171,6 +146,7 @@ export default {
 
   data () {
     return {
+      inputProject: [],
       active: [],
       avatar: null,
       users: [],
@@ -195,17 +171,17 @@ export default {
         }
       ]
     },
-    selected () {
-      if (!this.active.length) return undefined
+    // selected () {
+    //   if (!this.active.length) return undefined
 
-      const id = this.active[0]
+    //   const id = this.active[0]
 
-      return this.users.find(user => user.id === id)
-    }
+    //   return this.users.find(user => user.id === id)
+    // }
   },
 
   methods: {
-    create () {
+    addPart () {
       this.courses.push({
         done: false,
         title: this.title,
@@ -214,25 +190,6 @@ export default {
       this.title = null
       this.body = null
     },
-
-    save () {
-      this.snack = true
-      this.snackColor = 'success'
-      this.snackText = 'Data saved'
-    },
-    cancel () {
-      this.snack = true
-      this.snackColor = 'error'
-      this.snackText = 'Canceled'
-    },
-    open () {
-      this.snack = true
-      this.snackColor = 'info'
-      this.snackText = 'Dialog opened'
-    },
-    close () {
-      console.log('Dialog closed')
-    }
   }
 }
 </script>

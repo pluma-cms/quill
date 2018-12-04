@@ -16,12 +16,19 @@
       </v-card-text>
 
       <v-card-actions>
-        <v-spacer></v-spacer>
         <v-btn
           flat
           @click="dataset.categoryList = !dataset.categoryCreate"
           >
           {{ trans('Cancel') }}
+        </v-btn>
+        <v-spacer></v-spacer>
+        <v-btn
+          flat
+          @click="dataset.categoryList = !dataset.categoryCreate"
+          class="secondary--text"
+          >
+          {{ trans('Save') }}
         </v-btn>
       </v-card-actions>
     </template>

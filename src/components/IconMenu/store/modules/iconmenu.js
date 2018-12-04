@@ -45,14 +45,14 @@ export const state = () => ({
       { name: 'Create', icon: 'add' },
       { name: 'Archive', icon: 'archive' },
       { name: 'Sort', icon: 'sort' },
-      { name: 'Filter', icon: 'fa-filter' },
+      { name: 'Filter', icon: 'mdi-filter-outline' },
       { name: 'Restore', icon: 'restore' },
       { name: 'Update', icon: 'update' },
       { name: 'Locked', icon: 'lock' },
       { name: 'Unlock', icon: 'lock_open' },
       { name: 'Play', icon: 'play_arrow' },
-      { name: 'Shrink', icon: 'fa-compress' },
-      { name: 'Expand', icon: 'fa-expand' },
+      { name: 'Shrink', icon: 'mdi-arrow-collapse' },
+      { name: 'Expand', icon: 'mdi-arrow-expand' },
       { name: 'Drag', icon: 'drag_indicator' },
       { name: 'Completed', icon: 'check_circle_outline' }
     ]
