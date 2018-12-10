@@ -3,7 +3,7 @@
     <v-card-actions>
       <v-btn
         class="px-3"
-        color="secondary"
+        color="primary"
         dark
         depressed
         large
