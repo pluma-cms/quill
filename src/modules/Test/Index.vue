@@ -7,6 +7,18 @@
 
           <timeline></timeline>
 
+          <!-- dialog box -->
+          <v-card class="mb-3">
+            <v-card-text>
+              <v-list dense>
+                <v-list-tile-title>
+
+                </v-list-tile-title>
+              </v-list>
+            </v-card-text>
+          </v-card>
+          <!-- dialog box -->
+
           <!-- iconmenu -->
           <v-card class="mb-3">
             <v-card-title class="emphasis--medium">
