@@ -12,7 +12,7 @@
             <v-card-text>
               <v-list dense>
                 <v-list-tile-title>
-
+                  {{  }}
                 </v-list-tile-title>
               </v-list>
             </v-card-text>
