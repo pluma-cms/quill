@@ -2,7 +2,7 @@
   <section>
     <v-layout row>
       <v-flex md8 xs12>
-        <v-card>
+        <v-card class="mt-3">
           <v-card-text>
             <v-text-field
               small

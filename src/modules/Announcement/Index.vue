@@ -133,7 +133,7 @@ export default {
     EmptyState
   },
 
-  mounted () {
+  created () {
     axios.get('/api/v1/announcements/all').then(response => {
       this.resource.items = response.data.data
     })

@@ -1,16 +1,20 @@
 <template>
-  <v-breadcrumbs v-if="breadcrumbs.model" class="px-4 py-2">
-    <v-icon slot="divider">/</v-icon>
-    <v-breadcrumbs-item
-      :key="i"
-      :to="breadcrumb.path"
-      exact
-      ripple
-      v-for="(breadcrumb, i) in $route.matched"
-    >
-      <small v-html="trans(breadcrumb.meta.title)"></small>
-    </v-breadcrumbs-item>
-  </v-breadcrumbs>
+  <div>
+    <v-breadcrumbs
+      v-if="breadcrumbs.model"
+      class="px-4 py-2"
+      >
+      <v-breadcrumbs-item
+        :key="i"
+        :to="item.path"
+        exact
+        ripple
+        v-for="(item, i) in $route.matched"
+      >
+        <small v-html="trans(item.meta.title)"></small>
+      </v-breadcrumbs-item>
+    </v-breadcrumbs>
+  </div>
 </template>
 
 <script>

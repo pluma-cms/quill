@@ -19,7 +19,6 @@
         <div slot="header">
           <div
             class="title"
-            :class="item.headerClass"
             v-html="item.chapterTitle"
             >
           </div>
@@ -36,10 +35,10 @@
               @click="item.play"
               >
               <v-list-tile-avatar>
-                <v-icon color="success">check</v-icon>
+                <v-icon color="secondary">check</v-icon>
               </v-list-tile-avatar>
               <v-list-tile-content>
-                <v-list-tile-title class="success--text">{{ trans('Introduction') }}</v-list-tile-title>
+                <v-list-tile-title class="secondary--text">{{ trans('Introduction') }}</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-list-tile
@@ -94,7 +93,6 @@ export default {
           {
             chapterTitle: 'Chapter 1',
             chapterSubTitle: 'How to interpret and analyse information received',
-            headerClass: 'secondary--text',
             play: false,
           },
           {

@@ -40,65 +40,69 @@
                 </div>
               </v-flex>
               <v-flex md9>
-                <h4 class="mb-3 grey--text">General Information</h4>
+                <v-card flat>
+                  <v-card-text>
+                    <h4 class="mb-3 grey--text">General Information</h4>
 
-                <v-layout row wrap>
-                  <v-flex md3>
-                    <v-text-field
-                      label="Last Name"
-                      outline
-                    ></v-text-field>
-                  </v-flex>
-                  <v-flex md3>
-                    <v-text-field
-                      label="First Name"
-                      outline
-                    ></v-text-field>
-                  </v-flex>
-                </v-layout>
+                    <v-layout row wrap>
+                      <v-flex md3>
+                        <v-text-field
+                          label="Last Name"
+                          outline
+                        ></v-text-field>
+                      </v-flex>
+                      <v-flex md3>
+                        <v-text-field
+                          label="First Name"
+                          outline
+                        ></v-text-field>
+                      </v-flex>
+                    </v-layout>
 
-                <v-layout row wrap>
-                  <v-flex md3>
-                    <v-text-field
-                      label="Email Address"
-                      append-icon="mdi-at"
-                      outline
-                    ></v-text-field>
-                  </v-flex>
-                  <v-flex md3>
-                    <v-btn flat color="secondary">
-                      Change Email Address
-                    </v-btn>
-                  </v-flex>
-                </v-layout>
+                    <v-layout row wrap>
+                      <v-flex md3>
+                        <v-text-field
+                          label="Email Address"
+                          append-icon="mdi-at"
+                          outline
+                        ></v-text-field>
+                      </v-flex>
+                      <v-flex md3>
+                        <v-btn flat color="secondary">
+                          Change Email Address
+                        </v-btn>
+                      </v-flex>
+                    </v-layout>
 
-                <v-divider></v-divider>
+                    <v-divider></v-divider>
 
-                <h4 class="my-3 grey--text">Change Password</h4>
-                <v-layout row wrap>
-                  <v-flex md3>
-                    <v-text-field
-                      label="Current Password"
-                      outline
-                      type="password"
-                    ></v-text-field>
-                  </v-flex>
-                  <v-flex md3>
-                    <v-text-field
-                      label="New Password"
-                      outline
-                      type="password"
-                    ></v-text-field>
-                  </v-flex>
-                  <v-flex md3>
-                    <v-text-field
-                      label="Confirm Password"
-                      outline
-                      type="password"
-                    ></v-text-field>
-                  </v-flex>
-                </v-layout>
-                <v-btn dark large class="secondary">Submit</v-btn>
+                    <h4 class="my-3 grey--text">Change Password</h4>
+                    <v-layout row wrap>
+                      <v-flex md3>
+                        <v-text-field
+                          label="Current Password"
+                          outline
+                          type="password"
+                        ></v-text-field>
+                      </v-flex>
+                      <v-flex md3>
+                        <v-text-field
+                          label="New Password"
+                          outline
+                          type="password"
+                        ></v-text-field>
+                      </v-flex>
+                      <v-flex md3>
+                        <v-text-field
+                          label="Confirm Password"
+                          outline
+                          type="password"
+                        ></v-text-field>
+                      </v-flex>
+                    </v-layout>
+                    <v-btn dark large class="secondary" depressed>Submit</v-btn>
+                  </v-card-text>
+                </v-card>
               </v-flex>
             </v-layout>
           </v-card>

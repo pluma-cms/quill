@@ -71,9 +71,10 @@
         <!-- course playlist -->
         <v-flex
           :md4="course.md4"
-          xs12
+          :order-md3="course.orderMd3"
           class="text-xs-right"
-          :order-md3="course.orderMd3" order-xs2
+          order-xs2
+          xs12
           >
           <course-playlist></course-playlist>
         </v-flex>
