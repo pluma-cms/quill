@@ -109,7 +109,7 @@
 
           <v-card class="mb-3">
             <v-toolbar flat class="transparent">
-              <h4 class="grey--text">Account Information</h4>
+              <h4 class="grey--text">{{ __('Account Information') }}</h4>
               <v-spacer></v-spacer>
               <v-icon>keyboard_arrow_down</v-icon>
             </v-toolbar>
@@ -139,9 +139,6 @@ import CurrentCourseProgress from '@/modules/Yggdrasil/Course/widgets/Student/Cu
 import ToDo from '@/modules/Yggdrasil/Course/widgets/Student/ToDo.vue'
 import MyStudents from '@/modules/Yggdrasil/Course/widgets/Trainer/MyStudents.vue'
 import MyMostPopularCourses from '@/modules/Yggdrasil/Course/widgets/Trainer/MyMostPopularCourses.vue'
-import Responses from '@/modules/Submission/Responses.vue'
-import SingleResponse from '@/modules/Submission/SingleResponse.vue'
-import SingleResponseChart from '@/modules/Submission/SingleResponseChart.vue'
 
 export default {
 
@@ -150,9 +147,6 @@ export default {
     MyMostPopularCourses,
     MyStudents,
     ToDo,
-    Responses,
-    SingleResponse,
-    SingleResponseChart,
   },
 
   data () {
