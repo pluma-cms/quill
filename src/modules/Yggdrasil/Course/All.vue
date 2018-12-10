@@ -3,6 +3,16 @@
     <v-container fluid grid-list-lg>
       <v-layout row wrap>
         <v-flex xs12>
+          <v-toolbar
+            flat
+            dark
+            color="primary"
+            class="mb-3"
+            >
+            <v-toolbar-title>
+              {{ __('All Courses') }}
+            </v-toolbar-title>
+          </v-toolbar>
           <data-iterator :items="courses"></data-iterator>
         </v-flex>
       </v-layout>

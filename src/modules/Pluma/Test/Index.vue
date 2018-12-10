@@ -4,19 +4,22 @@
     <v-container fluid grid-list-lg>
       <v-layout row wrap>
         <v-flex xs12>
+
+          <timeline></timeline>
+
           <!-- iconmenu -->
-          <!-- <v-card class="mb-3">
+          <v-card class="mb-3">
             <v-card-title class="emphasis--medium">
               {{ trans('Icon Menu') }}
             </v-card-title>
             <v-card-text>
               <icon-menu :items="iconmenu"></icon-menu>
             </v-card-text>
-          </v-card> -->
+          </v-card>
           <!-- iconmenu -->
 
           <!-- dialogbox -->
-          <!-- <v-card flat class="mb-3 text-xs-center">
+          <v-card flat class="mb-3 text-xs-center">
             <v-card-title
               class="emphasis--medium"
               >
@@ -25,13 +28,14 @@
             <v-card-text>
               <dialogbox></dialogbox>
               <v-btn
-                class="v-btn--gradient"
+                large
+                color="secondary"
                 @click="openDialogbox"
                 >
                 {{ trans('Open Dialog Test') }}
               </v-btn>
             </v-card-text>
-          </v-card> -->
+          </v-card>
           <!-- dialogbox -->
 
           <!-- grid / list view -->
@@ -45,16 +49,16 @@
           <!-- grid / list view -->
         </v-flex>
 
-        <v-flex sm4 xs12>
+        <v-flex sm5 md4 xs12>
           <!-- tag -->
-          <!-- <v-card class="mb-3">
+          <v-card class="mb-3">
             <v-card-title class="emphasis--medium">
               {{ trans('Tags Card') }}
             </v-card-title>
             <v-card-text>
               <tag :items="tag"></tag>
             </v-card-text>
-          </v-card> -->
+          </v-card>
           <!-- tag -->
 
           <!-- category -->
@@ -84,15 +88,6 @@ export default {
     return {
       toolbar: {
         title: 'All Courses',
-      },
-
-      timeline: {
-        items: [
-          {
-            title: 'A Series of UnforssfasdfEvef',
-            category: 'video'
-          }
-        ],
       },
 
       iconmenu: {

@@ -1,13 +1,7 @@
 export const state = () => ({
   timeline: {
     model: true,
-    monthYear: 'Aug 2018',
-    dateToday: 'August 01, 2018',
-    items: [
-      {
-        user: 'Lemony Snicket'
-      }
-    ]
+    items: []
   }
 })
 

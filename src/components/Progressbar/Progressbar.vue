@@ -1,6 +1,12 @@
 <template>
   <v-slide-x-transition mode="out-in">
-    <v-progress-linear v-if="progressbar.visible" class="main-progress" :value="progressbar.value" :height="progressbar.height"></v-progress-linear>
+    <v-progress-linear
+      v-if="progressbar.visible"
+      class="main-progress"
+      :value="progressbar.value"
+      :height="progressbar.height"
+      >
+    </v-progress-linear>
   </v-slide-x-transition>
 </template>
 

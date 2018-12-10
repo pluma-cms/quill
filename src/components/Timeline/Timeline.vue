@@ -1,24 +1,34 @@
 <template>
-  <v-card
-    class="transparent"
-    flat
-    id="timeline"
-    >
-    <v-card-title>
-      <h3 v-html="trans(dataset.monthYear)"></h3>
-    </v-card-title>
-    <v-layout row wrap>
-      <v-flex md2 xs12>
-        <v-subheader v-html="trans(dataset.dateToday)"></v-subheader>
-      </v-flex>
-      <v-flex md10 xs12>
-        <v-card v-for="item in dataset.items">
-          <v-card-text v-html="item.title"></v-card-text>
-          <v-card-text v-html="item.category"></v-card-text>
-        </v-card>
-      </v-flex>
-    </v-layout>
-  </v-card>
+  <div>
+    <v-card
+      class="mb-3"
+      >
+      <v-card-text>
+        <v-timeline>
+          <v-timeline-item
+            v-for="(year, i) in years"
+            :color="year.color"
+            :key="i"
+            small
+            >
+            <span
+              slot="opposite"
+              :class="`title font-weight-bold ${year.color}--text`"
+              v-text="year.year"
+            ></span>
+            <div class="py-3">
+              <h2
+                :class="`title mb-3 ${year.color}--text`"
+                v-html="year.title"
+                >
+              </h2>
+              <div v-html="year.text"></div>
+            </div>
+          </v-timeline-item>
+        </v-timeline>
+      </v-card-text>
+    </v-card>
+  </div>
 </template>
 
 <script>
@@ -40,7 +50,27 @@ export default {
 
   data () {
     return {
-      dataset: {}
+      dataset: {},
+      years: [
+        {
+          title: 'Primary',
+          text: 'Blue',
+          color: 'primary',
+          year: '1960',
+        },
+        {
+          title: 'Secondary',
+          text: 'Orange',
+          color: 'secondary',
+          year: '1970',
+        },
+        {
+          title: 'Accent',
+          text: 'Light Green',
+          color: 'accent',
+          year: '1980'
+        },
+      ]
     }
   },
 
