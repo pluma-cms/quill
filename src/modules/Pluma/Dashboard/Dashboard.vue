@@ -1,7 +1,14 @@
 <template :dark="$store.getters['app/app'].dark">
   <v-container fluid grid-list-lg>
     <v-card-actions>
-      <v-btn dark round large class="v-btn--gradient px-3">
+      <v-btn
+        class="px-3"
+        color="secondary"
+        dark
+        depressed
+        large
+        round
+        >
         <v-icon left>add</v-icon>
         {{ trans('Add Widget') }}
       </v-btn>
@@ -85,7 +92,7 @@
                   <v-progress-linear
                     value="50"
                     height="6"
-                    class="progress-bar"
+                    color="primary lighten-1"
                     :background-color="app.dark ? 'emphasis--medium' : 'grey lighten-3'">
                   </v-progress-linear>
                   <p>{{ trans('16 days left') }}</p>
@@ -102,7 +109,7 @@
           height="100%"
           hover
           href="/admin"
-          class="glance__card--gradient">
+          class="primary lighten-1">
           <v-card-text>
             <p class="body-2 px-3">
               <strong>
@@ -281,12 +288,12 @@ export default {
       this.ctx = document.getElementById('statisticsChart').getContext('2d')
 
       var gradient = this.ctx.createLinearGradient(100, 0, 100, 200)
-      gradient.addColorStop(0, '#686AF3')
-      gradient.addColorStop(1, '#ce82ef')
+      gradient.addColorStop(0, '#0C5689')
+      gradient.addColorStop(1, '#0C5689')
 
       var gradient2 = this.ctx.createLinearGradient(100, 0, 100, 400)
-      gradient2.addColorStop(0, '#4ccbab')
-      gradient2.addColorStop(1, '#3e75c8')
+      // gradient2.addColorStop(0, '#4ccbab')
+      // gradient2.addColorStop(1, '#3e75c8')
 
       this.statisticsChartData = {
         labels: [
