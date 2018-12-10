@@ -3,7 +3,7 @@
     <v-card-actions>
       <v-btn
         class="px-3"
-        color="primary"
+        color="secondary"
         dark
         depressed
         large
@@ -292,8 +292,8 @@ export default {
       gradient.addColorStop(1, '#0C5689')
 
       var gradient2 = this.ctx.createLinearGradient(100, 0, 100, 400)
-      // gradient2.addColorStop(0, '#4ccbab')
-      // gradient2.addColorStop(1, '#3e75c8')
+      gradient2.addColorStop(0, '#4ccbab')
+      gradient2.addColorStop(1, '#3e75c8')
 
       this.statisticsChartData = {
         labels: [

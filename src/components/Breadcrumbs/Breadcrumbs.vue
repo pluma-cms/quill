@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section>
     <v-breadcrumbs
       v-if="breadcrumbs.model"
       class="px-4 py-2"
@@ -10,11 +10,11 @@
         exact
         ripple
         v-for="(item, i) in $route.matched"
-      >
+        >
         <small v-html="trans(item.meta.title)"></small>
       </v-breadcrumbs-item>
     </v-breadcrumbs>
-  </div>
+  </section>
 </template>
 
 <script>
